@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+@theme {
+  --color-onyx: #08080A;
+  --color-onyx-card: #121217;
+  --color-onyx-light: #1A1A24;
+  --color-gold: #FFA01C;
+  --color-gold-light: #FFB951;
+  --color-gold-deep: #E68A00;
+  --color-terracotta: #C84B31;
+  --color-terracotta-light: #E05338;
+  --color-champagne: #FAF7F2;
+  --color-ivory: #F4EFEA;
+  --color-starlight: #FAF8F5;
+
+  --font-serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-sans);
+    background-color: #08080A;
+    color: #FAF8F5;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    letter-spacing: -0.015em;
+  }
+
+  ::selection {
+    background-color: #FFA01C;
+    color: #08080A;
+  }
+}
+
+/* Custom editorial scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #08080A;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1A1A24;
+  border: 1px solid rgba(255, 160, 28, 0.35);
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FFA01C;
+}
+
+/* Hide default cursor on desktop only when custom cursor is active */
+@media (pointer: fine) {
+  .custom-cursor-active * {
+    cursor: none !important;
+  }
+}
+
+/* Luxury visual utilities */
+.gold-gradient-text {
+  background: linear-gradient(135deg, #FFA01C 0%, #FFD085 45%, #C84B31 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.amber-glow {
+  box-shadow: 0 0 45px -10px rgba(255, 160, 28, 0.35);
+}
+
+.amber-border-glow {
+  border-color: rgba(255, 160, 28, 0.4);
+  box-shadow: inset 0 0 20px rgba(255, 160, 28, 0.08);
+}
+
+.hairline-gold {
+  border-color: rgba(255, 160, 28, 0.22);
+}
+
+.glass-luxury {
+  background: rgba(18, 18, 23, 0.78);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 160, 28, 0.2);
+}
