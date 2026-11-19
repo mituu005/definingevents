@@ -10,7 +10,7 @@ import {
   X,
 } from 'lucide-react';
 import { useState } from 'react';
-import { Link, Navigate, NavLink, Outlet } from 'react-router-dom';
+import { Link, Navigate, NavLink, Outlet, useNavigate } from 'react-router-dom';
 import { BrandMark } from '@/components/common/BrandMark';
 import { useAuth } from '@/contexts/AuthContext';
 
@@ -25,6 +25,7 @@ const ADMIN_LINKS = [
 export function AdminLayout() {
   const { isAdmin, loading, adminProfile, user, signOut } = useAuth();
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const navigate = useNavigate();
 
   if (loading) {
     return (
@@ -101,11 +102,14 @@ export function AdminLayout() {
         </Link>
         <button
           type="button"
-          onClick={() => signOut()}
+          onClick={async () => {
+            await signOut();
+            navigate('/', { replace: true });
+          }}
           className="flex w-full items-center gap-3 px-4 py-2.5 text-xs uppercase tracking-[0.18em] text-[#FAF8F5]/60 hover:bg-red-950/40 hover:text-red-300 rounded-lg transition-colors"
         >
           <LogOut className="h-4 w-4" />
-          <span>Sign Out</span>
+          <span>Exit Studio</span>
         </button>
       </div>
     </div>
