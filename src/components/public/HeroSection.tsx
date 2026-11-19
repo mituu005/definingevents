@@ -103,47 +103,6 @@ export function HeroSection() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_rgba(200,75,49,0.16)_0%,_transparent_65%)]" />
       </motion.div>
 
-      {/* Floating Ambient Brand Accents (Desktop) */}
-      <div className="pointer-events-none absolute inset-0 z-10 hidden xl:block">
-        {/* Left Floating Credential Glass Card */}
-        <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.9, delay: 0.8 }}
-          className="glass-luxury absolute left-8 top-1/2 -translate-y-1/2 p-4 shadow-2xl max-w-[220px]"
-        >
-          <div className="flex items-center gap-2 mb-1.5">
-            <span className="flex h-2 w-2 rounded-full bg-[#FFA01C] animate-pulse" />
-            <p className="text-[10px] uppercase tracking-[0.22em] text-[#FFA01C]">
-              Live Experience Studio
-            </p>
-          </div>
-          <p className="font-serif text-lg text-[#FAF8F5] leading-tight">
-            500+ Unforgettable Nights
-          </p>
-          <p className="mt-1 text-[10px] text-[#FAF8F5]/65 uppercase tracking-wider">
-            Weddings, Galas &amp; Celebrations
-          </p>
-        </motion.div>
-
-        {/* Right Floating Energy Pill */}
-        <motion.div
-          initial={{ opacity: 0, x: 30 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.9, delay: 0.9 }}
-          className="glass-luxury absolute right-8 top-1/2 -translate-y-1/2 p-4 shadow-2xl max-w-[220px] text-right"
-        >
-          <p className="text-[10px] uppercase tracking-[0.22em] text-[#FFA01C]">
-            Atmosphere &amp; Energy
-          </p>
-          <p className="font-serif text-lg text-[#FAF8F5] leading-tight mt-1">
-            Electrifying Crowds
-          </p>
-          <p className="mt-1 text-[10px] text-[#FAF8F5]/65 uppercase tracking-wider">
-            World-Class Sound &amp; Light
-          </p>
-        </motion.div>
-      </div>
 
       {/* Center Monumental Content */}
       <motion.div
