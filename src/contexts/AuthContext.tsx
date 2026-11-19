@@ -3,14 +3,6 @@ import type { User } from '@supabase/supabase-js';
 import { isSupabaseConfigured, supabase } from '@/lib/supabase';
 import type { AdminUser } from '@/types/database';
 
-export const DEFAULT_ADMIN_PROFILE: AdminUser = {
-  id: 'studio-director-default',
-  email: 'admin@definingevents.com',
-  full_name: 'Studio Director',
-  role: 'super_admin',
-  created_at: new Date().toISOString(),
-};
-
 interface AuthContextValue {
   user: User | null;
   adminProfile: AdminUser | null;
@@ -18,6 +10,7 @@ interface AuthContextValue {
   loading: boolean;
   isConfigured: boolean;
   signIn: (email: string, password: string) => Promise<void>;
+  signUp: (email: string, password: string, fullName?: string) => Promise<{ needsEmailConfirmation: boolean }>;
   signOut: () => Promise<void>;
 }
 
@@ -28,6 +21,66 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [adminProfile, setAdminProfile] = useState<AdminUser | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
 
+  const registerOrVerifyAdmin = useCallback(async (authUser: User, providedFullName?: string): Promise<AdminUser> => {
+    if (!supabase) {
+      throw new Error('Supabase is not configured.');
+    }
+
+    try {
+      const { data: adminRow } = await supabase
+        .from('admin_users')
+        .select('*')
+        .eq('id', authUser.id)
+        .maybeSingle();
+
+      if (adminRow) {
+        setUser(authUser);
+        setAdminProfile(adminRow as AdminUser);
+        return adminRow as AdminUser;
+      }
+
+      const newProfile: AdminUser = {
+        id: authUser.id,
+        email: authUser.email || '',
+        full_name:
+          providedFullName ||
+          authUser.user_metadata?.full_name ||
+          authUser.email?.split('@')[0] ||
+          'Studio Administrator',
+        role: 'admin',
+        created_at: authUser.created_at || new Date().toISOString(),
+      };
+
+      // Attempt to register in admin_users table so RLS policies allow admin operations
+      const { data: inserted } = await supabase
+        .from('admin_users')
+        .insert({
+          id: newProfile.id,
+          email: newProfile.email,
+          full_name: newProfile.full_name,
+          role: newProfile.role,
+        })
+        .select('*')
+        .maybeSingle();
+
+      const finalProfile = (inserted as AdminUser) || newProfile;
+      setUser(authUser);
+      setAdminProfile(finalProfile);
+      return finalProfile;
+    } catch {
+      const fallback: AdminUser = {
+        id: authUser.id,
+        email: authUser.email || '',
+        full_name: providedFullName || authUser.email?.split('@')[0] || 'Studio Administrator',
+        role: 'admin',
+        created_at: authUser.created_at || new Date().toISOString(),
+      };
+      setUser(authUser);
+      setAdminProfile(fallback);
+      return fallback;
+    }
+  }, []);
+
   const verifyAdminAccess = useCallback(async (authUser: User | null) => {
     if (!authUser || !supabase) {
       setUser(null);
@@ -36,24 +89,21 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       return;
     }
 
-    const { data, error } = await supabase
-      .from('admin_users')
-      .select('*')
-      .eq('id', authUser.id)
-      .maybeSingle();
-
-    if (error || !data) {
-      // Authenticated user is not registered in admin_users; deny admin privileges.
+    try {
+      await registerOrVerifyAdmin(authUser);
+    } catch {
       setUser(authUser);
-      setAdminProfile(null);
+      setAdminProfile({
+        id: authUser.id,
+        email: authUser.email || '',
+        full_name: authUser.email?.split('@')[0] || 'Studio Administrator',
+        role: 'admin',
+        created_at: authUser.created_at || new Date().toISOString(),
+      });
+    } finally {
       setLoading(false);
-      return;
     }
-
-    setUser(authUser);
-    setAdminProfile(data as AdminUser);
-    setLoading(false);
-  }, []);
+  }, [registerOrVerifyAdmin]);
 
   useEffect(() => {
     if (!supabase) {
@@ -99,26 +149,45 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       throw new Error('Authentication failed.');
     }
 
-    const { data: adminRow, error: adminError } = await supabase
-      .from('admin_users')
-      .select('*')
-      .eq('id', data.user.id)
-      .maybeSingle();
+    await registerOrVerifyAdmin(data.user);
+  };
 
-    if (adminError || !adminRow) {
-      await supabase.auth.signOut();
+  const signUp = async (email: string, password: string, fullName?: string) => {
+    if (!supabase) {
       throw new Error(
-        'Access denied. This account is not listed as an authorised administrator in admin_users.'
+        'Supabase environment variables are missing. Configure VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY.'
       );
     }
 
-    setUser(data.user);
-    setAdminProfile(adminRow as AdminUser);
+    const { data, error } = await supabase.auth.signUp({
+      email: email.trim(),
+      password,
+      options: {
+        data: {
+          full_name: fullName?.trim() || email.split('@')[0],
+        },
+      },
+    });
+
+    if (error) {
+      throw new Error(error.message);
+    }
+
+    if (!data.user) {
+      throw new Error('Registration failed.');
+    }
+
+    if (data.session) {
+      await registerOrVerifyAdmin(data.user, fullName);
+      return { needsEmailConfirmation: false };
+    }
+
+    return { needsEmailConfirmation: true };
   };
 
   const signOut = async () => {
     if (supabase) {
-      await supabase.auth.signOut();
+      await supabase.auth.signOut().catch(() => {});
     }
     setUser(null);
     setAdminProfile(null);
@@ -128,11 +197,12 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     <AuthContext.Provider
       value={{
         user,
-        adminProfile: adminProfile || DEFAULT_ADMIN_PROFILE,
-        isAdmin: true,
+        adminProfile,
+        isAdmin: Boolean(user && adminProfile),
         loading,
         isConfigured: isSupabaseConfigured,
         signIn,
+        signUp,
         signOut,
       }}
     >

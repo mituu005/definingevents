@@ -202,7 +202,7 @@ export function Footer() {
             <Link to="/terms" className="hover:text-[#FFA01C] transition-colors">
               Terms &amp; Conditions
             </Link>
-            <Link to="/admin/dashboard" className="hover:text-[#FFA01C] transition-colors font-medium">
+            <Link to="/admin/login" className="hover:text-[#FFA01C] transition-colors font-medium">
               Studio Admin
             </Link>
           </div>
