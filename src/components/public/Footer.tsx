@@ -1,4 +1,4 @@
-import { MessageCircle } from 'lucide-react';
+import { Lock, MessageCircle } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { BrandMark } from '@/components/common/BrandMark';
 import { useSiteData } from '@/contexts/SiteDataContext';
@@ -134,6 +134,15 @@ export function Footer() {
                   </button>
                 </li>
               ))}
+              <li>
+                <Link
+                  to="/admin/login"
+                  className="inline-flex items-center gap-1.5 text-xs text-[#FFA01C] hover:text-[#FFB84D] transition-colors font-medium mt-1"
+                >
+                  <Lock className="h-3 w-3" />
+                  <span>Studio Admin</span>
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -191,19 +200,23 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 pt-8 border-t border-[#FFA01C]/15 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#FAF8F5]/50">
+        <div className="mt-16 pt-8 border-t border-[#FFA01C]/15 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#FAF8F5]/50 pb-16 sm:pb-0 sm:pr-48 md:pr-56 relative z-10">
           <p>
             © {new Date().getFullYear()} {settings.company_name}. All rights reserved.
           </p>
-          <div className="flex items-center gap-6">
+          <div className="flex flex-wrap items-center gap-4 sm:gap-6">
             <Link to="/privacy-policy" className="hover:text-[#FFA01C] transition-colors">
               Privacy Policy
             </Link>
             <Link to="/terms" className="hover:text-[#FFA01C] transition-colors">
               Terms &amp; Conditions
             </Link>
-            <Link to="/admin/login" className="hover:text-[#FFA01C] transition-colors font-medium">
-              Studio Admin
+            <Link
+              to="/admin/login"
+              className="inline-flex items-center gap-1.5 rounded-sm border border-[#FFA01C]/50 bg-[#FFA01C]/15 px-3 py-1.5 text-[11px] uppercase tracking-[0.16em] text-[#FFA01C] transition-all hover:bg-[#FFA01C] hover:text-[#08080A] font-semibold cursor-pointer shadow-sm hover:scale-105 active:scale-95"
+            >
+              <Lock className="h-3 w-3" />
+              <span>Studio Admin</span>
             </Link>
           </div>
         </div>
