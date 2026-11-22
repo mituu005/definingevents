@@ -1,88 +1,113 @@
 import { motion } from 'framer-motion';
+import { ArrowRight, Compass, Crown, Landmark, Music2, Sparkles, Wand2 } from 'lucide-react';
 
-const PROCESS_STEPS = [
+const PROCESS_STAGES = [
   {
-    step: '01',
-    title: 'Share Your Vision',
-    desc: 'An intimate creative dialogue exploring your occasion, desired emotional resonance, guest journey, and destination buyouts.',
+    title: 'Vision Discovery',
+    desc: 'Capturing your unique story, traditions, and emotional aesthetic.',
+    icon: Compass,
   },
   {
-    step: '02',
-    title: 'Feasibility & Master Roadmap',
-    desc: 'Rigorous venue feasibility, 3D spatial scoping, vendor procurement, and comprehensive production roadmap modeling.',
+    title: 'Venue Scoping',
+    desc: 'Securing regal palaces, private estates, and 3D spatial flow.',
+    icon: Landmark,
   },
   {
-    step: '03',
-    title: 'Creative Concept & Scenography',
-    desc: 'Bespoke mood architecture, 3D architectural renders, floral palettes, lighting plots, and bespoke tablescape direction.',
+    title: 'Couture Decor',
+    desc: 'Bespoke mandaps, architectural florals, and immersive lighting.',
+    icon: Wand2,
   },
   {
-    step: '04',
-    title: 'Engineering & Guest Concierge',
-    desc: 'Contracting master artisans, technical rider management, private guest travel logistics, and minute-by-minute show calling plots.',
+    title: 'Dining & Acts',
+    desc: 'Celebrated culinary curation and world-class live artists.',
+    icon: Music2,
   },
   {
-    step: '05',
-    title: 'On-Site Execution Command',
-    desc: 'White-glove load-in, custom set fabrication, comprehensive sound and light rehearsals, and calm discreet on-site mastery.',
+    title: 'Guest Care',
+    desc: 'White-glove itineraries, VIP transfers, and 24/7 hospitality.',
+    icon: Crown,
   },
   {
-    step: '06',
-    title: 'The Grand Experience',
-    desc: 'You remain completely immersed with your guests while every single cue, reveal, and performance unfolds with effortless grace.',
+    title: 'Flawless Showtime',
+    desc: 'Invisible on-ground direction so you celebrate stress-free.',
+    icon: Sparkles,
   },
 ];
 
 export function ProcessSection() {
   return (
-    <section id="process" className="bg-[#08080A] text-[#FAF8F5] py-28 sm:py-36 border-t border-[#FFA01C]/15">
-      <div className="mx-auto max-w-7xl px-6 sm:px-8">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 pb-8 border-b border-[#FFA01C]/20">
+    <section
+      id="process"
+      className="relative bg-[#08080A] text-[#FAF8F5] py-12 sm:py-16 border-t border-[#FFA01C]/15 overflow-hidden"
+    >
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Section Header: Compact & Slick */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8 pb-4 border-b border-white/10">
           <div>
-            <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.32em] text-[#FFA01C] mb-3 font-semibold">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#FFA01C]" />
-              <span>Production Methodology</span>
+            <div className="inline-flex items-center gap-2 text-[10.5px] uppercase tracking-[0.28em] text-[#FFA01C] mb-1 font-semibold">
+              <Sparkles className="h-3 w-3 text-[#FFA01C]" />
+              <span>Production Pipeline</span>
             </div>
-            <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-normal">
-              Our Six-Stage <span className="gold-gradient-text italic font-serif">Process</span>
+            <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-normal leading-tight">
+              Our Six-Stage <span className="gold-gradient-text italic font-serif">Methodology</span>
             </h2>
           </div>
-          <p className="max-w-md text-sm leading-relaxed text-[#FAF8F5]/75 font-light">
-            Architectural clarity paired with creative passion—guaranteeing complete host serenity from first consultation to final guest departure.
+          <p className="max-w-md text-xs leading-relaxed text-[#FAF8F5]/65 font-light">
+            An unbroken architectural chain from venue buyout to showtime—engineered for zero stress and complete host serenity.
           </p>
         </div>
 
-        {/* Connected Timeline */}
+        {/* 6 Stages in ONE SINGLE ROW on Desktop */}
         <div className="relative">
-          {/* Desktop Connecting Golden Line */}
-          <div
-            aria-hidden="true"
-            className="hidden lg:block absolute top-10 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#FFA01C]/50 to-transparent"
-          />
+          {/* Subtle horizontal connecting beam */}
+          <div className="hidden lg:block absolute top-7 left-10 right-10 h-[1px] bg-gradient-to-r from-transparent via-[#FFA01C]/35 to-transparent z-0 pointer-events-none" />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-12">
-            {PROCESS_STEPS.map((item, idx) => (
-              <motion.div
-                key={item.step}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.55, delay: idx * 0.08 }}
-                className="relative pt-4 lg:pt-14 border-l lg:border-l-0 border-[#FFA01C]/40 pl-6 lg:pl-0"
-              >
-                {/* Node Pill */}
-                <div className="lg:absolute lg:top-6 lg:left-0 mb-4 lg:mb-0 inline-flex h-9 w-9 items-center justify-center rounded-sm border border-[#FFA01C] bg-[#08080A] text-xs font-semibold text-[#FFA01C] shadow-[0_0_15px_rgba(255,160,28,0.25)]">
-                  {item.step}
-                </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-3.5 relative z-10">
+            {PROCESS_STAGES.map((stage, idx) => {
+              const Icon = stage.icon;
+              return (
+                <motion.div
+                  key={stage.title}
+                  initial={{ opacity: 0, y: 14 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.35, delay: idx * 0.05 }}
+                  className="group relative flex flex-col justify-between rounded-lg border border-[#FFA01C]/20 bg-gradient-to-b from-[#14141E] to-[#0A0A0F] p-4 backdrop-blur-md transition-all duration-300 hover:border-[#FFA01C] hover:shadow-[0_0_20px_rgba(255,160,28,0.2)] hover:-translate-y-1 min-h-[175px]"
+                >
+                  <div>
+                    {/* Glowing Icon & Next Arrow Indicator */}
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#FFA01C]/10 border border-[#FFA01C]/40 text-[#FFA01C] group-hover:scale-110 group-hover:border-[#FFA01C] group-hover:bg-[#FFA01C]/20 transition-all shadow-[0_0_12px_rgba(255,160,28,0.15)]">
+                        <Icon className="h-4 w-4" />
+                      </div>
+                      {idx < PROCESS_STAGES.length - 1 ? (
+                        <ArrowRight className="hidden lg:block h-3.5 w-3.5 text-[#FFA01C]/30 group-hover:text-[#FFA01C] group-hover:translate-x-0.5 transition-all" />
+                      ) : (
+                        <span className="hidden lg:inline-block text-[9px] uppercase tracking-wider text-[#FFA01C]/50 font-mono">
+                          Finale
+                        </span>
+                      )}
+                    </div>
 
-                <h3 className="font-serif text-2xl sm:text-[1.7rem] font-normal text-[#FAF8F5] mt-2">
-                  {item.title}
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-[#FAF8F5]/75 font-light">
-                  {item.desc}
-                </p>
-              </motion.div>
-            ))}
+                    {/* Stage Title */}
+                    <h3 className="font-serif text-sm sm:text-base font-normal text-[#FAF8F5] leading-snug group-hover:text-[#FFA01C] transition-colors">
+                      {stage.title}
+                    </h3>
+
+                    {/* Meaningful, concise copy (no excessive text, no overflow) */}
+                    <p className="mt-1.5 text-[11px] leading-relaxed text-[#FAF8F5]/70 font-light">
+                      {stage.desc}
+                    </p>
+                  </div>
+
+                  {/* Bottom smooth link indicator (no numbers) */}
+                  <div className="mt-3 pt-2 border-t border-white/5 flex items-center justify-between text-[9px] uppercase tracking-widest text-[#FFA01C]/60">
+                    <span>Chain Link</span>
+                    <span className="text-[#FFA01C]">✦</span>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </div>

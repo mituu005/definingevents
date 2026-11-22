@@ -1,6 +1,6 @@
-import type { ServiceRecord, WebsiteSettings } from '@/types/database';
+import type { ServiceRecord, TestimonialRecord, WebsiteSettings } from '@/types/database';
 
-// Award-winning luxury event production visual assets (Local high-definition showreel)
+// Award-winning luxury wedding & event production visual assets (Local high-definition showreel)
 export const DEFAULT_HERO_VIDEO = '/showreel.mp4';
 
 // Awe-inspiring candlelit floral architecture and luxury gala scenography
@@ -15,9 +15,9 @@ export const DEFAULT_SETTINGS: WebsiteSettings = {
   company_name: 'Defining Events',
   tagline: 'Immersive Celebrations & Landmark Event Architecture',
   logo_url: '/logo.png',
-  hero_headline: 'Unforgettable Nights. Epic Celebrations.',
+  hero_headline: 'Exquisite Celebrations. Bespoke Event Architecture.',
   hero_subtitle:
-    'We design, plan, and produce high-energy luxury celebrations, grand concerts, and unforgettable private galas where every moment comes alive.',
+    'From breathtaking floral scenography and regal mandaps to seamless production engineering—we design, plan, and produce extraordinary weddings and landmark celebrations.',
   hero_video_url: DEFAULT_HERO_VIDEO,
   hero_poster_url: DEFAULT_HERO_POSTER,
   show_stats: true,
@@ -27,7 +27,7 @@ export const DEFAULT_SETTINGS: WebsiteSettings = {
   stat_cities: '28',
   about_headline: 'Turning Blank Spaces Into Living Emotional Masterpieces.',
   about_intro:
-    'Defining Events is an internationally acclaimed event architecture and luxury production atelier. From royal palatial weddings and private island celebrations to stadium-scale summits and couture product reveals, we unite atelier-level artistic direction with military-grade production engineering.',
+    'Defining Events is an internationally acclaimed event architecture and luxury wedding production atelier. From royal palatial weddings and private island celebrations to stadium-scale summits and couture product reveals, we unite atelier-level artistic direction with military-grade production engineering.',
   about_vision:
     'To elevate every gathering into an enduring cultural memory—where spatial design, sensory storytelling, and effortless hospitality converge.',
   about_mission:
@@ -37,8 +37,8 @@ export const DEFAULT_SETTINGS: WebsiteSettings = {
   about_why_us:
     'Clients entrust us with their most consequential milestones because we unite atelier-level creative direction with battle-tested production engineering.',
   about_image_url: DEFAULT_ABOUT_IMAGE,
-  contact_phone: '+1 (555) 323-4646',
-  contact_whatsapp: '+15553234646',
+  contact_phone: '+91 98765 43210',
+  contact_whatsapp: '+919876543210',
   contact_email: 'concierge@definingevents.com',
   contact_address: 'Belgravia Creative Studio & Global Production Hub',
   google_maps_url: '',
@@ -49,6 +49,54 @@ export const DEFAULT_SETTINGS: WebsiteSettings = {
   website_gallery: [],
   updated_at: new Date().toISOString(),
 };
+
+export const DEFAULT_TESTIMONIALS: TestimonialRecord[] = [
+  {
+    id: 'default-1',
+    client_name: 'Lady Eleanor & Marcus Vance',
+    client_role: 'Private Hosts',
+    event_type: 'Palatial Destination Wedding, Lake Como',
+    quote:
+      'Defining Events turned our 3-day wedding celebration into pure magic. The candlelit floral architecture, the seamless flow of 400 international guests, and the sheer elegance of the production took everyone’s breath away.',
+    client_photo_url:
+      'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80',
+    video_url: null,
+    is_published: true,
+    display_order: 1,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+  },
+  {
+    id: 'default-2',
+    client_name: 'Dr. Rohan & Priya Singhania',
+    client_role: 'Wedding Clients',
+    event_type: 'Grand Heritage Palace Wedding, Udaipur',
+    quote:
+      'From the grand royal mandap decor to the crystal chandeliers and synchronized sangeet lighting, their team handled every single detail with flawless precision. Our families felt completely pampered and stress-free.',
+    client_photo_url:
+      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80',
+    video_url: null,
+    is_published: true,
+    display_order: 2,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+  },
+  {
+    id: 'default-3',
+    client_name: 'Claire Beauchamp-Rothschild',
+    client_role: 'Private Client',
+    event_type: 'Bespoke Anniversary Gala, Paris',
+    quote:
+      'Their design team doesn’t just decorate spaces—they transform them into living works of art. The dining tablescape looked like a Renaissance painting. Truly the gold standard in luxury event management.',
+    client_photo_url:
+      'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=300&q=80',
+    video_url: null,
+    is_published: true,
+    display_order: 3,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+  },
+];
 
 export const DEFAULT_SERVICES: ServiceRecord[] = [
   {

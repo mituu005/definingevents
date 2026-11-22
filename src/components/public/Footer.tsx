@@ -1,4 +1,3 @@
-import { Lock, MessageCircle } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { BrandMark } from '@/components/common/BrandMark';
 import { useSiteData } from '@/contexts/SiteDataContext';
@@ -47,8 +46,10 @@ export function Footer() {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const cleanWhatsapp = (settings.contact_whatsapp || '').replace(/[^0-9]/g, '');
-  const whatsappUrl = cleanWhatsapp ? `https://wa.me/${cleanWhatsapp}` : null;
+  const contactPhone = settings.contact_phone || '+91 98765 43210';
+  const contactEmail = settings.contact_email || 'concierge@definingevents.com';
+  const contactAddress =
+    settings.contact_address || 'Belgravia Creative Studio & Global Production Hub';
 
   return (
     <footer className="bg-[#08080A] text-[#FAF8F5] border-t border-[#FFA01C]/25">
@@ -62,17 +63,6 @@ export function Footer() {
                 'International luxury event planning, architectural scenography, and bespoke production studio.'}
             </p>
             <div className="flex items-center gap-3 pt-2">
-              {whatsappUrl && (
-                <a
-                  href={whatsappUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="WhatsApp"
-                  className="flex h-9 w-9 items-center justify-center rounded-sm border border-[#FFA01C]/40 bg-[#121217] text-[#FFA01C] hover:bg-[#FFA01C] hover:text-[#08080A] transition-colors"
-                >
-                  <MessageCircle className="h-4 w-4" />
-                </a>
-              )}
               {settings.instagram_url && (
                 <a
                   href={settings.instagram_url}
@@ -128,28 +118,19 @@ export function Footer() {
                   <button
                     type="button"
                     onClick={() => scrollToSection(id)}
-                    className="text-[#FAF8F5]/75 hover:text-[#FFA01C] transition-colors"
+                    className="text-[#FAF8F5]/75 hover:text-[#FFA01C] transition-colors cursor-pointer"
                   >
                     {label}
                   </button>
                 </li>
               ))}
-              <li>
-                <Link
-                  to="/admin/login"
-                  className="inline-flex items-center gap-1.5 text-xs text-[#FFA01C] hover:text-[#FFB84D] transition-colors font-medium mt-1"
-                >
-                  <Lock className="h-3 w-3" />
-                  <span>Studio Admin</span>
-                </Link>
-              </li>
             </ul>
           </div>
 
           {/* Services Column */}
           <div className="lg:col-span-3">
             <h3 className="text-[11px] uppercase tracking-[0.26em] text-[#FFA01C] mb-5 font-semibold">
-              Core Services
+              Core Disciplines
             </h3>
             <ul className="space-y-3 text-sm font-light">
               {services.slice(0, 6).map((s) => (
@@ -160,7 +141,7 @@ export function Footer() {
                       setPreselectedEventType(s.title);
                       scrollToSection('contact');
                     }}
-                    className="text-left text-[#FAF8F5]/75 hover:text-[#FFA01C] transition-colors"
+                    className="text-left text-[#FAF8F5]/75 hover:text-[#FFA01C] transition-colors cursor-pointer"
                   >
                     {s.title}
                   </button>
@@ -169,33 +150,32 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Contact Column */}
+          {/* Atelier & Contact Column */}
           <div className="lg:col-span-3">
             <h3 className="text-[11px] uppercase tracking-[0.26em] text-[#FFA01C] mb-5 font-semibold">
               Atelier &amp; Contact
             </h3>
             <div className="space-y-3 text-sm font-light text-[#FAF8F5]/75">
-              {settings.contact_phone && (
-                <p>
-                  <a
-                    href={`tel:${settings.contact_phone.replace(/\s+/g, '')}`}
-                    className="hover:text-[#FFA01C] transition-colors"
-                  >
-                    {settings.contact_phone}
-                  </a>
-                </p>
-              )}
-              {settings.contact_email && (
-                <p>
-                  <a
-                    href={`mailto:${settings.contact_email}`}
-                    className="hover:text-[#FFA01C] transition-colors"
-                  >
-                    {settings.contact_email}
-                  </a>
-                </p>
-              )}
-              {settings.contact_address && <p>{settings.contact_address}</p>}
+              <p>
+                <a
+                  href={`tel:${contactPhone.replace(/[^0-9+]/g, '')}`}
+                  className="hover:text-[#FFA01C] transition-colors"
+                >
+                  {contactPhone}
+                </a>
+              </p>
+              <p>
+                <a
+                  href={`mailto:${contactEmail}`}
+                  className="hover:text-[#FFA01C] transition-colors"
+                >
+                  {contactEmail}
+                </a>
+              </p>
+              <p className="leading-relaxed text-[#FAF8F5]/70">{contactAddress}</p>
+              <p className="text-xs text-[#FFA01C]/80 pt-1">
+                Mon – Sat: 9:00 AM – 8:00 PM (IST / GMT)
+              </p>
             </div>
           </div>
         </div>
@@ -210,13 +190,6 @@ export function Footer() {
             </Link>
             <Link to="/terms" className="hover:text-[#FFA01C] transition-colors">
               Terms &amp; Conditions
-            </Link>
-            <Link
-              to="/admin/login"
-              className="inline-flex items-center gap-1.5 rounded-sm border border-[#FFA01C]/50 bg-[#FFA01C]/15 px-3 py-1.5 text-[11px] uppercase tracking-[0.16em] text-[#FFA01C] transition-all hover:bg-[#FFA01C] hover:text-[#08080A] font-semibold cursor-pointer shadow-sm hover:scale-105 active:scale-95"
-            >
-              <Lock className="h-3 w-3" />
-              <span>Studio Admin</span>
             </Link>
           </div>
         </div>

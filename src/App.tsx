@@ -1,6 +1,5 @@
 import { lazy, Suspense } from 'react';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
-import { CustomCursor } from '@/components/common/CustomCursor';
 import { AuthProvider } from '@/contexts/AuthContext';
 import { SiteDataProvider } from '@/contexts/SiteDataContext';
 import { EventDetailPage } from '@/pages/public/EventDetailPage';
@@ -34,8 +33,8 @@ const AdminContentPage = lazy(() =>
 
 function RouteFallback() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-[#14251F] text-[#B18A55]">
-      <div className="h-7 w-7 animate-spin rounded-full border-2 border-[#B18A55] border-t-transparent" />
+    <div className="flex min-h-screen items-center justify-center bg-[#08080A] text-[#FFA01C]">
+      <div className="h-7 w-7 animate-spin rounded-full border-2 border-[#FFA01C] border-t-transparent" />
     </div>
   );
 }
@@ -45,7 +44,6 @@ export function App() {
     <AuthProvider>
       <SiteDataProvider>
         <BrowserRouter>
-          <CustomCursor />
           <Suspense fallback={<RouteFallback />}>
             <Routes>
               {/* Public Website Routes */}

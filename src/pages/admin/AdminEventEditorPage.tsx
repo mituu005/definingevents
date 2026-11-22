@@ -369,7 +369,7 @@ export function AdminEventEditorPage() {
   };
 
   if (loading) {
-    return <div className="h-64 bg-[#EAE4D8] animate-pulse" />;
+    return <div className="h-64 bg-[#121217] rounded-lg border border-white/10 animate-pulse" />;
   }
 
   const photos = mediaItems.filter((m) => m.media_type === 'image');
@@ -382,12 +382,12 @@ export function AdminEventEditorPage() {
         <div>
           <Link
             to="/admin/events"
-            className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-[#B18A55] mb-2"
+            className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-[#FFA01C] hover:text-[#FFB84D] mb-2 transition-colors"
           >
             <ArrowLeft className="h-3.5 w-3.5" />
             <span>Back to Events</span>
           </Link>
-          <h1 className="font-serif text-3xl sm:text-4xl text-[#14251F]">
+          <h1 className="font-serif text-3xl sm:text-4xl text-[#FAF8F5]">
             {isEditing ? 'Edit Portfolio Event' : 'Create New Event'}
           </h1>
         </div>
@@ -397,7 +397,7 @@ export function AdminEventEditorPage() {
             type="button"
             disabled={saving}
             onClick={() => handleSubmit('draft')}
-            className="border border-[#14251F] px-5 py-2.5 text-xs uppercase tracking-[0.2em] text-[#14251F] hover:bg-[#EAE4D8] disabled:opacity-50"
+            className="border border-white/20 bg-[#1A1A24] px-5 py-2.5 text-xs uppercase tracking-[0.2em] text-[#FAF8F5] rounded hover:border-[#FFA01C] hover:text-[#FFA01C] transition-colors disabled:opacity-50 cursor-pointer"
           >
             Save as Draft
           </button>
@@ -407,7 +407,7 @@ export function AdminEventEditorPage() {
               type="button"
               disabled={saving}
               onClick={() => handleSubmit('unpublished')}
-              className="border border-stone-500 px-5 py-2.5 text-xs uppercase tracking-[0.2em] text-stone-700 hover:bg-stone-200 disabled:opacity-50"
+              className="border border-white/20 bg-white/5 px-5 py-2.5 text-xs uppercase tracking-[0.2em] text-stone-300 rounded hover:bg-white/10 disabled:opacity-50 cursor-pointer"
             >
               Unpublish
             </button>
@@ -417,7 +417,7 @@ export function AdminEventEditorPage() {
             type="button"
             disabled={saving}
             onClick={() => handleSubmit('published')}
-            className="border border-[#14251F] bg-[#14251F] px-6 py-2.5 text-xs uppercase tracking-[0.2em] text-[#F8F6F0] hover:bg-[#B18A55] hover:border-[#B18A55] hover:text-[#14251F] transition-colors disabled:opacity-50"
+            className="border border-[#FFA01C] bg-gradient-to-r from-[#FFA01C] to-[#E68A00] px-6 py-2.5 text-xs uppercase tracking-[0.2em] text-[#08080A] font-semibold rounded shadow-[0_0_20px_rgba(255,160,28,0.35)] hover:shadow-[0_0_30px_rgba(255,160,28,0.6)] hover:scale-[1.02] transition-all disabled:opacity-50 cursor-pointer"
           >
             {saving ? 'Saving...' : status === 'published' ? 'Update Published Event' : 'Publish Event'}
           </button>
@@ -425,14 +425,14 @@ export function AdminEventEditorPage() {
       </div>
 
       {error && (
-        <div role="alert" className="border border-red-700/35 bg-red-50 p-4 text-sm text-red-900">
+        <div role="alert" className="border border-red-500/40 bg-red-950/60 p-4 text-sm text-red-200 rounded-lg">
           {error}
         </div>
       )}
 
       {successMsg && (
-        <div className="flex items-center gap-2 border border-emerald-700/35 bg-emerald-50 p-4 text-sm text-emerald-900">
-          <CheckCircle2 className="h-4 w-4 shrink-0" />
+        <div className="flex items-center gap-2 border border-emerald-500/40 bg-emerald-950/60 p-4 text-sm text-emerald-200 rounded-lg">
+          <CheckCircle2 className="h-4 w-4 shrink-0 text-emerald-400" />
           <span>{successMsg}</span>
         </div>
       )}
@@ -440,13 +440,13 @@ export function AdminEventEditorPage() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         {/* Main Details */}
         <div className="lg:col-span-8 space-y-6">
-          <div className="border border-[#14251F]/15 bg-[#EAE4D8]/45 p-6 sm:p-8 space-y-6">
-            <h2 className="font-serif text-2xl text-[#14251F] border-b border-[#14251F]/10 pb-3">
+          <div className="rounded-xl border border-white/10 bg-[#121217] p-6 sm:p-8 space-y-6 shadow-xl">
+            <h2 className="font-serif text-2xl text-[#FAF8F5] border-b border-white/10 pb-3">
               Event Narrative &amp; Details
             </h2>
 
             <div>
-              <label className="block text-[11px] uppercase tracking-[0.2em] text-[#263C32] mb-2">
+              <label className="block text-[11px] uppercase tracking-[0.2em] text-[#FFA01C] mb-2 font-medium">
                 Event Title *
               </label>
               <input
@@ -454,22 +454,22 @@ export function AdminEventEditorPage() {
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 placeholder="e.g., Lake Como Royal Villa Wedding"
-                className="w-full border border-[#14251F]/20 bg-[#F8F6F0] px-4 py-3 text-sm text-[#14251F] focus:border-[#B18A55] focus:outline-none"
+                className="w-full rounded border border-white/15 bg-[#1A1A24] px-4 py-3 text-sm text-[#FAF8F5] placeholder:text-white/30 focus:border-[#FFA01C] focus:outline-none transition-colors"
               />
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
               <div>
-                <label className="block text-[11px] uppercase tracking-[0.2em] text-[#263C32] mb-2">
+                <label className="block text-[11px] uppercase tracking-[0.2em] text-[#FFA01C] mb-2 font-medium">
                   Category *
                 </label>
                 <select
                   value={category}
                   onChange={(e) => setCategory(e.target.value)}
-                  className="w-full border border-[#14251F]/20 bg-[#F8F6F0] px-3 py-3 text-sm text-[#14251F] focus:border-[#B18A55] focus:outline-none"
+                  className="w-full rounded border border-white/15 bg-[#1A1A24] px-3 py-3 text-sm text-[#FAF8F5] focus:border-[#FFA01C] focus:outline-none transition-colors"
                 >
                   {EVENT_CATEGORIES.map((cat) => (
-                    <option key={cat} value={cat}>
+                    <option key={cat} value={cat} className="bg-[#1A1A24]">
                       {cat}
                     </option>
                   ))}
@@ -477,7 +477,7 @@ export function AdminEventEditorPage() {
               </div>
 
               <div>
-                <label className="block text-[11px] uppercase tracking-[0.2em] text-[#263C32] mb-2">
+                <label className="block text-[11px] uppercase tracking-[0.2em] text-[#FFA01C] mb-2 font-medium">
                   Location *
                 </label>
                 <input
@@ -485,25 +485,25 @@ export function AdminEventEditorPage() {
                   value={location}
                   onChange={(e) => setLocation(e.target.value)}
                   placeholder="City, Country"
-                  className="w-full border border-[#14251F]/20 bg-[#F8F6F0] px-4 py-3 text-sm text-[#14251F] focus:border-[#B18A55] focus:outline-none"
+                  className="w-full rounded border border-white/15 bg-[#1A1A24] px-4 py-3 text-sm text-[#FAF8F5] placeholder:text-white/30 focus:border-[#FFA01C] focus:outline-none transition-colors"
                 />
               </div>
 
               <div>
-                <label className="block text-[11px] uppercase tracking-[0.2em] text-[#263C32] mb-2">
+                <label className="block text-[11px] uppercase tracking-[0.2em] text-[#FFA01C] mb-2 font-medium">
                   Event Date (Optional)
                 </label>
                 <input
                   type="date"
                   value={eventDate}
                   onChange={(e) => setEventDate(e.target.value)}
-                  className="w-full border border-[#14251F]/20 bg-[#F8F6F0] px-4 py-3 text-sm text-[#14251F] focus:border-[#B18A55] focus:outline-none"
+                  className="w-full rounded border border-white/15 bg-[#1A1A24] px-4 py-3 text-sm text-[#FAF8F5] focus:border-[#FFA01C] focus:outline-none transition-colors"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-[11px] uppercase tracking-[0.2em] text-[#263C32] mb-2">
+              <label className="block text-[11px] uppercase tracking-[0.2em] text-[#FFA01C] mb-2 font-medium">
                 Event Description *
               </label>
               <textarea
@@ -511,12 +511,12 @@ export function AdminEventEditorPage() {
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 placeholder="Describe the occasion, architectural setting, guest journey, and execution highlights..."
-                className="w-full border border-[#14251F]/20 bg-[#F8F6F0] px-4 py-3 text-sm text-[#14251F] focus:border-[#B18A55] focus:outline-none"
+                className="w-full rounded border border-white/15 bg-[#1A1A24] px-4 py-3 text-sm text-[#FAF8F5] placeholder:text-white/30 focus:border-[#FFA01C] focus:outline-none transition-colors"
               />
             </div>
 
             <div>
-              <label className="block text-[11px] uppercase tracking-[0.2em] text-[#263C32] mb-2">
+              <label className="block text-[11px] uppercase tracking-[0.2em] text-[#FFA01C] mb-2 font-medium">
                 Creative Concept
               </label>
               <textarea
@@ -524,13 +524,13 @@ export function AdminEventEditorPage() {
                 value={creativeConcept}
                 onChange={(e) => setCreativeConcept(e.target.value)}
                 placeholder="Describe the design thesis, colour palette, lighting direction, and spatial story..."
-                className="w-full border border-[#14251F]/20 bg-[#F8F6F0] px-4 py-3 text-sm text-[#14251F] focus:border-[#B18A55] focus:outline-none"
+                className="w-full rounded border border-white/15 bg-[#1A1A24] px-4 py-3 text-sm text-[#FAF8F5] placeholder:text-white/30 focus:border-[#FFA01C] focus:outline-none transition-colors"
               />
             </div>
 
             {/* Services Provided */}
             <div>
-              <label className="block text-[11px] uppercase tracking-[0.2em] text-[#263C32] mb-3">
+              <label className="block text-[11px] uppercase tracking-[0.2em] text-[#FFA01C] mb-3 font-medium">
                 Services Provided
               </label>
               <div className="flex flex-wrap gap-2 mb-3">
@@ -541,10 +541,10 @@ export function AdminEventEditorPage() {
                       key={srv.id}
                       type="button"
                       onClick={() => toggleServiceTag(srv.title)}
-                      className={`px-3 py-1.5 text-xs border transition-colors ${
+                      className={`px-3 py-1.5 text-xs rounded border transition-colors cursor-pointer ${
                         selected
-                          ? 'border-[#14251F] bg-[#14251F] text-[#F8F6F0]'
-                          : 'border-[#14251F]/20 bg-[#F8F6F0] text-[#263C32]'
+                          ? 'border-[#FFA01C] bg-[#FFA01C] text-[#08080A] font-medium'
+                          : 'border-white/15 bg-[#1A1A24] text-[#FAF8F5]/80 hover:border-[#FFA01C]/50'
                       }`}
                     >
                       {srv.title}
@@ -558,7 +558,7 @@ export function AdminEventEditorPage() {
                       key={tag}
                       type="button"
                       onClick={() => toggleServiceTag(tag)}
-                      className="px-3 py-1.5 text-xs border border-[#B18A55] bg-[#B18A55]/20 text-[#14251F]"
+                      className="px-3 py-1.5 text-xs rounded border border-[#FFA01C] bg-[#FFA01C]/20 text-[#FFA01C] cursor-pointer"
                     >
                       {tag} ×
                     </button>
@@ -576,12 +576,12 @@ export function AdminEventEditorPage() {
                     }
                   }}
                   placeholder="Add custom service tag..."
-                  className="flex-1 border border-[#14251F]/20 bg-[#F8F6F0] px-3 py-2 text-xs focus:border-[#B18A55] focus:outline-none"
+                  className="flex-1 rounded border border-white/15 bg-[#1A1A24] px-3 py-2 text-xs text-[#FAF8F5] placeholder:text-white/30 focus:border-[#FFA01C] focus:outline-none"
                 />
                 <button
                   type="button"
                   onClick={addCustomServiceTag}
-                  className="inline-flex items-center gap-1 border border-[#14251F]/25 px-3 py-2 text-xs uppercase tracking-wider"
+                  className="inline-flex items-center gap-1 rounded border border-white/20 bg-white/5 px-3 py-2 text-xs uppercase tracking-wider text-[#FAF8F5] hover:border-[#FFA01C] hover:text-[#FFA01C] cursor-pointer transition-colors"
                 >
                   <Plus className="h-3.5 w-3.5" />
                   Add
@@ -590,9 +590,9 @@ export function AdminEventEditorPage() {
             </div>
 
             {/* Optional Client Testimonial */}
-            <div className="border-t border-[#14251F]/12 pt-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="border-t border-white/10 pt-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
               <div className="sm:col-span-2">
-                <label className="block text-[11px] uppercase tracking-[0.2em] text-[#263C32] mb-2">
+                <label className="block text-[11px] uppercase tracking-[0.2em] text-[#FFA01C] mb-2 font-medium">
                   Client Testimonial (Optional)
                 </label>
                 <textarea
@@ -600,11 +600,11 @@ export function AdminEventEditorPage() {
                   value={clientTestimonial}
                   onChange={(e) => setClientTestimonial(e.target.value)}
                   placeholder="Genuine quote from the client for this specific event..."
-                  className="w-full border border-[#14251F]/20 bg-[#F8F6F0] px-4 py-2.5 text-sm focus:border-[#B18A55] focus:outline-none"
+                  className="w-full rounded border border-white/15 bg-[#1A1A24] px-4 py-2.5 text-sm text-[#FAF8F5] placeholder:text-white/30 focus:border-[#FFA01C] focus:outline-none"
                 />
               </div>
               <div>
-                <label className="block text-[11px] uppercase tracking-[0.2em] text-[#263C32] mb-2">
+                <label className="block text-[11px] uppercase tracking-[0.2em] text-[#FFA01C] mb-2 font-medium">
                   Client Name / Host
                 </label>
                 <input
@@ -612,26 +612,26 @@ export function AdminEventEditorPage() {
                   value={clientTestimonialAuthor}
                   onChange={(e) => setClientTestimonialAuthor(e.target.value)}
                   placeholder="e.g., Elena & Julian"
-                  className="w-full border border-[#14251F]/20 bg-[#F8F6F0] px-4 py-2.5 text-sm focus:border-[#B18A55] focus:outline-none"
+                  className="w-full rounded border border-white/15 bg-[#1A1A24] px-4 py-2.5 text-sm text-[#FAF8F5] placeholder:text-white/30 focus:border-[#FFA01C] focus:outline-none"
                 />
               </div>
             </div>
           </div>
 
           {/* Upload Photographs & Videos */}
-          <div className="border border-[#14251F]/15 bg-[#EAE4D8]/45 p-6 sm:p-8 space-y-6">
-            <h2 className="font-serif text-2xl text-[#14251F] border-b border-[#14251F]/10 pb-3">
+          <div className="rounded-xl border border-white/10 bg-[#121217] p-6 sm:p-8 space-y-6 shadow-xl">
+            <h2 className="font-serif text-2xl text-[#FAF8F5] border-b border-white/10 pb-3">
               Event Photographs &amp; Videos
             </h2>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {/* Multiple Photos Input */}
-              <label className="flex flex-col items-center justify-center border border-dashed border-[#B18A55] bg-[#F8F6F0] p-6 text-center cursor-pointer hover:bg-[#EAE4D8]/50 transition-colors">
-                <ImageIcon className="h-7 w-7 text-[#B18A55] mb-2" />
-                <span className="text-xs font-medium uppercase tracking-[0.18em] text-[#14251F]">
+              <label className="flex flex-col items-center justify-center rounded-lg border border-dashed border-[#FFA01C]/50 bg-[#1A1A24]/70 p-6 text-center cursor-pointer hover:border-[#FFA01C] hover:bg-[#1A1A24] transition-colors">
+                <ImageIcon className="h-7 w-7 text-[#FFA01C] mb-2" />
+                <span className="text-xs font-semibold uppercase tracking-[0.18em] text-[#FAF8F5]">
                   Upload Photographs
                 </span>
-                <span className="mt-1 text-[11px] text-[#263C32]/75">
+                <span className="mt-1 text-[11px] text-[#FAF8F5]/60">
                   JPG, JPEG, PNG, WEBP · Multiple files · Mobile &amp; Desktop
                 </span>
                 <input
@@ -647,12 +647,12 @@ export function AdminEventEditorPage() {
               </label>
 
               {/* Multiple Videos Input */}
-              <label className="flex flex-col items-center justify-center border border-dashed border-[#14251F]/40 bg-[#F8F6F0] p-6 text-center cursor-pointer hover:bg-[#EAE4D8]/50 transition-colors">
-                <Film className="h-7 w-7 text-[#14251F] mb-2" />
-                <span className="text-xs font-medium uppercase tracking-[0.18em] text-[#14251F]">
+              <label className="flex flex-col items-center justify-center rounded-lg border border-dashed border-white/20 bg-[#1A1A24]/70 p-6 text-center cursor-pointer hover:border-[#FFA01C] hover:bg-[#1A1A24] transition-colors">
+                <Film className="h-7 w-7 text-[#FFA01C] mb-2" />
+                <span className="text-xs font-semibold uppercase tracking-[0.18em] text-[#FAF8F5]">
                   Upload Event Videos
                 </span>
-                <span className="mt-1 text-[11px] text-[#263C32]/75">
+                <span className="mt-1 text-[11px] text-[#FAF8F5]/60">
                   MP4 format · Max 150 MB per video · H.264 recommended
                 </span>
                 <input
@@ -670,30 +670,30 @@ export function AdminEventEditorPage() {
 
             {/* Active Upload Progress */}
             {uploadTasks.length > 0 && (
-              <div className="space-y-2 bg-[#F8F6F0] p-4 border border-[#14251F]/12">
-                <p className="text-[11px] uppercase tracking-[0.2em] text-[#263C32]">
+              <div className="space-y-2 bg-[#1A1A24] p-4 rounded-lg border border-white/10">
+                <p className="text-[11px] uppercase tracking-[0.2em] text-[#FFA01C] font-semibold">
                   Upload Progress
                 </p>
                 {uploadTasks.map((t) => (
                   <div key={t.id} className="space-y-1">
                     <div className="flex justify-between text-xs">
-                      <span className="truncate max-w-xs">{t.fileName}</span>
+                      <span className="truncate max-w-xs text-[#FAF8F5]">{t.fileName}</span>
                       <span
                         className={
                           t.status === 'error'
-                            ? 'text-red-700'
+                            ? 'text-red-400'
                             : t.status === 'done'
-                            ? 'text-emerald-800'
-                            : 'text-[#B18A55]'
+                            ? 'text-emerald-400'
+                            : 'text-[#FFA01C]'
                         }
                       >
                         {t.status === 'error' ? t.error : `${t.progress}%`}
                       </span>
                     </div>
-                    <div className="h-1.5 bg-[#EAE4D8] overflow-hidden">
+                    <div className="h-1.5 bg-white/10 rounded overflow-hidden">
                       <div
                         className={`h-full transition-all ${
-                          t.status === 'error' ? 'bg-red-600' : 'bg-[#B18A55]'
+                          t.status === 'error' ? 'bg-red-500' : 'bg-[#FFA01C]'
                         }`}
                         style={{ width: `${t.progress}%` }}
                       />
@@ -706,14 +706,14 @@ export function AdminEventEditorPage() {
             {/* Queued (unsaved new event) previews */}
             {queuedMediaFiles.length > 0 && (
               <div className="space-y-3">
-                <p className="text-xs uppercase tracking-[0.2em] text-[#B18A55]">
+                <p className="text-xs uppercase tracking-[0.2em] text-[#FFA01C] font-semibold">
                   Ready to Upload on Save ({queuedMediaFiles.length})
                 </p>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                   {queuedMediaFiles.map((q, idx) => (
                     <div
                       key={q.localPreview}
-                      className="relative aspect-square border border-[#B18A55]/40 bg-[#14251F] overflow-hidden"
+                      className="relative aspect-square rounded border border-[#FFA01C]/40 bg-[#08080A] overflow-hidden"
                     >
                       {q.type === 'video' ? (
                         <video src={q.localPreview} className="h-full w-full object-cover" />
@@ -729,7 +729,7 @@ export function AdminEventEditorPage() {
                         onClick={() =>
                           setQueuedMediaFiles((prev) => prev.filter((_, i) => i !== idx))
                         }
-                        className="absolute top-1.5 right-1.5 bg-red-800 p-1 text-white"
+                        className="absolute top-1.5 right-1.5 bg-red-800 p-1 text-white rounded cursor-pointer"
                       >
                         <Trash2 className="h-3 w-3" />
                       </button>
@@ -742,14 +742,14 @@ export function AdminEventEditorPage() {
             {/* Uploaded Photos Grid */}
             {photos.length > 0 && (
               <div>
-                <h3 className="text-xs uppercase tracking-[0.2em] text-[#263C32] mb-3">
+                <h3 className="text-xs uppercase tracking-[0.2em] text-[#FFA01C] mb-3 font-semibold">
                   Uploaded Photographs ({photos.length})
                 </h3>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                   {photos.map((photo) => (
                     <div
                       key={photo.id}
-                      className="group relative aspect-square border border-[#14251F]/15 bg-[#14251F] overflow-hidden"
+                      className="group relative aspect-square rounded border border-white/10 bg-[#08080A] overflow-hidden"
                     >
                       <img
                         src={photo.signed_url || photo.file_url}
@@ -760,7 +760,7 @@ export function AdminEventEditorPage() {
                         type="button"
                         onClick={() => handleRemoveExistingMedia(photo)}
                         aria-label={`Remove ${photo.file_name}`}
-                        className="absolute top-2 right-2 flex h-7 w-7 items-center justify-center bg-red-800/90 text-white opacity-90 hover:bg-red-900"
+                        className="absolute top-2 right-2 flex h-7 w-7 items-center justify-center rounded bg-red-800/90 text-white opacity-90 hover:bg-red-900 cursor-pointer transition-colors"
                       >
                         <Trash2 className="h-3.5 w-3.5" />
                       </button>
@@ -773,25 +773,25 @@ export function AdminEventEditorPage() {
             {/* Uploaded Videos Grid */}
             {videos.length > 0 && (
               <div>
-                <h3 className="text-xs uppercase tracking-[0.2em] text-[#263C32] mb-3">
+                <h3 className="text-xs uppercase tracking-[0.2em] text-[#FFA01C] mb-3 font-semibold">
                   Uploaded Videos ({videos.length})
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {videos.map((vid) => (
-                    <div key={vid.id} className="border border-[#14251F]/15 bg-[#F8F6F0] p-3">
+                    <div key={vid.id} className="rounded-lg border border-white/10 bg-[#1A1A24] p-3">
                       <video
                         src={vid.signed_url || vid.file_url}
                         controls
-                        className="aspect-video w-full bg-black"
+                        className="aspect-video w-full rounded bg-black"
                       />
-                      <div className="mt-2 flex items-center justify-between text-xs">
+                      <div className="mt-2 flex items-center justify-between text-xs text-[#FAF8F5]/80">
                         <span className="truncate max-w-[200px]">
                           {vid.file_name} ({formatBytes(vid.file_size)})
                         </span>
                         <button
                           type="button"
                           onClick={() => handleRemoveExistingMedia(vid)}
-                          className="text-red-800 hover:underline inline-flex items-center gap-1"
+                          className="text-red-400 hover:text-red-300 inline-flex items-center gap-1 cursor-pointer transition-colors"
                         >
                           <Trash2 className="h-3.5 w-3.5" />
                           Remove
@@ -808,48 +808,48 @@ export function AdminEventEditorPage() {
         {/* Sidebar Controls */}
         <div className="lg:col-span-4 space-y-6">
           {/* Publishing & Featured */}
-          <div className="border border-[#14251F]/15 bg-[#EAE4D8]/45 p-6 space-y-4">
-            <h2 className="font-serif text-xl text-[#14251F]">Visibility &amp; Placement</h2>
-            <p className="text-xs text-[#263C32]/80">
+          <div className="rounded-xl border border-white/10 bg-[#121217] p-6 space-y-4 shadow-xl">
+            <h2 className="font-serif text-xl text-[#FAF8F5]">Visibility &amp; Placement</h2>
+            <p className="text-xs text-[#FAF8F5]/70">
               Current Status:{' '}
-              <strong className="uppercase tracking-wider text-[#14251F]">{status}</strong>
+              <strong className="uppercase tracking-wider text-[#FFA01C]">{status}</strong>
             </p>
-            <label className="flex items-center gap-3 text-sm text-[#14251F] cursor-pointer">
+            <label className="flex items-center gap-3 text-sm text-[#FAF8F5] cursor-pointer">
               <input
                 type="checkbox"
                 checked={featured}
                 onChange={(e) => setFeatured(e.target.checked)}
-                className="h-4 w-4 accent-[#14251F]"
+                className="h-4 w-4 accent-[#FFA01C]"
               />
               <span>Feature prominently at top of portfolio</span>
             </label>
           </div>
 
           {/* Cover Image */}
-          <div className="border border-[#14251F]/15 bg-[#EAE4D8]/45 p-6 space-y-4">
-            <h2 className="font-serif text-xl text-[#14251F]">Featured Cover Image</h2>
+          <div className="rounded-xl border border-white/10 bg-[#121217] p-6 space-y-4 shadow-xl">
+            <h2 className="font-serif text-xl text-[#FAF8F5]">Featured Cover Image</h2>
             {coverPreview && (
-              <div className="aspect-[16/10] overflow-hidden border border-[#14251F]/15 bg-[#14251F]">
+              <div className="aspect-[16/10] overflow-hidden rounded border border-white/10 bg-[#08080A]">
                 <img src={coverPreview} alt="Cover preview" className="h-full w-full object-cover" />
               </div>
             )}
 
             {coverProgress !== null && (
               <div className="space-y-1">
-                <div className="flex justify-between text-xs">
+                <div className="flex justify-between text-xs text-[#FAF8F5]/80">
                   <span>Uploading cover...</span>
                   <span>{coverProgress}%</span>
                 </div>
-                <div className="h-1.5 bg-[#F8F6F0]">
+                <div className="h-1.5 bg-white/10 rounded">
                   <div
-                    className="h-full bg-[#B18A55]"
+                    className="h-full bg-[#FFA01C] rounded transition-all"
                     style={{ width: `${coverProgress}%` }}
                   />
                 </div>
               </div>
             )}
 
-            <label className="flex items-center justify-center gap-2 border border-[#14251F] bg-[#F8F6F0] py-3 text-xs uppercase tracking-[0.18em] text-[#14251F] cursor-pointer hover:bg-[#14251F] hover:text-[#F8F6F0] transition-colors">
+            <label className="flex items-center justify-center gap-2 rounded border border-[#FFA01C]/60 bg-[#1A1A24] py-3 text-xs uppercase tracking-[0.18em] text-[#FFA01C] cursor-pointer hover:bg-[#FFA01C] hover:text-[#08080A] transition-all">
               <Upload className="h-3.5 w-3.5" />
               <span>{coverPreview ? 'Replace Cover Image' : 'Upload Cover Image'}</span>
               <input
@@ -865,51 +865,51 @@ export function AdminEventEditorPage() {
           </div>
 
           {/* Optional Before & After Transformation */}
-          <div className="border border-[#14251F]/15 bg-[#EAE4D8]/45 p-6 space-y-4">
-            <h2 className="font-serif text-xl text-[#14251F]">
+          <div className="rounded-xl border border-white/10 bg-[#121217] p-6 space-y-4 shadow-xl">
+            <h2 className="font-serif text-xl text-[#FAF8F5]">
               Before / After Transformation (Optional)
             </h2>
-            <p className="text-xs text-[#263C32]/75">
+            <p className="text-xs text-[#FAF8F5]/70">
               Upload raw venue and finished design photos to enable the interactive comparison
               slider.
             </p>
 
-            <div className="space-y-3">
+            <div className="space-y-4">
               <div>
-                <p className="text-[11px] uppercase tracking-wider text-[#263C32] mb-1.5">
+                <p className="text-[11px] uppercase tracking-wider text-[#FFA01C] mb-1.5 font-medium">
                   Before Photo
                 </p>
                 {beforePreview && (
                   <img
                     src={beforePreview}
                     alt="Before venue"
-                    className="aspect-video w-full object-cover mb-2 border border-[#14251F]/15"
+                    className="aspect-video w-full object-cover mb-2 rounded border border-white/10"
                   />
                 )}
                 <input
                   type="file"
                   accept="image/jpeg,image/jpg,image/png,image/webp"
                   onChange={(e) => handleTransformationUpload(e.target.files, 'before')}
-                  className="text-xs w-full"
+                  className="text-xs w-full text-[#FAF8F5]/80"
                 />
               </div>
 
               <div>
-                <p className="text-[11px] uppercase tracking-wider text-[#263C32] mb-1.5">
+                <p className="text-[11px] uppercase tracking-wider text-[#FFA01C] mb-1.5 font-medium">
                   After Photo
                 </p>
                 {afterPreview && (
                   <img
                     src={afterPreview}
                     alt="After venue"
-                    className="aspect-video w-full object-cover mb-2 border border-[#14251F]/15"
+                    className="aspect-video w-full object-cover mb-2 rounded border border-white/10"
                   />
                 )}
                 <input
                   type="file"
                   accept="image/jpeg,image/jpg,image/png,image/webp"
                   onChange={(e) => handleTransformationUpload(e.target.files, 'after')}
-                  className="text-xs w-full"
+                  className="text-xs w-full text-[#FAF8F5]/80"
                 />
               </div>
             </div>

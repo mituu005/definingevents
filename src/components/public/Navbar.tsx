@@ -1,8 +1,9 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { Menu, Phone, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { BrandMark } from '@/components/common/BrandMark';
+import { useSiteData } from '@/contexts/SiteDataContext';
 
 const NAV_ITEMS = [
   { label: 'Home', id: 'hero' },
@@ -15,12 +16,15 @@ const NAV_ITEMS = [
 ];
 
 export function Navbar() {
+  const { settings } = useSiteData();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
   const isHome = location.pathname === '/';
+  const phoneDisplay = settings.contact_phone || '+91 98765 43210';
+  const phoneHref = `tel:${phoneDisplay.replace(/[^0-9+]/g, '')}`;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 35);
@@ -83,7 +87,16 @@ export function Navbar() {
           ))}
         </nav>
 
-        <div className="hidden lg:flex items-center gap-4 shrink-0">
+        <div className="hidden lg:flex items-center gap-3 xl:gap-4 shrink-0">
+          <a
+            href={phoneHref}
+            className="inline-flex items-center gap-2 rounded-full border border-[#FFA01C]/40 bg-[#121217]/90 px-3.5 py-2 text-[11px] font-medium tracking-[0.1em] text-[#FAF8F5] transition-all duration-300 hover:border-[#FFA01C] hover:text-[#FFA01C] hover:shadow-[0_0_15px_rgba(255,160,28,0.25)]"
+            title="Call concierge directly"
+          >
+            <Phone className="h-3.5 w-3.5 text-[#FFA01C]" />
+            <span className="font-sans font-medium">{phoneDisplay}</span>
+          </a>
+
           <button
             type="button"
             onClick={() => handleNavClick('contact')}
@@ -93,16 +106,25 @@ export function Navbar() {
           </button>
         </div>
 
-        {/* Mobile Toggle */}
-        <button
-          type="button"
-          onClick={() => setMobileOpen((prev) => !prev)}
-          aria-label={mobileOpen ? 'Close navigation menu' : 'Open navigation menu'}
-          aria-expanded={mobileOpen}
-          className="flex lg:hidden h-10 w-10 items-center justify-center rounded-sm border border-[#FFA01C]/50 text-[#FAF8F5] transition-colors hover:border-[#FFA01C] hover:text-[#FFA01C]"
-        >
-          {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </button>
+        {/* Mobile Actions */}
+        <div className="flex lg:hidden items-center gap-2.5">
+          <a
+            href={phoneHref}
+            aria-label={`Call ${phoneDisplay}`}
+            className="flex h-10 w-10 items-center justify-center rounded-sm border border-[#FFA01C]/50 text-[#FFA01C] bg-[#121217]/80 hover:bg-[#FFA01C] hover:text-[#08080A] transition-colors"
+          >
+            <Phone className="h-4 w-4" />
+          </a>
+          <button
+            type="button"
+            onClick={() => setMobileOpen((prev) => !prev)}
+            aria-label={mobileOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            aria-expanded={mobileOpen}
+            className="flex h-10 w-10 items-center justify-center rounded-sm border border-[#FFA01C]/50 text-[#FAF8F5] transition-colors hover:border-[#FFA01C] hover:text-[#FFA01C]"
+          >
+            {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Drawer */}
@@ -129,10 +151,17 @@ export function Navbar() {
                   {item.label}
                 </motion.button>
               ))}
+              <a
+                href={phoneHref}
+                className="mt-3 flex items-center justify-center gap-2 rounded-sm border border-[#FFA01C]/60 bg-[#121217] py-3 text-xs uppercase tracking-[0.2em] text-[#FFA01C]"
+              >
+                <Phone className="h-4 w-4" />
+                <span>Call {phoneDisplay}</span>
+              </a>
               <button
                 type="button"
                 onClick={() => handleNavClick('contact')}
-                className="mt-4 w-full rounded-sm bg-gradient-to-r from-[#FFA01C] to-[#E68A00] py-3.5 text-xs font-semibold uppercase tracking-[0.24em] text-[#08080A] shadow-lg"
+                className="w-full rounded-sm bg-gradient-to-r from-[#FFA01C] to-[#E68A00] py-3.5 text-xs font-semibold uppercase tracking-[0.24em] text-[#08080A] shadow-lg"
               >
                 Plan Your Event
               </button>

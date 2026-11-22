@@ -56,12 +56,6 @@
   background: #FFA01C;
 }
 
-/* Hide default cursor on desktop only when custom cursor is active */
-@media (pointer: fine) {
-  .custom-cursor-active * {
-    cursor: none !important;
-  }
-}
 
 /* Luxury visual utilities */
 .gold-gradient-text {

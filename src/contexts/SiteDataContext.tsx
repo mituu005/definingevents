@@ -5,7 +5,7 @@ import {
   fetchServices,
   fetchWebsiteSettings,
 } from '@/lib/api';
-import { DEFAULT_SERVICES, DEFAULT_SETTINGS } from '@/lib/defaults';
+import { DEFAULT_SERVICES, DEFAULT_SETTINGS, DEFAULT_TESTIMONIALS } from '@/lib/defaults';
 import type {
   EventRecord,
   ServiceRecord,
@@ -30,7 +30,7 @@ export function SiteDataProvider({ children }: { children: React.ReactNode }) {
   const [settings, setSettings] = useState<WebsiteSettings>(DEFAULT_SETTINGS);
   const [services, setServices] = useState<ServiceRecord[]>(DEFAULT_SERVICES);
   const [events, setEvents] = useState<EventRecord[]>([]);
-  const [testimonials, setTestimonials] = useState<TestimonialRecord[]>([]);
+  const [testimonials, setTestimonials] = useState<TestimonialRecord[]>(DEFAULT_TESTIMONIALS);
   const [loading, setLoading] = useState<boolean>(true);
   const [preselectedEventType, setPreselectedEventType] = useState<string>('');
 

@@ -4,17 +4,6 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { useSiteData } from '@/contexts/SiteDataContext';
 import { DEFAULT_HERO_POSTER, DEFAULT_HERO_VIDEO } from '@/lib/defaults';
 
-const DISCIPLINE_TICKER = [
-  'LUXURY WEDDING PLANNING',
-  'DESTINATION WEDDINGS',
-  'GRAND FLORAL ARCHITECTURE',
-  'ROYAL BANQUET SCENOGRAPHY',
-  'BESPOKE HOSPITALITY CONCIERGE',
-  'STAGE LIGHTING & ATMOSPHERE',
-  'IMMERSIVE SOUND & VISUALS',
-  'PRIVATE ISLAND CELEBRATIONS',
-];
-
 function getEmbedUrl(url: string | null | undefined): string | null {
   if (!url) return null;
   const ytMatch = url.match(/(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
@@ -117,7 +106,7 @@ export function HeroSection() {
           className="inline-flex items-center gap-2.5 rounded-full border border-[#FFA01C]/40 bg-[#08080A]/80 px-4 py-1.5 text-[10.5px] uppercase tracking-[0.34em] text-[#FFA01C] backdrop-blur-md shadow-[0_0_20px_rgba(255,160,28,0.25)] mb-7"
         >
           <Sparkles className="h-3 w-3 text-[#FFA01C]" />
-          <span>Curating Electrifying Live Experiences</span>
+          <span>Bespoke Wedding & Event Architecture</span>
         </motion.div>
 
         {/* Dynamic Celebration Headline */}
@@ -129,40 +118,25 @@ export function HeroSection() {
         >
           {settings.hero_headline &&
           settings.hero_headline !== 'Monumental Occasions. Beyond Expectations.' &&
-          !settings.hero_headline.includes('Monumental') ? (
+          !settings.hero_headline.includes('Monumental') &&
+          !settings.hero_headline.includes('Unforgettable Nights') ? (
             settings.hero_headline
           ) : (
             <>
-              Unforgettable Nights.{' '}
+              Exquisite Celebrations.{' '}
               <span className="block font-serif italic gold-gradient-text mt-1">
-                Epic Celebrations.
+                Bespoke Event Architecture.
               </span>
             </>
           )}
         </motion.h1>
 
-        {/* High-Energy Subtitle */}
-        <motion.p
-          initial={{ opacity: 0, y: 18 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.85, delay: 0.48 }}
-          className="mx-auto mt-7 max-w-2xl text-sm sm:text-base md:text-lg font-light leading-relaxed text-[#FAF8F5]/90"
-        >
-          {settings.hero_subtitle &&
-          !settings.hero_subtitle.includes('raw visions into unforgettable cultural milestones') &&
-          !settings.hero_subtitle.includes('sensorial experiences—transforming') ? (
-            settings.hero_subtitle
-          ) : (
-            'We design, plan, and produce high-energy luxury celebrations, grand concerts, and unforgettable private galas where every moment comes alive.'
-          )}
-        </motion.p>
-
         {/* Interactive CTA Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.85, delay: 0.65 }}
-          className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5 w-full sm:w-auto"
+          transition={{ duration: 0.85, delay: 0.5 }}
+          className="mt-10 sm:mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5 w-full sm:w-auto"
         >
           {/* Radiant Primary CTA Button */}
           <button
@@ -197,37 +171,17 @@ export function HeroSection() {
         </motion.div>
       </motion.div>
 
-      {/* Bottom Architectural Discipline Ticker */}
-      <div className="relative z-10 w-full border-t border-[#FFA01C]/20 bg-[#08080A]/90 backdrop-blur-md py-3.5 overflow-hidden">
-        <div className="flex items-center justify-between mx-auto max-w-7xl px-6">
-          <div className="flex items-center gap-3 shrink-0 mr-6">
-            <span className="h-2 w-2 rounded-full bg-[#FFA01C] animate-ping" />
-            <span className="text-[10px] uppercase tracking-[0.3em] font-semibold text-[#FFA01C]">
-              Disciplines
-            </span>
-          </div>
-          <div className="flex items-center gap-8 overflow-hidden whitespace-nowrap text-[10.5px] uppercase tracking-[0.22em] text-[#FAF8F5]/65">
-            {DISCIPLINE_TICKER.map((item, idx) => (
-              <span key={item} className="inline-flex items-center gap-8">
-                <span>{item}</span>
-                {idx < DISCIPLINE_TICKER.length - 1 && (
-                  <span className="text-[#FFA01C]/40">✦</span>
-                )}
-              </span>
-            ))}
-          </div>
-
-          {/* Scroll Down Hint */}
-          <button
-            type="button"
-            onClick={() => scrollTo('stats')}
-            aria-label="Scroll down to stats"
-            className="hidden sm:inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.25em] text-[#FFA01C] hover:text-[#FAF8F5] transition-colors ml-6 shrink-0"
-          >
-            <span>Scroll</span>
-            <ArrowDown className="h-3 w-3 animate-bounce" />
-          </button>
-        </div>
+      {/* Subtle Bottom Scroll Hint */}
+      <div className="relative z-10 w-full pb-8 pt-4 flex justify-center">
+        <button
+          type="button"
+          onClick={() => scrollTo('stats')}
+          aria-label="Scroll down to explore"
+          className="group inline-flex flex-col items-center gap-1.5 text-[10px] uppercase tracking-[0.3em] text-[#FAF8F5]/60 hover:text-[#FFA01C] transition-colors"
+        >
+          <span className="group-hover:tracking-[0.35em] transition-all">Scroll</span>
+          <ArrowDown className="h-3.5 w-3.5 animate-bounce text-[#FFA01C]" />
+        </button>
       </div>
 
       {/* Cinematic Fullscreen Showreel Modal */}

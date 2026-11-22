@@ -3,7 +3,6 @@ import { useLocation } from 'react-router-dom';
 import { IntroPreloader } from '@/components/common/IntroPreloader';
 import { ScrollProgressAndUtilities } from '@/components/common/ScrollProgressAndUtilities';
 import { AboutSection } from '@/components/public/AboutSection';
-import { ClientLogosSection } from '@/components/public/ClientLogosSection';
 import { ContactSection } from '@/components/public/ContactSection';
 import { Footer } from '@/components/public/Footer';
 import { HeroSection } from '@/components/public/HeroSection';
@@ -13,7 +12,6 @@ import { ProcessSection } from '@/components/public/ProcessSection';
 import { ServicesSection } from '@/components/public/ServicesSection';
 import { StatsSection } from '@/components/public/StatsSection';
 import { TestimonialsSection } from '@/components/public/TestimonialsSection';
-import { WhyChooseUsSection } from '@/components/public/WhyChooseUsSection';
 
 export function HomePage() {
   const location = useLocation();
@@ -37,10 +35,8 @@ export function HomePage() {
         <AboutSection />
         <ServicesSection />
         <PortfolioSection />
-        <WhyChooseUsSection />
-        <ProcessSection />
         <TestimonialsSection />
-        <ClientLogosSection />
+        <ProcessSection />
         <ContactSection />
       </main>
       <Footer />

@@ -35,62 +35,65 @@ export function ServicesSection() {
           </p>
         </div>
 
-        {/* Services Editorial Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
+        {/* Compact Services Editorial Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5">
           {services.map((service, idx) => (
             <motion.article
               key={service.id}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.15 }}
-              transition={{ duration: 0.55, delay: Math.min(idx * 0.05, 0.3) }}
-              className="group flex flex-col justify-between rounded-sm border border-[#FFA01C]/20 bg-[#121217]/70 backdrop-blur-md transition-all duration-300 hover:border-[#FFA01C] hover:shadow-[0_10px_35px_rgba(255,160,28,0.18)]"
+              viewport={{ once: true, amount: 0.1 }}
+              transition={{ duration: 0.45, delay: Math.min(idx * 0.04, 0.25) }}
+              className="group flex flex-col justify-between rounded-lg border border-[#FFA01C]/25 bg-[#121217]/85 backdrop-blur-md overflow-hidden transition-all duration-300 hover:border-[#FFA01C] hover:shadow-[0_4px_25px_rgba(255,160,28,0.18)] hover:-translate-y-0.5"
             >
               <div>
-                <div className="relative aspect-[16/10] overflow-hidden bg-[#08080A]">
+                {/* Compact Media Header */}
+                <div className="relative h-32 w-full overflow-hidden bg-[#08080A]">
                   {service.cover_image_url ? (
                     <img
                       src={service.cover_image_url}
                       alt={service.title}
                       loading="lazy"
-                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   ) : (
                     <div className="flex h-full w-full items-center justify-center bg-[#121217] text-xs uppercase tracking-widest text-[#FFA01C]">
                       {service.title}
                     </div>
                   )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#08080A]/90 via-transparent to-transparent" />
-                  <span className="absolute top-4 left-4 rounded-sm border border-[#FFA01C]/60 bg-[#08080A]/85 px-3 py-1 text-[10px] uppercase tracking-[0.22em] text-[#FFA01C] font-semibold">
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#121217] via-transparent to-black/30" />
+                  <span className="absolute top-2.5 left-2.5 rounded border border-[#FFA01C]/50 bg-[#08080A]/85 px-2 py-0.5 text-[9px] uppercase tracking-[0.2em] text-[#FFA01C] font-semibold">
                     {String(idx + 1).padStart(2, '0')}
                   </span>
                 </div>
 
-                <div className="p-6 sm:p-7">
-                  <h3 className="font-serif text-2xl sm:text-[1.65rem] font-normal text-[#FAF8F5] group-hover:text-[#FFA01C] transition-colors">
+                {/* Compact Content */}
+                <div className="p-4 sm:p-4.5">
+                  <h3 className="font-serif text-lg font-normal text-[#FAF8F5] group-hover:text-[#FFA01C] transition-colors line-clamp-1">
                     {service.title}
                   </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-[#FAF8F5]/75 font-light">
+                  <p className="mt-1.5 text-xs leading-relaxed text-[#FAF8F5]/70 font-light line-clamp-2">
                     {service.short_description}
                   </p>
                 </div>
               </div>
 
-              <div className="flex items-center justify-between px-6 sm:px-7 pb-6 pt-3 border-t border-[#FFA01C]/15">
+              {/* Compact Footer */}
+              <div className="flex items-center justify-between px-4 pb-3.5 pt-2 border-t border-white/5 text-[11px]">
                 <button
                   type="button"
                   onClick={() => setSelectedService(service)}
-                  className="text-xs uppercase tracking-[0.2em] text-[#FAF8F5]/80 hover:text-[#FFA01C] transition-colors"
+                  className="uppercase tracking-[0.16em] text-[#FAF8F5]/75 hover:text-[#FFA01C] transition-colors"
                 >
                   View Scope
                 </button>
                 <button
                   type="button"
                   onClick={() => handleEnquire(service.title)}
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#FFA01C] hover:text-[#FAF8F5] transition-colors"
+                  className="inline-flex items-center gap-1 font-semibold uppercase tracking-[0.16em] text-[#FFA01C] hover:text-[#FAF8F5] transition-colors"
                 >
-                  <span>Enquire Now</span>
-                  <ArrowUpRight className="h-3.5 w-3.5" />
+                  <span>Enquire</span>
+                  <ArrowUpRight className="h-3 w-3" />
                 </button>
               </div>
             </motion.article>

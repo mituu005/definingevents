@@ -91,12 +91,12 @@ export function AdminEventsPage() {
     <div className="space-y-8">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <p className="text-xs uppercase tracking-[0.26em] text-[#B18A55]">Portfolio CMS</p>
-          <h1 className="font-serif text-3xl sm:text-4xl text-[#14251F] mt-1">Events Portfolio</h1>
+          <p className="text-xs uppercase tracking-[0.26em] text-[#FFA01C] font-medium">Portfolio CMS</p>
+          <h1 className="font-serif text-3xl sm:text-4xl text-[#FAF8F5] mt-1">Events Portfolio</h1>
         </div>
         <Link
           to="/admin/events/new"
-          className="inline-flex items-center justify-center gap-2 border border-[#14251F] bg-[#14251F] px-6 py-3 text-xs uppercase tracking-[0.2em] text-[#F8F6F0] hover:bg-[#B18A55] hover:border-[#B18A55] hover:text-[#14251F] transition-colors"
+          className="inline-flex items-center justify-center gap-2 border border-[#FFA01C] bg-gradient-to-r from-[#FFA01C] to-[#E68A00] px-6 py-3 text-xs uppercase tracking-[0.2em] text-[#08080A] font-semibold rounded shadow-[0_0_20px_rgba(255,160,28,0.35)] hover:shadow-[0_0_30px_rgba(255,160,28,0.6)] hover:scale-[1.02] transition-all"
         >
           <Plus className="h-4 w-4" />
           <span>+ ADD NEW EVENT</span>
@@ -104,15 +104,15 @@ export function AdminEventsPage() {
       </div>
 
       {/* Filters */}
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-4 bg-[#EAE4D8]/60 p-4 border border-[#14251F]/12">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-4 bg-[#121217] p-4 rounded-xl border border-white/10 shadow-lg">
         <div className="md:col-span-5 relative">
-          <Search className="h-4 w-4 text-[#263C32]/60 absolute left-3.5 top-1/2 -translate-y-1/2" />
+          <Search className="h-4 w-4 text-[#FFA01C] absolute left-3.5 top-1/2 -translate-y-1/2" />
           <input
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search by title, location, or category..."
-            className="w-full border border-[#14251F]/20 bg-[#F8F6F0] pl-10 pr-4 py-2.5 text-sm text-[#14251F] focus:border-[#B18A55] focus:outline-none"
+            className="w-full rounded border border-white/15 bg-[#1A1A24] pl-10 pr-4 py-2.5 text-sm text-[#FAF8F5] placeholder:text-white/30 focus:border-[#FFA01C] focus:outline-none transition-colors"
           />
         </div>
 
@@ -120,12 +120,12 @@ export function AdminEventsPage() {
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value as 'all' | EventStatus)}
-            className="w-full border border-[#14251F]/20 bg-[#F8F6F0] px-3 py-2.5 text-sm text-[#14251F] focus:border-[#B18A55] focus:outline-none"
+            className="w-full rounded border border-white/15 bg-[#1A1A24] px-3 py-2.5 text-sm text-[#FAF8F5] focus:border-[#FFA01C] focus:outline-none transition-colors"
           >
-            <option value="all">All Statuses</option>
-            <option value="published">Published</option>
-            <option value="draft">Draft</option>
-            <option value="unpublished">Unpublished</option>
+            <option value="all" className="bg-[#1A1A24]">All Statuses</option>
+            <option value="published" className="bg-[#1A1A24]">Published</option>
+            <option value="draft" className="bg-[#1A1A24]">Draft</option>
+            <option value="unpublished" className="bg-[#1A1A24]">Unpublished</option>
           </select>
         </div>
 
@@ -133,11 +133,11 @@ export function AdminEventsPage() {
           <select
             value={categoryFilter}
             onChange={(e) => setCategoryFilter(e.target.value)}
-            className="w-full border border-[#14251F]/20 bg-[#F8F6F0] px-3 py-2.5 text-sm text-[#14251F] focus:border-[#B18A55] focus:outline-none"
+            className="w-full rounded border border-white/15 bg-[#1A1A24] px-3 py-2.5 text-sm text-[#FAF8F5] focus:border-[#FFA01C] focus:outline-none transition-colors"
           >
-            <option value="all">All Categories</option>
+            <option value="all" className="bg-[#1A1A24]">All Categories</option>
             {EVENT_CATEGORIES.map((cat) => (
-              <option key={cat} value={cat}>
+              <option key={cat} value={cat} className="bg-[#1A1A24]">
                 {cat}
               </option>
             ))}
@@ -152,18 +152,18 @@ export function AdminEventsPage() {
       {loading ? (
         <div className="space-y-4">
           {[1, 2, 3].map((n) => (
-            <div key={n} className="h-28 bg-[#EAE4D8] animate-pulse" />
+            <div key={n} className="h-28 rounded-xl bg-[#121217] border border-white/10 animate-pulse" />
           ))}
         </div>
       ) : filtered.length === 0 ? (
-        <div className="border border-[#14251F]/15 bg-[#EAE4D8]/40 p-12 text-center">
-          <p className="font-serif text-2xl text-[#14251F]">No matching events found.</p>
-          <p className="mt-2 text-sm text-[#263C32]/75">
+        <div className="rounded-xl border border-white/10 bg-[#121217] p-12 text-center shadow-xl">
+          <p className="font-serif text-2xl text-[#FAF8F5]">No matching events found.</p>
+          <p className="mt-2 text-sm text-[#FAF8F5]/65">
             Create your first portfolio event to publish photographs and videos to the live website.
           </p>
           <Link
             to="/admin/events/new"
-            className="mt-6 inline-flex items-center gap-2 border border-[#14251F] bg-[#14251F] px-6 py-3 text-xs uppercase tracking-[0.2em] text-[#F8F6F0]"
+            className="mt-6 inline-flex items-center gap-2 rounded border border-[#FFA01C] bg-[#FFA01C] px-6 py-3 text-xs uppercase tracking-[0.2em] text-[#08080A] font-semibold hover:bg-[#FFB247] shadow-[0_0_15px_rgba(255,160,28,0.3)] transition-all"
           >
             <Plus className="h-4 w-4" />
             <span>Create Event</span>
@@ -179,10 +179,10 @@ export function AdminEventsPage() {
             return (
               <div
                 key={ev.id}
-                className="flex flex-col md:flex-row md:items-center justify-between gap-5 border border-[#14251F]/15 bg-[#EAE4D8]/45 p-4 sm:p-5"
+                className="flex flex-col md:flex-row md:items-center justify-between gap-5 rounded-xl border border-white/10 bg-[#121217] p-4 sm:p-5 shadow-lg hover:border-white/20 transition-all"
               >
                 <div className="flex items-start sm:items-center gap-4">
-                  <div className="h-20 w-28 shrink-0 overflow-hidden bg-[#14251F] border border-[#14251F]/15">
+                  <div className="h-20 w-28 shrink-0 overflow-hidden rounded bg-[#08080A] border border-white/10">
                     {ev.resolved_cover_url ? (
                       <img
                         src={ev.resolved_cover_url}
@@ -190,7 +190,7 @@ export function AdminEventsPage() {
                         className="h-full w-full object-cover"
                       />
                     ) : (
-                      <div className="flex h-full w-full items-center justify-center text-[10px] uppercase tracking-widest text-[#B18A55]">
+                      <div className="flex h-full w-full items-center justify-center text-[10px] uppercase tracking-widest text-[#FFA01C]">
                         No Cover
                       </div>
                     )}
@@ -199,42 +199,42 @@ export function AdminEventsPage() {
                   <div>
                     <div className="flex flex-wrap items-center gap-2">
                       <span
-                        className={`px-2 py-0.5 text-[10px] uppercase tracking-[0.18em] border ${
+                        className={`px-2 py-0.5 text-[10px] uppercase tracking-[0.18em] rounded border ${
                           ev.status === 'published'
-                            ? 'border-emerald-700/40 bg-emerald-100 text-emerald-900'
+                            ? 'border-emerald-500/40 bg-emerald-950/60 text-emerald-300'
                             : ev.status === 'draft'
-                            ? 'border-[#B18A55] bg-[#B18A55]/20 text-[#14251F]'
-                            : 'border-stone-400 bg-stone-200 text-stone-800'
+                            ? 'border-[#FFA01C]/40 bg-[#FFA01C]/15 text-[#FFA01C]'
+                            : 'border-white/20 text-[#FAF8F5]/70 bg-white/5'
                         }`}
                       >
                         {ev.status}
                       </span>
-                      <span className="text-[11px] uppercase tracking-[0.16em] text-[#B18A55]">
+                      <span className="text-[11px] uppercase tracking-[0.16em] text-[#FFA01C] font-medium">
                         {ev.category}
                       </span>
                     </div>
 
-                    <h2 className="font-serif text-xl sm:text-2xl text-[#14251F] mt-1">
+                    <h2 className="font-serif text-xl sm:text-2xl text-[#FAF8F5] mt-1">
                       {ev.title}
                     </h2>
 
-                    <div className="mt-1.5 flex flex-wrap items-center gap-4 text-xs text-[#263C32]/80">
+                    <div className="mt-1.5 flex flex-wrap items-center gap-4 text-xs text-[#FAF8F5]/70">
                       <span className="inline-flex items-center gap-1">
-                        <MapPin className="h-3.5 w-3.5 text-[#B18A55]" />
+                        <MapPin className="h-3.5 w-3.5 text-[#FFA01C]" />
                         {ev.location}
                       </span>
                       {ev.event_date && (
                         <span className="inline-flex items-center gap-1">
-                          <Calendar className="h-3.5 w-3.5 text-[#B18A55]" />
+                          <Calendar className="h-3.5 w-3.5 text-[#FFA01C]" />
                           {ev.event_date}
                         </span>
                       )}
                       <span className="inline-flex items-center gap-1">
-                        <Images className="h-3.5 w-3.5 text-[#B18A55]" />
+                        <Images className="h-3.5 w-3.5 text-[#FFA01C]" />
                         {photoCount} photos
                       </span>
                       <span className="inline-flex items-center gap-1">
-                        <Film className="h-3.5 w-3.5 text-[#B18A55]" />
+                        <Film className="h-3.5 w-3.5 text-[#FFA01C]" />
                         {videoCount} videos
                       </span>
                     </div>
@@ -249,7 +249,7 @@ export function AdminEventsPage() {
                         to={`/events/${ev.slug}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 border border-[#14251F]/25 px-3 py-2 text-[11px] uppercase tracking-[0.16em] text-[#14251F] hover:border-[#B18A55]"
+                        className="inline-flex items-center gap-1.5 rounded border border-white/20 px-3 py-2 text-[11px] uppercase tracking-[0.16em] text-[#FAF8F5] hover:border-[#FFA01C] hover:text-[#FFA01C] transition-colors"
                       >
                         <ExternalLink className="h-3.5 w-3.5" />
                         <span>Live</span>
@@ -258,7 +258,7 @@ export function AdminEventsPage() {
                         type="button"
                         disabled={isBusy}
                         onClick={() => handleStatusChange(ev, 'unpublished')}
-                        className="inline-flex items-center gap-1.5 border border-[#14251F]/25 px-3 py-2 text-[11px] uppercase tracking-[0.16em] text-[#263C32] hover:bg-[#14251F] hover:text-[#F8F6F0] transition-colors disabled:opacity-50"
+                        className="inline-flex items-center gap-1.5 rounded border border-white/20 px-3 py-2 text-[11px] uppercase tracking-[0.16em] text-[#FAF8F5]/80 hover:bg-white/10 transition-colors disabled:opacity-50 cursor-pointer"
                       >
                         <EyeOff className="h-3.5 w-3.5" />
                         <span>Unpublish</span>
@@ -269,7 +269,7 @@ export function AdminEventsPage() {
                       type="button"
                       disabled={isBusy}
                       onClick={() => handleStatusChange(ev, 'published')}
-                      className="inline-flex items-center gap-1.5 border border-emerald-800 bg-emerald-800 px-3 py-2 text-[11px] uppercase tracking-[0.16em] text-white hover:bg-emerald-900 transition-colors disabled:opacity-50"
+                      className="inline-flex items-center gap-1.5 rounded border border-emerald-500/50 bg-emerald-950/70 px-3 py-2 text-[11px] uppercase tracking-[0.16em] text-emerald-200 hover:bg-emerald-900 transition-colors disabled:opacity-50 cursor-pointer"
                     >
                       <Eye className="h-3.5 w-3.5" />
                       <span>Publish</span>
@@ -278,7 +278,7 @@ export function AdminEventsPage() {
 
                   <Link
                     to={`/admin/events/${ev.id}/edit`}
-                    className="inline-flex items-center gap-1.5 border border-[#14251F] bg-[#14251F] px-3.5 py-2 text-[11px] uppercase tracking-[0.16em] text-[#F8F6F0] hover:bg-[#B18A55] hover:border-[#B18A55] hover:text-[#14251F] transition-colors"
+                    className="inline-flex items-center gap-1.5 rounded border border-[#FFA01C] bg-[#FFA01C] px-3.5 py-2 text-[11px] uppercase tracking-[0.16em] text-[#08080A] font-semibold hover:bg-[#FFB247] transition-colors"
                   >
                     <Edit3 className="h-3.5 w-3.5" />
                     <span>Edit</span>
@@ -289,7 +289,7 @@ export function AdminEventsPage() {
                     disabled={isBusy}
                     onClick={() => setDeleteTarget(ev)}
                     aria-label={`Delete ${ev.title}`}
-                    className="inline-flex items-center justify-center border border-red-800/35 px-3 py-2 text-red-800 hover:bg-red-800 hover:text-white transition-colors disabled:opacity-50"
+                    className="inline-flex items-center justify-center rounded border border-red-500/40 bg-red-950/50 px-3 py-2 text-red-300 hover:bg-red-900 hover:text-white transition-colors disabled:opacity-50 cursor-pointer"
                   >
                     <Trash2 className="h-3.5 w-3.5" />
                   </button>
@@ -302,19 +302,19 @@ export function AdminEventsPage() {
 
       {/* Delete Confirmation Modal */}
       {deleteTarget && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4">
-          <div className="w-full max-w-md border border-[#B18A55] bg-[#F8F6F0] p-7">
-            <h3 className="font-serif text-2xl text-[#14251F]">Delete Event &amp; Media?</h3>
-            <p className="mt-3 text-sm text-[#263C32]">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+          <div className="w-full max-w-md rounded-xl border border-white/15 bg-[#121217] p-7 shadow-2xl">
+            <h3 className="font-serif text-2xl text-[#FAF8F5]">Delete Event &amp; Media?</h3>
+            <p className="mt-3 text-sm text-[#FAF8F5]/80">
               Are you sure you want to permanently delete{' '}
-              <strong className="text-[#14251F]">{deleteTarget.title}</strong>? All uploaded
+              <strong className="text-[#FFA01C]">{deleteTarget.title}</strong>? All uploaded
               photographs and videos associated with this event will also be deleted from storage.
             </p>
             <div className="mt-6 flex justify-end gap-3">
               <button
                 type="button"
                 onClick={() => setDeleteTarget(null)}
-                className="border border-[#14251F]/25 px-5 py-2.5 text-xs uppercase tracking-[0.18em]"
+                className="rounded border border-white/20 px-5 py-2.5 text-xs uppercase tracking-[0.18em] text-[#FAF8F5]/80 hover:bg-white/10 cursor-pointer"
               >
                 Cancel
               </button>
@@ -322,7 +322,7 @@ export function AdminEventsPage() {
                 type="button"
                 disabled={busyId === deleteTarget.id}
                 onClick={handleConfirmDelete}
-                className="bg-red-800 px-5 py-2.5 text-xs uppercase tracking-[0.18em] text-white hover:bg-red-900 disabled:opacity-50"
+                className="rounded bg-red-800 px-5 py-2.5 text-xs uppercase tracking-[0.18em] text-white hover:bg-red-700 disabled:opacity-50 cursor-pointer shadow-lg"
               >
                 {busyId === deleteTarget.id ? 'Deleting...' : 'Confirm Delete'}
               </button>

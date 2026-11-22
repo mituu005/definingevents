@@ -73,7 +73,18 @@ export async function fetchPublishedEvents(): Promise<EventRecord[]> {
     throw new Error(error.message);
   }
 
-  const events = (data || []) as EventRecord[];
+  const events = ((data || []) as EventRecord[]).filter((ev) => {
+    // Exclude test/placeholder records (e.g. "ABC", "abcd", or "test")
+    const titleLower = ev.title?.trim().toLowerCase() || '';
+    const descLower = ev.description?.trim().toLowerCase() || '';
+    if (titleLower === 'abc' || titleLower === 'test' || descLower === 'abcd') {
+      return false;
+    }
+    // Only display events that have photos, videos, or cover image attached
+    const hasCover = Boolean(ev.cover_image_url || ev.cover_image_path);
+    const hasMedia = Array.isArray(ev.media) && ev.media.length > 0 && ev.media.some((m) => Boolean(m.file_url || m.storage_path));
+    return hasCover || hasMedia;
+  });
   return hydrateEventMediaUrls(events);
 }
 
