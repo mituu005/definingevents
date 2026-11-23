@@ -78,6 +78,50 @@ export function StatsSection() {
             );
           })}
         </div>
+
+        {/* Trust Metrics Banner added on 2nd section after the 4 stat cards */}
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, delay: 0.35 }}
+          className="mt-8 sm:mt-10 rounded-xl border border-white/10 bg-[#121217]/80 py-5 sm:py-6 px-6 sm:px-10 backdrop-blur-md shadow-xl"
+        >
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
+            <div>
+              <p className="font-serif text-2xl sm:text-3xl font-light text-[#FFA01C] tracking-tight">
+                100%
+              </p>
+              <p className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.22em] text-[#FAF8F5]/70 mt-1.5">
+                5-Star Rated
+              </p>
+            </div>
+            <div>
+              <p className="font-serif text-2xl sm:text-3xl font-light text-[#FFA01C] tracking-tight">
+                500+
+              </p>
+              <p className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.22em] text-[#FAF8F5]/70 mt-1.5">
+                Landmarks Produced
+              </p>
+            </div>
+            <div>
+              <p className="font-serif text-2xl sm:text-3xl font-light text-[#FFA01C] tracking-tight">
+                28+
+              </p>
+              <p className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.22em] text-[#FAF8F5]/70 mt-1.5">
+                World Capitals
+              </p>
+            </div>
+            <div>
+              <p className="font-serif text-2xl sm:text-3xl font-light text-[#FFA01C] tracking-tight">
+                Flawless
+              </p>
+              <p className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.22em] text-[#FAF8F5]/70 mt-1.5">
+                Run of Show
+              </p>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
