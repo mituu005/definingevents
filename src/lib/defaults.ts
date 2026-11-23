@@ -1,7 +1,7 @@
 import type { ServiceRecord, TestimonialRecord, WebsiteSettings } from '@/types/database';
 
 // Award-winning luxury wedding & event production visual assets (Local high-definition showreel)
-export const DEFAULT_HERO_VIDEO = '/showreel.mp4';
+export const DEFAULT_HERO_VIDEO = '/showreel.mp4?v=2';
 
 // Awe-inspiring candlelit floral architecture and luxury gala scenography
 export const DEFAULT_HERO_POSTER =

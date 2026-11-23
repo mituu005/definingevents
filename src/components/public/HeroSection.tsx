@@ -45,7 +45,7 @@ export function HeroSection() {
   // Video URL: use local showreel which contains the vibrant, high-energy live event video
   const videoSrc = useMemo(() => {
     const raw = settings.hero_video_url;
-    if (!raw || raw.includes('pexels.com/video-files/3175525')) {
+    if (!raw || raw.includes('pexels.com/video-files/3175525') || raw === '/showreel.mp4') {
       return DEFAULT_HERO_VIDEO;
     }
     return raw;
