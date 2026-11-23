@@ -8,10 +8,10 @@ import { useSiteData } from '@/contexts/SiteDataContext';
 const NAV_ITEMS = [
   { label: 'Home', id: 'hero' },
   { label: 'Testimonials', id: 'testimonials' },
-  { label: 'About Us', id: 'about' },
+  { label: 'About', id: 'about' },
   { label: 'Services', id: 'services' },
   { label: 'Our Work', id: 'portfolio' },
-  { label: 'Our Process', id: 'process' },
+  { label: 'Process', id: 'process' },
   { label: 'Contact', id: 'contact' },
 ];
 
@@ -19,6 +19,7 @@ export function Navbar() {
   const { settings } = useSiteData();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('hero');
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -26,8 +27,30 @@ export function Navbar() {
   const phoneDisplay = settings.contact_phone || '+91 98765 43210';
   const phoneHref = `tel:${phoneDisplay.replace(/[^0-9+]/g, '')}`;
 
+  // Scrollspy: automatically light up the active header navigation link based on scroll position
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 35);
+    const sectionIds = ['hero', 'stats', 'testimonials', 'about', 'services', 'portfolio', 'process', 'contact'];
+
+    const onScroll = () => {
+      setScrolled(window.scrollY > 35);
+
+      const scrollPos = window.scrollY + 200;
+      for (let i = sectionIds.length - 1; i >= 0; i--) {
+        const id = sectionIds[i];
+        const el = document.getElementById(id);
+        if (el) {
+          const top = el.offsetTop;
+          const height = el.offsetHeight;
+          if (scrollPos >= top && scrollPos < top + height) {
+            // Map stats section to 'testimonials' or 'hero'
+            const mappedId = id === 'stats' ? 'testimonials' : id;
+            setActiveSection(mappedId);
+            break;
+          }
+        }
+      }
+    };
+
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
     return () => window.removeEventListener('scroll', onScroll);
@@ -39,6 +62,7 @@ export function Navbar() {
 
   const handleNavClick = (sectionId: string) => {
     setMobileOpen(false);
+    setActiveSection(sectionId);
     if (!isHome) {
       navigate(`/#${sectionId}`);
       window.setTimeout(() => {
@@ -63,7 +87,7 @@ export function Navbar() {
           : 'bg-gradient-to-b from-[#08080A]/90 via-[#08080A]/40 to-transparent py-4'
       }`}
     >
-      <div className="mx-auto flex w-full max-w-[1720px] items-center justify-between gap-4 xl:gap-8 px-4 sm:px-6 lg:px-8 xl:px-12">
+      <div className="mx-auto flex w-full max-w-[1720px] items-center justify-between gap-3 xl:gap-6 px-4 sm:px-6 lg:px-8 xl:px-12">
         {/* Left: Brand Identity */}
         <div className="shrink-0 flex items-center">
           <button
@@ -76,38 +100,45 @@ export function Navbar() {
           </button>
         </div>
 
-        {/* Center: Symmetrically Centered Navigation (Never Overlaps) */}
+        {/* Center: Symmetrically Centered Navigation with Automatic Scrollspy Lighting */}
         <nav
-          className="hidden lg:flex items-center justify-center flex-1 min-w-0 gap-2 xl:gap-4 2xl:gap-6 px-1"
+          className="hidden lg:flex items-center justify-center flex-1 min-w-0 gap-2 xl:gap-4.5 2xl:gap-6 px-1"
           aria-label="Primary Navigation"
         >
-          {NAV_ITEMS.map((item) => (
-            <button
-              key={item.id}
-              type="button"
-              onClick={() => handleNavClick(item.id)}
-              className="relative whitespace-nowrap text-[10px] xl:text-[11px] 2xl:text-[12px] uppercase tracking-[0.14em] xl:tracking-[0.18em] text-[#FAF8F5]/85 transition-all duration-200 hover:text-[#FFA01C] py-1 font-medium shrink-0"
-            >
-              {item.label}
-            </button>
-          ))}
+          {NAV_ITEMS.map((item) => {
+            const isActive = activeSection === item.id;
+            return (
+              <button
+                key={item.id}
+                type="button"
+                onClick={() => handleNavClick(item.id)}
+                className={`relative whitespace-nowrap text-[10.5px] xl:text-[11.5px] 2xl:text-[12px] uppercase tracking-[0.14em] xl:tracking-[0.18em] py-1 font-medium transition-all duration-300 shrink-0 ${
+                  isActive
+                    ? 'text-[#FFA01C] font-semibold drop-shadow-[0_0_12px_rgba(255,160,28,0.75)]'
+                    : 'text-[#FAF8F5]/80 hover:text-[#FFA01C]'
+                }`}
+              >
+                <span>{item.label}</span>
+              </button>
+            );
+          })}
         </nav>
 
-        {/* Right: Balanced Action Controls */}
-        <div className="hidden lg:flex shrink-0 items-center gap-2 xl:gap-3">
+        {/* Right: Direct Phone Number Pill & CTA */}
+        <div className="hidden lg:flex shrink-0 items-center gap-2.5 xl:gap-3.5">
           <a
             href={phoneHref}
-            className="inline-flex items-center justify-center gap-2 rounded-full border border-[#FFA01C]/40 bg-[#121217]/90 h-9 w-9 2xl:h-auto 2xl:w-auto 2xl:px-3.5 2xl:py-2 text-[10.5px] xl:text-[11px] font-medium tracking-[0.05em] text-[#FAF8F5] transition-all duration-300 hover:border-[#FFA01C] hover:text-[#FFA01C] hover:shadow-[0_0_16px_rgba(255,160,28,0.3)] shrink-0"
-            title={`Call Concierge: ${phoneDisplay}`}
+            className="inline-flex items-center gap-2 rounded-full border border-[#FFA01C]/50 bg-[#121217]/90 px-3.5 py-1.5 xl:px-4 xl:py-2 text-[10.5px] xl:text-[11.5px] font-medium tracking-[0.05em] text-[#FAF8F5] transition-all duration-300 hover:border-[#FFA01C] hover:text-[#FFA01C] hover:shadow-[0_0_18px_rgba(255,160,28,0.35)] shrink-0"
+            title={`Direct Concierge Line: ${phoneDisplay}`}
           >
             <Phone className="h-3.5 w-3.5 text-[#FFA01C]" />
-            <span className="hidden 2xl:inline font-sans font-medium">{phoneDisplay}</span>
+            <span className="font-sans font-medium">{phoneDisplay}</span>
           </a>
 
           <button
             type="button"
             onClick={() => handleNavClick('contact')}
-            className="whitespace-nowrap rounded-sm bg-gradient-to-r from-[#FFA01C] via-[#FFB84D] to-[#E68A00] px-4 xl:px-4.5 py-2 text-[10px] xl:text-[10.5px] font-semibold uppercase tracking-[0.18em] text-[#08080A] shadow-[0_0_20px_rgba(255,160,28,0.35)] transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,160,28,0.6)] hover:scale-[1.02] shrink-0"
+            className="whitespace-nowrap rounded-sm bg-gradient-to-r from-[#FFA01C] via-[#FFB84D] to-[#E68A00] px-4 xl:px-5 py-2 xl:py-2.5 text-[10.5px] xl:text-[11px] font-semibold uppercase tracking-[0.18em] text-[#08080A] shadow-[0_0_20px_rgba(255,160,28,0.35)] transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,160,28,0.6)] hover:scale-[1.02] shrink-0"
           >
             Plan Your Event
           </button>
