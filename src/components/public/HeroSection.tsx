@@ -1,5 +1,5 @@
 import { AnimatePresence, motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowDown, ArrowRight, Play, Sparkles, X } from 'lucide-react';
+import { ArrowDown, ArrowRight, Play, X } from 'lucide-react';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useSiteData } from '@/contexts/SiteDataContext';
 import { DEFAULT_HERO_POSTER, DEFAULT_HERO_VIDEO } from '@/lib/defaults';
@@ -98,17 +98,6 @@ export function HeroSection() {
         style={{ opacity: textOpacity, y: textY }}
         className="relative z-10 mx-auto max-w-5xl px-6 pt-32 sm:pt-40 pb-16 text-center flex-1 flex flex-col justify-center items-center"
       >
-        {/* Live Experience Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.15 }}
-          className="inline-flex items-center gap-2.5 rounded-full border border-[#FFA01C]/40 bg-[#08080A]/80 px-4 py-1.5 text-[10.5px] uppercase tracking-[0.34em] text-[#FFA01C] backdrop-blur-md shadow-[0_0_20px_rgba(255,160,28,0.25)] mb-7"
-        >
-          <Sparkles className="h-3 w-3 text-[#FFA01C]" />
-          <span>Bespoke Wedding & Event Architecture</span>
-        </motion.div>
-
         {/* Dynamic Celebration Headline */}
         <motion.h1
           initial={{ opacity: 0, y: 22 }}

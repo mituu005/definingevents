@@ -32,10 +32,10 @@ export function HomePage() {
       <main>
         <HeroSection />
         <StatsSection />
+        <TestimonialsSection />
         <AboutSection />
         <ServicesSection />
         <PortfolioSection />
-        <TestimonialsSection />
         <ProcessSection />
         <ContactSection />
       </main>

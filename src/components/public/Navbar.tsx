@@ -7,11 +7,11 @@ import { useSiteData } from '@/contexts/SiteDataContext';
 
 const NAV_ITEMS = [
   { label: 'Home', id: 'hero' },
+  { label: 'Testimonials', id: 'testimonials' },
   { label: 'About Us', id: 'about' },
   { label: 'Services', id: 'services' },
   { label: 'Our Work', id: 'portfolio' },
   { label: 'Our Process', id: 'process' },
-  { label: 'Testimonials', id: 'testimonials' },
   { label: 'Contact', id: 'contact' },
 ];
 
@@ -63,44 +63,51 @@ export function Navbar() {
           : 'bg-gradient-to-b from-[#08080A]/90 via-[#08080A]/40 to-transparent py-4'
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-5 sm:px-8">
-        <button
-          type="button"
-          onClick={() => handleNavClick('hero')}
-          className="text-left focus:outline-none shrink-0"
-          aria-label="Go to homepage"
-        >
-          <BrandMark tone="light" />
-        </button>
+      <div className="mx-auto flex w-full max-w-[1720px] items-center justify-between gap-4 xl:gap-8 px-4 sm:px-6 lg:px-8 xl:px-12">
+        {/* Left: Brand Identity */}
+        <div className="shrink-0 flex items-center">
+          <button
+            type="button"
+            onClick={() => handleNavClick('hero')}
+            className="text-left focus:outline-none group"
+            aria-label="Go to homepage"
+          >
+            <BrandMark tone="light" />
+          </button>
+        </div>
 
-        {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center gap-3.5 xl:gap-6" aria-label="Primary Navigation">
+        {/* Center: Symmetrically Centered Navigation (Never Overlaps) */}
+        <nav
+          className="hidden lg:flex items-center justify-center flex-1 min-w-0 gap-2 xl:gap-4 2xl:gap-6 px-1"
+          aria-label="Primary Navigation"
+        >
           {NAV_ITEMS.map((item) => (
             <button
               key={item.id}
               type="button"
               onClick={() => handleNavClick(item.id)}
-              className="relative whitespace-nowrap text-[11px] xl:text-[12px] uppercase tracking-[0.16em] xl:tracking-[0.22em] text-[#FAF8F5]/85 transition-colors hover:text-[#FFA01C] py-1 font-medium"
+              className="relative whitespace-nowrap text-[10px] xl:text-[11px] 2xl:text-[12px] uppercase tracking-[0.14em] xl:tracking-[0.18em] text-[#FAF8F5]/85 transition-all duration-200 hover:text-[#FFA01C] py-1 font-medium shrink-0"
             >
               {item.label}
             </button>
           ))}
         </nav>
 
-        <div className="hidden lg:flex items-center gap-3 xl:gap-4 shrink-0">
+        {/* Right: Balanced Action Controls */}
+        <div className="hidden lg:flex shrink-0 items-center gap-2 xl:gap-3">
           <a
             href={phoneHref}
-            className="inline-flex items-center gap-2 rounded-full border border-[#FFA01C]/40 bg-[#121217]/90 px-3.5 py-2 text-[11px] font-medium tracking-[0.1em] text-[#FAF8F5] transition-all duration-300 hover:border-[#FFA01C] hover:text-[#FFA01C] hover:shadow-[0_0_15px_rgba(255,160,28,0.25)]"
-            title="Call concierge directly"
+            className="inline-flex items-center justify-center gap-2 rounded-full border border-[#FFA01C]/40 bg-[#121217]/90 h-9 w-9 2xl:h-auto 2xl:w-auto 2xl:px-3.5 2xl:py-2 text-[10.5px] xl:text-[11px] font-medium tracking-[0.05em] text-[#FAF8F5] transition-all duration-300 hover:border-[#FFA01C] hover:text-[#FFA01C] hover:shadow-[0_0_16px_rgba(255,160,28,0.3)] shrink-0"
+            title={`Call Concierge: ${phoneDisplay}`}
           >
             <Phone className="h-3.5 w-3.5 text-[#FFA01C]" />
-            <span className="font-sans font-medium">{phoneDisplay}</span>
+            <span className="hidden 2xl:inline font-sans font-medium">{phoneDisplay}</span>
           </a>
 
           <button
             type="button"
             onClick={() => handleNavClick('contact')}
-            className="whitespace-nowrap rounded-sm bg-gradient-to-r from-[#FFA01C] via-[#FFB84D] to-[#E68A00] px-5 py-2.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#08080A] shadow-[0_0_20px_rgba(255,160,28,0.35)] transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,160,28,0.6)] hover:scale-[1.02]"
+            className="whitespace-nowrap rounded-sm bg-gradient-to-r from-[#FFA01C] via-[#FFB84D] to-[#E68A00] px-4 xl:px-4.5 py-2 text-[10px] xl:text-[10.5px] font-semibold uppercase tracking-[0.18em] text-[#08080A] shadow-[0_0_20px_rgba(255,160,28,0.35)] transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,160,28,0.6)] hover:scale-[1.02] shrink-0"
           >
             Plan Your Event
           </button>
