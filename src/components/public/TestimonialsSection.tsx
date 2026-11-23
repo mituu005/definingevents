@@ -33,34 +33,6 @@ export function TestimonialsSection() {
             The true hallmark of our atelier is the peace of mind and wonder experienced by the
             hosts who entrust us with life’s most meaningful celebrations.
           </p>
-
-          {/* Trust Metrics Bar */}
-          <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-4 p-4 rounded-lg border border-white/10 bg-[#121217]/70 backdrop-blur-md">
-            <div className="text-center">
-              <p className="text-lg sm:text-xl font-serif text-[#FFA01C] font-semibold">100%</p>
-              <p className="text-[10px] uppercase tracking-[0.18em] text-[#FAF8F5]/60 mt-0.5">
-                5-Star Rated
-              </p>
-            </div>
-            <div className="text-center">
-              <p className="text-lg sm:text-xl font-serif text-[#FFA01C] font-semibold">500+</p>
-              <p className="text-[10px] uppercase tracking-[0.18em] text-[#FAF8F5]/60 mt-0.5">
-                Landmarks Produced
-              </p>
-            </div>
-            <div className="text-center">
-              <p className="text-lg sm:text-xl font-serif text-[#FFA01C] font-semibold">28+</p>
-              <p className="text-[10px] uppercase tracking-[0.18em] text-[#FAF8F5]/60 mt-0.5">
-                World Capitals
-              </p>
-            </div>
-            <div className="text-center">
-              <p className="text-lg sm:text-xl font-serif text-[#FFA01C] font-semibold">Flawless</p>
-              <p className="text-[10px] uppercase tracking-[0.18em] text-[#FAF8F5]/60 mt-0.5">
-                Run of Show
-              </p>
-            </div>
-          </div>
         </div>
 
         {/* 3-Column Testimonial Cards Grid */}

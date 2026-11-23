@@ -79,46 +79,53 @@ export function StatsSection() {
           })}
         </div>
 
-        {/* Trust Metrics Banner added on 2nd section after the 4 stat cards */}
+        {/* Trust Metrics Highlight Table: Perfectly Proportioned & Gold Highlighted */}
         <motion.div
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, delay: 0.35 }}
-          className="mt-8 sm:mt-10 rounded-xl border border-white/10 bg-[#121217]/80 py-5 sm:py-6 px-6 sm:px-10 backdrop-blur-md shadow-xl"
+          className="group relative overflow-hidden mt-8 sm:mt-10 rounded-xl border border-[#FFA01C]/60 bg-[#121217]/95 py-6 sm:py-7 px-4 sm:px-8 backdrop-blur-xl shadow-[0_0_35px_rgba(255,160,28,0.2)] transition-all duration-300 hover:border-[#FFA01C] hover:shadow-[0_0_50px_rgba(255,160,28,0.35)]"
         >
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
-            <div>
-              <p className="font-serif text-2xl sm:text-3xl font-light text-[#FFA01C] tracking-tight">
+          {/* Top radiant gold accent glow */}
+          <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#FFA01C] to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-300" />
+
+          {/* 4 Proportionally Divided Columns */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-white/10 lg:divide-[#FFA01C]/25 text-center">
+            <div className="flex flex-col items-center justify-center py-3 sm:py-1 px-3 sm:px-6">
+              <p className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight gold-gradient-text drop-shadow-[0_0_20px_rgba(255,160,28,0.3)]">
                 100%
               </p>
-              <p className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.22em] text-[#FAF8F5]/70 mt-1.5">
+              <h3 className="mt-2 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.22em] text-[#FAF8F5]">
                 5-Star Rated
-              </p>
+              </h3>
             </div>
-            <div>
-              <p className="font-serif text-2xl sm:text-3xl font-light text-[#FFA01C] tracking-tight">
+
+            <div className="flex flex-col items-center justify-center py-3 sm:py-1 px-3 sm:px-6">
+              <p className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight gold-gradient-text drop-shadow-[0_0_20px_rgba(255,160,28,0.3)]">
                 500+
               </p>
-              <p className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.22em] text-[#FAF8F5]/70 mt-1.5">
+              <h3 className="mt-2 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.22em] text-[#FAF8F5]">
                 Landmarks Produced
-              </p>
+              </h3>
             </div>
-            <div>
-              <p className="font-serif text-2xl sm:text-3xl font-light text-[#FFA01C] tracking-tight">
+
+            <div className="flex flex-col items-center justify-center py-3 sm:py-1 px-3 sm:px-6">
+              <p className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight gold-gradient-text drop-shadow-[0_0_20px_rgba(255,160,28,0.3)]">
                 28+
               </p>
-              <p className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.22em] text-[#FAF8F5]/70 mt-1.5">
+              <h3 className="mt-2 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.22em] text-[#FAF8F5]">
                 World Capitals
-              </p>
+              </h3>
             </div>
-            <div>
-              <p className="font-serif text-2xl sm:text-3xl font-light text-[#FFA01C] tracking-tight">
+
+            <div className="flex flex-col items-center justify-center py-3 sm:py-1 px-3 sm:px-6">
+              <p className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight gold-gradient-text drop-shadow-[0_0_20px_rgba(255,160,28,0.3)]">
                 Flawless
               </p>
-              <p className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.22em] text-[#FAF8F5]/70 mt-1.5">
+              <h3 className="mt-2 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.22em] text-[#FAF8F5]">
                 Run of Show
-              </p>
+              </h3>
             </div>
           </div>
         </motion.div>
