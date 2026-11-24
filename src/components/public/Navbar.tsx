@@ -1,6 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import { ArrowRight, Check, Copy, Menu, MessageCircle, Phone, QrCode, X } from 'lucide-react';
-import QRCode from 'qrcode';
+import { Check, Copy, Menu, Phone, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { BrandMark } from '@/components/common/BrandMark';
@@ -23,8 +22,6 @@ export function Navbar() {
   const [activeSection, setActiveSection] = useState('hero');
   const [conciergeModalOpen, setConciergeModalOpen] = useState(false);
   const [copiedPhone, setCopiedPhone] = useState(false);
-  const [qrCodeUrl, setQrCodeUrl] = useState<string>('');
-  const [callFeedback, setCallFeedback] = useState<string | null>(null);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -32,25 +29,6 @@ export function Navbar() {
   const phoneDisplay = settings.contact_phone || '+91 98765 43210';
   const cleanPhone = phoneDisplay.replace(/[^0-9+]/g, '');
   const phoneHref = `tel:${cleanPhone}`;
-
-  const rawWhatsapp = settings.contact_whatsapp || '919876543210';
-  const cleanWhatsapp = rawWhatsapp.replace(/[^0-9]/g, '') || '919876543210';
-  const whatsappUrl = `https://wa.me/${cleanWhatsapp}?text=${encodeURIComponent(
-    `Hello ${settings.company_name || 'Defining Events'}, I would like to enquire about planning an event.`
-  )}`;
-
-  useEffect(() => {
-    QRCode.toDataURL(phoneHref, {
-      margin: 1,
-      width: 160,
-      color: {
-        dark: '#08080A',
-        light: '#FFA01C',
-      },
-    })
-      .then((url) => setQrCodeUrl(url))
-      .catch(() => {});
-  }, [phoneHref]);
 
   // Scrollspy: automatically light up the active header navigation link based on scroll position
   useEffect(() => {
@@ -135,21 +113,14 @@ export function Navbar() {
     }
   };
 
-  const handlePhoneClick = (e?: React.MouseEvent) => {
-    if (e) {
-      e.preventDefault();
-    }
+  const handlePhoneClick = (_e?: React.MouseEvent) => {
+    // Connect directly to the call app like phone
+    try {
+      window.location.href = phoneHref;
+    } catch {}
+
     setMobileOpen(false);
     setConciergeModalOpen(true);
-
-    const isMobile =
-      typeof navigator !== 'undefined' &&
-      /iPhone|iPad|iPod|Android|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-    if (isMobile) {
-      try {
-        window.location.href = phoneHref;
-      } catch {}
-    }
   };
 
   const handleCopyPhone = async () => {
@@ -169,39 +140,6 @@ export function Navbar() {
       setCopiedPhone(true);
       setTimeout(() => setCopiedPhone(false), 2500);
     } catch {}
-  };
-
-  const handleWhatsAppClick = () => {
-    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
-  };
-
-  const handleCallAtelierClick = (e: React.MouseEvent) => {
-    const isMobile =
-      typeof navigator !== 'undefined' &&
-      /iPhone|iPad|iPod|Android|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-
-    if (isMobile) {
-      window.location.href = phoneHref;
-      return;
-    }
-
-    e.preventDefault();
-    handleCopyPhone();
-    setCallFeedback('Calling... (Number Copied! ✓)');
-
-    // 1. Open WhatsApp Web to initiate direct voice call or chat on laptop
-    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
-
-    // 2. Attempt system dialer (Phone Link / Skype / FaceTime) without cancelling the window.open call
-    setTimeout(() => {
-      try {
-        window.location.href = phoneHref;
-      } catch {}
-    }, 200);
-
-    setTimeout(() => {
-      setCallFeedback(null);
-    }, 4500);
   };
 
   useEffect(() => {
@@ -363,129 +301,50 @@ export function Navbar() {
             aria-labelledby="concierge-dialog-title"
           >
             <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 15 }}
+              initial={{ opacity: 0, scale: 0.95, y: 10 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 15 }}
-              transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
+              exit={{ opacity: 0, scale: 0.95, y: 10 }}
+              transition={{ duration: 0.2 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-sm sm:max-w-md rounded-xl border border-[#FFA01C]/40 bg-[#0E0E14] p-5 sm:p-6 shadow-[0_0_60px_rgba(255,160,28,0.25)] text-[#FAF8F5]"
+              className="relative w-full max-w-xs sm:max-w-sm rounded-xl border border-[#FFA01C]/40 bg-[#0E0E14] p-5 shadow-[0_0_40px_rgba(255,160,28,0.25)] text-[#FAF8F5]"
             >
               {/* Close Button */}
               <button
                 type="button"
                 onClick={() => setConciergeModalOpen(false)}
                 aria-label="Close dialog"
-                className="absolute top-4 right-4 flex h-8 w-8 items-center justify-center rounded-sm border border-white/10 text-[#FAF8F5]/70 hover:border-[#FFA01C] hover:text-[#FFA01C] transition-colors cursor-pointer"
+                className="absolute top-3.5 right-3.5 flex h-7 w-7 items-center justify-center rounded-sm border border-white/10 text-[#FAF8F5]/70 hover:border-[#FFA01C] hover:text-[#FFA01C] transition-colors cursor-pointer"
               >
                 <X className="h-4 w-4" />
               </button>
 
-              {/* Title & Brand Header */}
-              <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.28em] text-[#FFA01C] font-semibold mb-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#FFA01C] shadow-[0_0_8px_#FFA01C]" />
-                <span>Atelier VIP Concierge</span>
-              </div>
-              <h3 id="concierge-dialog-title" className="font-serif text-2xl sm:text-3xl font-normal text-[#FAF8F5]">
-                Direct Connection
-              </h3>
-              <p className="mt-1.5 text-xs text-[#FAF8F5]/70 font-light leading-relaxed">
-                Connect directly with our event directors for royal weddings, palatial galas, and bespoke productions.
+              {/* Title & Phone Number */}
+              <p className="text-[10px] uppercase tracking-[0.25em] text-[#FFA01C] font-semibold mb-1">
+                Direct Line
               </p>
+              <h3 id="concierge-dialog-title" className="font-serif text-2xl font-normal text-[#FAF8F5]">
+                {phoneDisplay}
+              </h3>
 
-              {/* Direct Phone Number Box */}
-              <div className="mt-5 rounded-lg border border-[#FFA01C]/30 bg-[#14141E] p-4 text-center">
-                <p className="text-[10px] uppercase tracking-[0.2em] text-[#FFA01C]/80 font-medium mb-1">
-                  Direct Line
-                </p>
-                <p className="font-serif text-xl sm:text-2xl font-medium tracking-wider text-[#FFA01C]">
-                  {phoneDisplay}
-                </p>
-                <p className="mt-1 text-[11px] text-[#FAF8F5]/50">
-                  Mon – Sun • 24/7 Private Client Desk
-                </p>
-              </div>
-
-              {/* Action Buttons */}
+              {/* Action Buttons: Only Call and Copy */}
               <div className="mt-5 space-y-2.5">
-                {/* 1. Call Now */}
-                <button
-                  type="button"
-                  onClick={handleCallAtelierClick}
-                  className="flex items-center justify-center gap-2.5 w-full rounded-sm bg-gradient-to-r from-[#FFA01C] via-[#FFB84D] to-[#E68A00] py-3 text-xs font-semibold uppercase tracking-[0.16em] text-[#08080A] shadow-[0_0_20px_rgba(255,160,28,0.35)] hover:shadow-[0_0_30px_rgba(255,160,28,0.6)] hover:scale-[1.01] transition-all cursor-pointer font-bold"
+                <a
+                  href={phoneHref}
+                  onClick={() => {
+                    try {
+                      window.location.href = phoneHref;
+                    } catch {}
+                  }}
+                  className="flex items-center justify-center gap-2.5 w-full rounded-sm bg-gradient-to-r from-[#FFA01C] via-[#FFB84D] to-[#E68A00] py-3 text-xs font-semibold uppercase tracking-[0.16em] text-[#08080A] shadow-[0_0_20px_rgba(255,160,28,0.35)] hover:shadow-[0_0_30px_rgba(255,160,28,0.6)] transition-all cursor-pointer font-bold"
                 >
                   <Phone className="h-4 w-4 fill-current" />
-                  <span>{callFeedback ? callFeedback : 'Call Atelier Now'}</span>
-                </button>
+                  <span>Call Now</span>
+                </a>
 
-                {/* Laptop Quick Dial & Scan-To-Call Assistant */}
-                <div className="rounded-lg border border-[#FFA01C]/25 bg-[#14141E]/90 p-3 sm:p-3.5 text-left">
-                  <div className="flex items-center justify-between text-[10px] uppercase tracking-[0.2em] text-[#FFA01C] font-semibold mb-2">
-                    <span className="flex items-center gap-1.5">
-                      <QrCode className="h-3.5 w-3.5" />
-                      <span>Laptop Quick Dial</span>
-                    </span>
-                    <span className="text-[9px] text-[#FAF8F5]/50 font-normal">or scan with phone</span>
-                  </div>
-
-                  <div className="flex items-center gap-3">
-                    {/* QR Code */}
-                    {qrCodeUrl && (
-                      <div className="shrink-0 rounded-md border border-[#FFA01C]/50 bg-[#FFA01C] p-1 shadow-[0_0_12px_rgba(255,160,28,0.3)]">
-                        <img
-                          src={qrCodeUrl}
-                          alt={`Scan to Call ${phoneDisplay}`}
-                          className="h-16 w-16 sm:h-20 sm:w-20 rounded-xs"
-                        />
-                      </div>
-                    )}
-
-                    {/* Laptop Call Instructions & Actions */}
-                    <div className="flex-1 min-w-0 space-y-1.5">
-                      <p className="text-[11px] leading-snug text-[#FAF8F5]/85 font-light">
-                        <strong className="text-[#FFA01C] font-medium">Scan with your phone camera</strong> to dial immediately, or connect via:
-                      </p>
-                      <div className="flex flex-wrap gap-1.5 pt-0.5">
-                        <button
-                          type="button"
-                          onClick={handleWhatsAppClick}
-                          className="inline-flex items-center gap-1 rounded-xs border border-[#25D366]/40 bg-[#25D366]/10 px-2 py-1 text-[9.5px] uppercase tracking-wider text-[#25D366] hover:bg-[#25D366] hover:text-[#08080A] transition-colors cursor-pointer"
-                        >
-                          <MessageCircle className="h-3 w-3" />
-                          <span>WhatsApp Call</span>
-                        </button>
-                        <button
-                          type="button"
-                          onClick={() => {
-                            handleCopyPhone();
-                            try {
-                              window.location.href = phoneHref;
-                            } catch {}
-                          }}
-                          className="inline-flex items-center gap-1 rounded-xs border border-[#FFA01C]/40 bg-[#121217] px-2 py-1 text-[9.5px] uppercase tracking-wider text-[#FFA01C] hover:bg-[#FFA01C] hover:text-[#08080A] transition-colors cursor-pointer"
-                        >
-                          <Phone className="h-3 w-3" />
-                          <span>System App</span>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* 2. WhatsApp Concierge */}
-                <button
-                  type="button"
-                  onClick={handleWhatsAppClick}
-                  className="flex items-center justify-center gap-2.5 w-full rounded-sm border border-[#25D366]/60 bg-[#25D366]/10 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-[#25D366] hover:bg-[#25D366] hover:text-[#08080A] transition-all cursor-pointer"
-                >
-                  <MessageCircle className="h-4 w-4" />
-                  <span>Chat on WhatsApp</span>
-                </button>
-
-                {/* 3. Copy Phone Number */}
                 <button
                   type="button"
                   onClick={handleCopyPhone}
-                  className="flex items-center justify-center gap-2 w-full rounded-sm border border-white/10 bg-[#121217] py-2.5 text-xs font-medium uppercase tracking-[0.14em] text-[#FAF8F5]/90 hover:border-[#FFA01C] hover:text-[#FFA01C] transition-all cursor-pointer"
+                  className="flex items-center justify-center gap-2 w-full rounded-sm border border-white/15 bg-[#121217] py-2.5 text-xs font-medium uppercase tracking-[0.14em] text-[#FAF8F5] hover:border-[#FFA01C] hover:text-[#FFA01C] transition-all cursor-pointer"
                 >
                   {copiedPhone ? (
                     <>
@@ -495,24 +354,9 @@ export function Navbar() {
                   ) : (
                     <>
                       <Copy className="h-3.5 w-3.5 text-[#FFA01C]" />
-                      <span>Copy Phone Number</span>
+                      <span>Copy Number</span>
                     </>
                   )}
-                </button>
-              </div>
-
-              {/* Secondary Option: Scroll to Contact Form */}
-              <div className="mt-4 text-center border-t border-white/10 pt-3">
-                <button
-                  type="button"
-                  onClick={() => {
-                    setConciergeModalOpen(false);
-                    scrollToSection('contact');
-                  }}
-                  className="inline-flex items-center gap-1.5 text-xs text-[#FAF8F5]/60 hover:text-[#FFA01C] transition-colors cursor-pointer"
-                >
-                  <span>Or submit your celebration inquiry online</span>
-                  <ArrowRight className="h-3 w-3" />
                 </button>
               </div>
             </motion.div>
