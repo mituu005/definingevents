@@ -51,27 +51,24 @@ export function StatsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.6, delay: index * 0.08 }}
-                className="group relative overflow-hidden rounded-xl border border-[#FFA01C]/25 bg-gradient-to-b from-[#14141C] to-[#0E0E14] p-7 sm:p-8 backdrop-blur-xl shadow-xl transition-all duration-300 hover:border-[#FFA01C]/70 hover:shadow-[0_0_35px_rgba(255,160,28,0.25)] hover:-translate-y-1"
+                className="group relative overflow-hidden rounded-xl border border-white/10 bg-[#121217]/90 p-7 sm:p-8 backdrop-blur-xl shadow-2xl transition-all duration-300 hover:border-white/20 hover:-translate-y-1"
               >
-                {/* Radiant top gold accent line */}
-                <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#FFA01C] to-transparent opacity-60 group-hover:opacity-100 transition-opacity duration-300" />
-
                 <div className="flex items-center justify-end mb-5">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-full border border-[#FFA01C]/40 bg-[#FFA01C]/15 text-[#FFA01C] transition-all duration-300 group-hover:scale-110 group-hover:bg-[#FFA01C] group-hover:text-[#08080A]">
-                    <Icon className="h-5 w-5" />
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full border border-[#FFA01C]/30 bg-[#FFA01C]/10 text-[#FFA01C] transition-all">
+                    <Icon className="h-4 w-4" />
                   </div>
                 </div>
 
-                {/* High-Impact Number - Bigger & Bolder */}
-                <div className="font-serif text-6xl sm:text-7xl lg:text-[4.6rem] font-normal tracking-tight gold-gradient-text drop-shadow-[0_0_25px_rgba(255,160,28,0.35)] leading-none">
+                {/* High-Impact Number */}
+                <div className="font-serif text-6xl sm:text-7xl font-normal tracking-tight gold-gradient-text drop-shadow-[0_0_25px_rgba(255,160,28,0.35)]">
                   {stat.value}
                 </div>
 
-                <h2 className="mt-4 text-[13px] sm:text-[14px] font-semibold uppercase tracking-[0.2em] text-[#FAF8F5] leading-snug">
+                <h2 className="mt-3.5 text-sm sm:text-base font-semibold uppercase tracking-[0.18em] text-[#FAF8F5]">
                   {stat.label}
                 </h2>
 
-                <p className="mt-2 text-xs sm:text-[13.5px] text-[#FAF8F5]/80 font-light leading-relaxed">
+                <p className="mt-2 text-xs sm:text-sm text-[#FAF8F5]/75 font-light leading-relaxed">
                   {stat.sub}
                 </p>
               </motion.div>

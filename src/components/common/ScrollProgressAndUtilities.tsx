@@ -14,7 +14,9 @@ export function ScrollProgressAndUtilities() {
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
       const pct = docHeight > 0 ? Math.min(100, Math.max(0, (scrollTop / docHeight) * 100)) : 0;
       setProgress(pct);
-      setShowTop(scrollTop > 500);
+      // Only show floating actions after scrolling past the hero and stats section (>1100px)
+      // to keep credentials and trust metrics table 100% clean and unobstructed
+      setShowTop(scrollTop > 1100);
       setIsNearBottom(scrollTop + window.innerHeight > document.documentElement.scrollHeight - 600);
     };
 
@@ -56,7 +58,7 @@ export function ScrollProgressAndUtilities() {
           </button>
         )}
 
-        {!isNearBottom && (
+        {showTop && !isNearBottom && (
           <button
             type="button"
             onClick={handleWhatsAppClick}
