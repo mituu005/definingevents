@@ -47,19 +47,19 @@ export function ProcessSection() {
   return (
     <section
       id="process"
-      className="relative bg-[#08080A] text-[#FAF8F5] py-16 sm:py-24 border-t border-[#FFA01C]/15 overflow-hidden"
+      className="relative bg-[#08080A] text-[#FAF8F5] py-12 sm:py-16 border-t border-[#FFA01C]/15 overflow-hidden"
     >
-      <div className="mx-auto max-w-6xl px-5 sm:px-8">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6">
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16 sm:mb-20">
-          <div className="inline-flex items-center gap-2 text-[10.5px] uppercase tracking-[0.3em] text-[#FFA01C] mb-2 font-semibold">
+        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
+          <div className="inline-flex items-center gap-1.5 text-[10.5px] uppercase tracking-[0.3em] text-[#FFA01C] mb-2 font-semibold">
             <span className="h-1.5 w-1.5 rounded-full bg-[#FFA01C] animate-pulse" />
             <span>Step-By-Step Process</span>
           </div>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal leading-tight">
+          <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-normal leading-tight">
             Our Six-Stage <span className="gold-gradient-text italic font-serif">Methodology</span>
           </h2>
-          <p className="mt-3 text-xs sm:text-sm text-[#FAF8F5]/70 font-light leading-relaxed">
+          <p className="mt-2 text-xs sm:text-[13px] text-[#FAF8F5]/70 font-light leading-relaxed">
             An unbroken, carefully orchestrated journey from your first creative consultation to flawless showtime.
           </p>
         </div>
@@ -108,7 +108,7 @@ export function ProcessSection() {
           </svg>
 
           {/* Row 1 (Steps 1, 2, 3) */}
-          <div className="grid grid-cols-3 gap-8 relative z-10 mb-28">
+          <div className="grid grid-cols-3 gap-6 relative z-10 mb-20">
             {row1.map((stage, idx) => {
               const Icon = stage.icon;
               return (
@@ -121,23 +121,23 @@ export function ProcessSection() {
                   className="flex flex-col items-center text-center group"
                 >
                   {/* Circular Node Sitting Directly on the Pipeline Line */}
-                  <div className="relative mb-4 flex h-24 w-24 items-center justify-center rounded-full border-2 border-[#FFA01C] bg-[#121217] shadow-[0_0_25px_rgba(255,160,28,0.35)] transition-all duration-300 group-hover:scale-110 group-hover:border-[#FFB84D] group-hover:shadow-[0_0_40px_rgba(255,160,28,0.6)]">
-                    <div className="absolute inset-1.5 rounded-full border border-[#FFA01C]/30 bg-[#08080A]/80" />
-                    <Icon className="relative z-10 h-8 w-8 text-[#FFA01C] transition-transform duration-300 group-hover:scale-110" />
+                  <div className="relative mb-3 flex h-20 w-20 items-center justify-center rounded-full border-2 border-[#FFA01C] bg-[#121217] shadow-[0_0_20px_rgba(255,160,28,0.3)] transition-all duration-300 group-hover:scale-105 group-hover:border-[#FFB84D] group-hover:shadow-[0_0_30px_rgba(255,160,28,0.5)]">
+                    <div className="absolute inset-1 rounded-full border border-[#FFA01C]/30 bg-[#08080A]/80" />
+                    <Icon className="relative z-10 h-6 w-6 text-[#FFA01C] transition-transform duration-300 group-hover:scale-110" />
 
                     {/* Step Badge */}
-                    <span className="absolute -top-2.5 bg-[#08080A] border border-[#FFA01C]/60 text-[#FFA01C] text-[9.5px] font-mono uppercase px-2 py-0.5 rounded-full font-semibold shadow-md">
+                    <span className="absolute -top-2 bg-[#08080A] border border-[#FFA01C]/60 text-[#FFA01C] text-[9px] font-mono uppercase px-1.5 py-0.2 rounded-full font-semibold shadow-md">
                       {stage.step}
                     </span>
                   </div>
 
                   {/* Clean, Uncluttered Step Title */}
-                  <h3 className="font-serif text-lg sm:text-xl font-normal text-[#FAF8F5] group-hover:text-[#FFA01C] transition-colors">
+                  <h3 className="font-serif text-base sm:text-lg font-normal text-[#FAF8F5] group-hover:text-[#FFA01C] transition-colors">
                     {stage.title}
                   </h3>
 
                   {/* Short, Meaningful Phrase (No Clutter) */}
-                  <p className="mt-1.5 max-w-[220px] text-xs sm:text-[13px] leading-relaxed text-[#FAF8F5]/70 font-light">
+                  <p className="mt-1 max-w-[200px] text-[11.5px] leading-relaxed text-[#FAF8F5]/70 font-light">
                     {stage.desc}
                   </p>
                 </motion.div>
@@ -146,7 +146,7 @@ export function ProcessSection() {
           </div>
 
           {/* Row 2 (Steps 4, 5, 6) */}
-          <div className="grid grid-cols-3 gap-8 relative z-10">
+          <div className="grid grid-cols-3 gap-6 relative z-10">
             {row2.map((stage, idx) => {
               const Icon = stage.icon;
               return (
@@ -159,22 +159,22 @@ export function ProcessSection() {
                   className="flex flex-col items-center text-center group"
                 >
                   {/* Circular Node Sitting Directly on the Pipeline Line */}
-                  <div className="relative mb-4 flex h-24 w-24 items-center justify-center rounded-full border-2 border-[#FFA01C] bg-[#121217] shadow-[0_0_25px_rgba(255,160,28,0.35)] transition-all duration-300 group-hover:scale-110 group-hover:border-[#FFB84D] group-hover:shadow-[0_0_40px_rgba(255,160,28,0.6)]">
-                    <div className="absolute inset-1.5 rounded-full border border-[#FFA01C]/30 bg-[#08080A]/80" />
-                    <Icon className="relative z-10 h-8 w-8 text-[#FFA01C] transition-transform duration-300 group-hover:scale-110" />
+                  <div className="relative mb-3 flex h-20 w-20 items-center justify-center rounded-full border-2 border-[#FFA01C] bg-[#121217] shadow-[0_0_20px_rgba(255,160,28,0.3)] transition-all duration-300 group-hover:scale-105 group-hover:border-[#FFB84D] group-hover:shadow-[0_0_30px_rgba(255,160,28,0.5)]">
+                    <div className="absolute inset-1 rounded-full border border-[#FFA01C]/30 bg-[#08080A]/80" />
+                    <Icon className="relative z-10 h-6 w-6 text-[#FFA01C] transition-transform duration-300 group-hover:scale-110" />
 
-                    <span className="absolute -top-2.5 bg-[#08080A] border border-[#FFA01C]/60 text-[#FFA01C] text-[9.5px] font-mono uppercase px-2 py-0.5 rounded-full font-semibold shadow-md">
+                    <span className="absolute -top-2 bg-[#08080A] border border-[#FFA01C]/60 text-[#FFA01C] text-[9px] font-mono uppercase px-1.5 py-0.2 rounded-full font-semibold shadow-md">
                       {stage.step}
                     </span>
                   </div>
 
                   {/* Clean, Uncluttered Step Title */}
-                  <h3 className="font-serif text-lg sm:text-xl font-normal text-[#FAF8F5] group-hover:text-[#FFA01C] transition-colors">
+                  <h3 className="font-serif text-base sm:text-lg font-normal text-[#FAF8F5] group-hover:text-[#FFA01C] transition-colors">
                     {stage.title}
                   </h3>
 
                   {/* Short, Meaningful Phrase (No Clutter) */}
-                  <p className="mt-1.5 max-w-[220px] text-xs sm:text-[13px] leading-relaxed text-[#FAF8F5]/70 font-light">
+                  <p className="mt-1 max-w-[200px] text-[11.5px] leading-relaxed text-[#FAF8F5]/70 font-light">
                     {stage.desc}
                   </p>
                 </motion.div>

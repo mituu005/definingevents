@@ -13,12 +13,12 @@ export function TestimonialsSection() {
   return (
     <section
       id="testimonials"
-      className="relative bg-[#08080A] text-[#FAF8F5] py-14 sm:py-20 border-t border-[#FFA01C]/15 overflow-hidden"
+      className="relative bg-[#08080A] text-[#FAF8F5] py-10 sm:py-14 border-t border-[#FFA01C]/15 overflow-hidden"
     >
       {/* Ambient background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[radial-gradient(ellipse,_rgba(255,160,28,0.06)_0%,_transparent_70%)] pointer-events-none" />
 
-      <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6">
+      <div className="relative z-10 mx-auto max-w-5xl px-4 sm:px-6">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
           <div className="inline-flex items-center gap-2 rounded-full border border-[#FFA01C]/40 bg-[#FFA01C]/10 px-3.5 py-1 text-[10px] uppercase tracking-[0.25em] text-[#FFA01C] mb-3">

@@ -89,35 +89,35 @@ export function ContactSection() {
   )}`;
 
   return (
-    <section id="contact" className="relative bg-[#08080A] text-[#FAF8F5] py-20 sm:py-28 border-t border-[#FFA01C]/20">
-      <div className="mx-auto max-w-7xl px-5 sm:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+    <section id="contact" className="relative bg-[#08080A] text-[#FAF8F5] py-12 sm:py-16 border-t border-[#FFA01C]/20">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
           {/* Left Consultation Column */}
           <div className="lg:col-span-5">
-            <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-[#FFA01C] mb-3 font-semibold">
+            <div className="inline-flex items-center gap-1.5 text-[10.5px] uppercase tracking-[0.3em] text-[#FFA01C] mb-2 font-semibold">
               <span className="h-1.5 w-1.5 rounded-full bg-[#FFA01C]" />
               <span>Direct Concierge</span>
             </div>
-            <h2 className="font-serif text-3xl sm:text-5xl font-normal leading-[1.1]">
+            <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-normal leading-[1.1]">
               Plan Your <span className="gold-gradient-text italic font-serif">Milestone</span>
             </h2>
-            <p className="mt-4 text-sm sm:text-base leading-relaxed text-[#FAF8F5]/80 font-light">
+            <p className="mt-3 text-xs sm:text-[13px] leading-relaxed text-[#FAF8F5]/80 font-light">
               Send a quick 30-second inquiry or connect directly with our event directors on WhatsApp.
             </p>
 
-            <div className="mt-8 space-y-4 border-t border-white/10 pt-6">
+            <div className="mt-6 space-y-3 border-t border-white/10 pt-5">
               <a
                 href={`tel:${cleanPhone}`}
-                className="flex items-center gap-3.5 p-3 rounded-lg border border-white/5 bg-[#121217]/60 hover:border-[#FFA01C]/50 transition-colors group"
+                className="flex items-center gap-3 p-2.5 rounded-lg border border-white/5 bg-[#121217]/60 hover:border-[#FFA01C]/50 transition-colors group"
               >
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#FFA01C]/15 border border-[#FFA01C]/40 text-[#FFA01C] group-hover:bg-[#FFA01C] group-hover:text-[#08080A] transition-all">
-                  <Phone className="h-4 w-4" />
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#FFA01C]/15 border border-[#FFA01C]/40 text-[#FFA01C] group-hover:bg-[#FFA01C] group-hover:text-[#08080A] transition-all">
+                  <Phone className="h-3.5 w-3.5" />
                 </div>
                 <div>
-                  <p className="text-[10px] uppercase tracking-[0.2em] text-[#FFA01C]">
+                  <p className="text-[9.5px] uppercase tracking-[0.2em] text-[#FFA01C]">
                     Call Atelier Directly
                   </p>
-                  <p className="text-sm font-medium text-[#FAF8F5] group-hover:text-[#FFA01C] transition-colors">
+                  <p className="text-xs sm:text-sm font-medium text-[#FAF8F5] group-hover:text-[#FFA01C] transition-colors">
                     {rawPhone}
                   </p>
                 </div>
@@ -127,23 +127,23 @@ export function ContactSection() {
                 href={whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3.5 p-3 rounded-lg border border-[#FFA01C]/30 bg-[#121217]/80 hover:bg-[#FFA01C]/15 transition-colors group"
+                className="flex items-center gap-3 p-2.5 rounded-lg border border-[#FFA01C]/30 bg-[#121217]/80 hover:bg-[#FFA01C]/15 transition-colors group"
               >
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#FFA01C] text-[#08080A]">
-                  <MessageCircle className="h-4 w-4" />
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#FFA01C] text-[#08080A]">
+                  <MessageCircle className="h-3.5 w-3.5" />
                 </div>
                 <div>
-                  <p className="text-[10px] uppercase tracking-[0.2em] text-[#FFA01C] font-semibold">
+                  <p className="text-[9.5px] uppercase tracking-[0.2em] text-[#FFA01C] font-semibold">
                     Instant WhatsApp Concierge
                   </p>
-                  <p className="text-sm font-medium text-[#FAF8F5]">
+                  <p className="text-xs sm:text-sm font-medium text-[#FAF8F5]">
                     Chat with an Event Director Now ➔
                   </p>
                 </div>
               </a>
 
               {settings.contact_email && (
-                <div className="flex items-center gap-3.5 px-3 py-2 text-xs text-[#FAF8F5]/60">
+                <div className="flex items-center gap-3 px-3 py-1.5 text-xs text-[#FAF8F5]/60">
                   <Mail className="h-3.5 w-3.5 text-[#FFA01C]" />
                   <span>{settings.contact_email}</span>
                 </div>
@@ -152,7 +152,7 @@ export function ContactSection() {
           </div>
 
           {/* Right Compact Form Card */}
-          <div className="lg:col-span-7 rounded-xl border border-[#FFA01C]/30 bg-gradient-to-b from-[#14141D] to-[#0E0E14] p-6 sm:p-8 backdrop-blur-md shadow-2xl">
+          <div className="lg:col-span-7 rounded-xl border border-[#FFA01C]/30 bg-gradient-to-b from-[#14141D] to-[#0E0E14] p-5 sm:p-6 backdrop-blur-md shadow-2xl">
             {submitted ? (
               <div className="py-12 text-center">
                 <CheckCircle2 className="mx-auto h-12 w-12 text-[#FFA01C]" />

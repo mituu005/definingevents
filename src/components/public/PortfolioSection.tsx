@@ -53,28 +53,28 @@ export function PortfolioSection() {
   };
 
   return (
-    <section id="portfolio" className="bg-[#08080A] text-[#FAF8F5] py-28 sm:py-36 border-t border-[#FFA01C]/15">
-      <div className="mx-auto max-w-7xl px-6 sm:px-8">
+    <section id="portfolio" className="bg-[#08080A] text-[#FAF8F5] py-12 sm:py-16 border-t border-[#FFA01C]/15">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6">
         {/* Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-12 pb-8 border-b border-[#FFA01C]/20">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4 mb-8 pb-5 border-b border-[#FFA01C]/20">
           <div>
-            <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.32em] text-[#FFA01C] mb-3 font-semibold">
+            <div className="inline-flex items-center gap-1.5 text-[10.5px] uppercase tracking-[0.3em] text-[#FFA01C] mb-2 font-semibold">
               <span className="h-1.5 w-1.5 rounded-full bg-[#FFA01C]" />
               <span>Selected Commissions</span>
             </div>
-            <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-normal leading-tight">
+            <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-normal leading-tight">
               Featured Event <span className="gold-gradient-text italic font-serif">Portfolio</span>
             </h2>
           </div>
 
-          <p className="max-w-md text-sm leading-relaxed text-[#FAF8F5]/75 font-light">
+          <p className="max-w-md text-xs sm:text-[13px] leading-relaxed text-[#FAF8F5]/75 font-light">
             Every celebration in our archive is dynamically published from our studio database—tailored
             exclusively to its architecture, venue, and host.
           </p>
         </div>
 
         {/* Category Filters */}
-        <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-12">
+        <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 mb-8">
           {categories.map((cat) => {
             const active = selectedCategory === cat;
             return (
@@ -82,9 +82,9 @@ export function PortfolioSection() {
                 key={cat}
                 type="button"
                 onClick={() => setSelectedCategory(cat)}
-                className={`px-4 py-2 text-[11px] uppercase tracking-[0.2em] rounded-sm transition-all duration-300 font-medium ${
+                className={`px-3 py-1.5 text-[10px] uppercase tracking-[0.2em] rounded-sm transition-all duration-300 font-medium ${
                   active
-                    ? 'border border-[#FFA01C] bg-[#FFA01C] text-[#08080A] shadow-[0_0_20px_rgba(255,160,28,0.4)]'
+                    ? 'border border-[#FFA01C] bg-[#FFA01C] text-[#08080A] shadow-[0_0_15px_rgba(255,160,28,0.4)]'
                     : 'border border-[#FFA01C]/25 bg-[#121217]/60 text-[#FAF8F5]/70 hover:border-[#FFA01C] hover:text-[#FFA01C]'
                 }`}
               >

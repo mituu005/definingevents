@@ -23,6 +23,15 @@
     font-family: var(--font-sans);
     background-color: #08080A;
     color: #FAF8F5;
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  @media (min-width: 1600px) {
+    html {
+      font-size: 15px;
+    }
   }
 
   h1, h2, h3, h4, h5, h6 {

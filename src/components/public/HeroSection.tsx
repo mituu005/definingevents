@@ -96,14 +96,14 @@ export function HeroSection() {
       {/* Center Monumental Content */}
       <motion.div
         style={{ opacity: textOpacity, y: textY }}
-        className="relative z-10 mx-auto max-w-5xl px-6 pt-32 sm:pt-40 pb-16 text-center flex-1 flex flex-col justify-center items-center"
+        className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 pt-24 sm:pt-32 pb-12 text-center flex-1 flex flex-col justify-center items-center"
       >
         {/* Dynamic Celebration Headline */}
         <motion.h1
           initial={{ opacity: 0, y: 22 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-          className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-[5.4rem] font-normal leading-[1.04] tracking-tight text-[#FAF8F5]"
+          className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-normal leading-[1.08] tracking-tight text-[#FAF8F5]"
         >
           {(() => {
             const headline = settings.hero_headline;
@@ -147,23 +147,23 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.85, delay: 0.5 }}
-          className="mt-10 sm:mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5 w-full sm:w-auto"
+          className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto"
         >
           {/* Radiant Primary CTA Button */}
           <button
             type="button"
             onClick={() => scrollTo('contact')}
-            className="group relative inline-flex w-full sm:w-auto items-center justify-center gap-3 overflow-hidden rounded-sm bg-gradient-to-r from-[#FFA01C] via-[#FFB84D] to-[#E68A00] px-8 py-4 text-xs font-semibold uppercase tracking-[0.24em] text-[#08080A] shadow-[0_0_30px_rgba(255,160,28,0.4)] transition-all duration-300 hover:shadow-[0_0_45px_rgba(255,160,28,0.65)] hover:scale-[1.02]"
+            className="group relative inline-flex w-full sm:w-auto items-center justify-center gap-2.5 overflow-hidden rounded-sm bg-gradient-to-r from-[#FFA01C] via-[#FFB84D] to-[#E68A00] px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-[#08080A] shadow-[0_0_25px_rgba(255,160,28,0.35)] transition-all duration-300 hover:shadow-[0_0_35px_rgba(255,160,28,0.55)] hover:scale-[1.02]"
           >
             <span>Plan Your Event</span>
-            <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+            <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
           </button>
 
           {/* Secondary Glass CTA */}
           <button
             type="button"
             onClick={() => scrollTo('portfolio')}
-            className="inline-flex w-full sm:w-auto items-center justify-center border border-[#FFA01C]/50 bg-[#121217]/80 px-8 py-4 text-xs font-medium uppercase tracking-[0.24em] text-[#FAF8F5] backdrop-blur-md transition-all duration-300 hover:border-[#FFA01C] hover:bg-[#FFA01C]/15 hover:text-[#FFA01C]"
+            className="inline-flex w-full sm:w-auto items-center justify-center border border-[#FFA01C]/50 bg-[#121217]/80 px-6 py-3 text-xs font-medium uppercase tracking-[0.2em] text-[#FAF8F5] backdrop-blur-md transition-all duration-300 hover:border-[#FFA01C] hover:bg-[#FFA01C]/15 hover:text-[#FFA01C]"
           >
             Explore Our Work
           </button>
@@ -172,12 +172,12 @@ export function HeroSection() {
           <button
             type="button"
             onClick={() => setShowreelOpen(true)}
-            className="inline-flex items-center gap-2.5 px-4 py-3 text-xs uppercase tracking-[0.2em] text-[#FAF8F5]/90 hover:text-[#FFA01C] transition-colors cursor-pointer group"
+            className="inline-flex items-center gap-2 px-3 py-2.5 text-xs uppercase tracking-[0.18em] text-[#FAF8F5]/90 hover:text-[#FFA01C] transition-colors cursor-pointer group"
           >
-            <span className="flex h-7 w-7 items-center justify-center rounded-full border border-[#FFA01C]/60 bg-[#FFA01C]/15 text-[#FFA01C] group-hover:scale-110 group-hover:bg-[#FFA01C] group-hover:text-[#08080A] transition-all">
-              <Play className="h-3 w-3 fill-current ml-0.5" />
+            <span className="flex h-6 w-6 items-center justify-center rounded-full border border-[#FFA01C]/60 bg-[#FFA01C]/15 text-[#FFA01C] group-hover:scale-110 group-hover:bg-[#FFA01C] group-hover:text-[#08080A] transition-all">
+              <Play className="h-2.5 w-2.5 fill-current ml-0.5" />
             </span>
-            <span className="group-hover:text-[#FFA01C] transition-colors font-medium">Watch Showreel</span>
+            <span className="group-hover:text-[#FFA01C] transition-colors font-medium text-[11px]">Watch Showreel</span>
           </button>
         </motion.div>
       </motion.div>

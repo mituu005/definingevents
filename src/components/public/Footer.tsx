@@ -53,12 +53,12 @@ export function Footer() {
 
   return (
     <footer className="bg-[#08080A] text-[#FAF8F5] border-t border-[#FFA01C]/25">
-      <div className="mx-auto max-w-7xl px-6 sm:px-8 py-16 sm:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6 py-10 sm:py-14">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8">
           {/* Brand Column */}
-          <div className="lg:col-span-4 space-y-5">
+          <div className="lg:col-span-4 space-y-3.5">
             <BrandMark tone="light" />
-            <p className="text-sm leading-relaxed text-[#FAF8F5]/75 font-light max-w-sm">
+            <p className="text-xs sm:text-[13px] leading-relaxed text-[#FAF8F5]/75 font-light max-w-sm">
               {settings.about_intro ||
                 'International luxury event planning, architectural scenography, and bespoke production studio.'}
             </p>
