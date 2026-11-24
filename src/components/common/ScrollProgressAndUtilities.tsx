@@ -44,13 +44,13 @@ export function ScrollProgressAndUtilities() {
       </div>
 
       {/* Floating Utilities */}
-      <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3 pointer-events-none">
+      <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex items-center gap-2 sm:gap-2.5 pointer-events-none">
         {showTop && (
           <button
             type="button"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             aria-label="Back to top"
-            className="pointer-events-auto flex h-11 w-11 items-center justify-center rounded-sm border border-[#FFA01C]/50 bg-[#08080A]/95 text-[#FAF8F5] shadow-lg backdrop-blur-md transition-all duration-300 hover:border-[#FFA01C] hover:bg-[#FFA01C] hover:text-[#08080A] cursor-pointer"
+            className="pointer-events-auto flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-full border border-[#FFA01C]/50 bg-[#08080A]/95 text-[#FAF8F5] shadow-lg backdrop-blur-md transition-all duration-300 hover:border-[#FFA01C] hover:bg-[#FFA01C] hover:text-[#08080A] cursor-pointer"
           >
             <ArrowUp className="h-4 w-4" />
           </button>
@@ -62,10 +62,10 @@ export function ScrollProgressAndUtilities() {
             onClick={handleWhatsAppClick}
             aria-label="Chat on WhatsApp"
             title="Chat with us on WhatsApp"
-            className="pointer-events-auto group flex items-center gap-2.5 rounded-sm border border-[#FFA01C] bg-[#08080A]/95 px-4 py-3 text-xs uppercase tracking-[0.2em] text-[#FAF8F5] shadow-[0_4px_25px_rgba(255,160,28,0.25)] transition-all duration-300 hover:bg-[#FFA01C] hover:text-[#08080A] cursor-pointer"
+            className="pointer-events-auto group flex items-center gap-2 rounded-full border border-[#FFA01C] bg-[#08080A]/95 px-3 py-2 sm:px-3.5 sm:py-2 text-[10.5px] uppercase tracking-[0.15em] text-[#FAF8F5] shadow-[0_4px_20px_rgba(255,160,28,0.3)] transition-all duration-300 hover:bg-[#FFA01C] hover:text-[#08080A] cursor-pointer"
           >
-            <MessageCircle className="h-4 w-4 text-[#FFA01C] transition-colors group-hover:text-[#08080A]" />
-            <span className="hidden sm:inline font-semibold">WhatsApp Concierge</span>
+            <MessageCircle className="h-3.5 w-3.5 text-[#FFA01C] transition-colors group-hover:text-[#08080A]" />
+            <span className="hidden md:inline font-medium">WhatsApp Concierge</span>
           </button>
         )}
       </div>

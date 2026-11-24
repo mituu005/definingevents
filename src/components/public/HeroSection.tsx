@@ -105,19 +105,41 @@ export function HeroSection() {
           transition={{ duration: 0.9, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
           className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-[5.4rem] font-normal leading-[1.04] tracking-tight text-[#FAF8F5]"
         >
-          {settings.hero_headline &&
-          settings.hero_headline !== 'Monumental Occasions. Beyond Expectations.' &&
-          !settings.hero_headline.includes('Monumental') &&
-          !settings.hero_headline.includes('Unforgettable Nights') ? (
-            settings.hero_headline
-          ) : (
-            <>
-              Exquisite Celebrations.{' '}
-              <span className="block font-serif italic gold-gradient-text mt-1">
-                Bespoke Event Architecture.
-              </span>
-            </>
-          )}
+          {(() => {
+            const headline = settings.hero_headline;
+            const isDefaultOrLegacy =
+              !headline ||
+              headline.includes('Beyond Events') ||
+              headline.includes('Beyond Expectations') ||
+              headline.includes('Monumental') ||
+              headline.includes('Unforgettable Nights') ||
+              headline.includes('Exquisite Celebrations');
+
+            if (isDefaultOrLegacy) {
+              return (
+                <>
+                  Exquisite Celebrations.{' '}
+                  <span className="block font-serif italic gold-gradient-text mt-1">
+                    Bespoke Event Architecture.
+                  </span>
+                </>
+              );
+            }
+
+            const parts = headline.split(/\. |\n/);
+            if (parts.length >= 2) {
+              return (
+                <>
+                  {parts[0]}.{' '}
+                  <span className="block font-serif italic gold-gradient-text mt-1">
+                    {parts.slice(1).join('. ')}
+                  </span>
+                </>
+              );
+            }
+
+            return headline;
+          })()}
         </motion.h1>
 
         {/* Interactive CTA Buttons */}
