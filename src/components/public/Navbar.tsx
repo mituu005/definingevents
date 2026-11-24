@@ -1,5 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import { ArrowRight, Check, Copy, Menu, MessageCircle, Phone, X } from 'lucide-react';
+import { ArrowRight, Check, Copy, Menu, MessageCircle, Phone, QrCode, X } from 'lucide-react';
+import QRCode from 'qrcode';
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { BrandMark } from '@/components/common/BrandMark';
@@ -22,6 +23,8 @@ export function Navbar() {
   const [activeSection, setActiveSection] = useState('hero');
   const [conciergeModalOpen, setConciergeModalOpen] = useState(false);
   const [copiedPhone, setCopiedPhone] = useState(false);
+  const [qrCodeUrl, setQrCodeUrl] = useState<string>('');
+  const [callFeedback, setCallFeedback] = useState<string | null>(null);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -35,6 +38,19 @@ export function Navbar() {
   const whatsappUrl = `https://wa.me/${cleanWhatsapp}?text=${encodeURIComponent(
     `Hello ${settings.company_name || 'Defining Events'}, I would like to enquire about planning an event.`
   )}`;
+
+  useEffect(() => {
+    QRCode.toDataURL(phoneHref, {
+      margin: 1,
+      width: 160,
+      color: {
+        dark: '#08080A',
+        light: '#FFA01C',
+      },
+    })
+      .then((url) => setQrCodeUrl(url))
+      .catch(() => {});
+  }, [phoneHref]);
 
   // Scrollspy: automatically light up the active header navigation link based on scroll position
   useEffect(() => {
@@ -157,6 +173,33 @@ export function Navbar() {
 
   const handleWhatsAppClick = () => {
     window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+  };
+
+  const handleCallAtelierClick = (e: React.MouseEvent) => {
+    const isMobile =
+      typeof navigator !== 'undefined' &&
+      /iPhone|iPad|iPod|Android|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+    if (isMobile) {
+      window.location.href = phoneHref;
+      return;
+    }
+
+    e.preventDefault();
+    handleCopyPhone();
+    setCallFeedback('Calling... (Number Copied! ✓)');
+
+    // 1. Attempt system dialer (Phone Link / Skype / FaceTime)
+    try {
+      window.location.href = phoneHref;
+    } catch {}
+
+    // 2. Open WhatsApp Web to initiate direct voice call or chat on laptop
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+
+    setTimeout(() => {
+      setCallFeedback(null);
+    }, 4500);
   };
 
   useEffect(() => {
@@ -363,13 +406,68 @@ export function Navbar() {
               {/* Action Buttons */}
               <div className="mt-5 space-y-2.5">
                 {/* 1. Call Now */}
-                <a
-                  href={phoneHref}
-                  className="flex items-center justify-center gap-2.5 w-full rounded-sm bg-gradient-to-r from-[#FFA01C] via-[#FFB84D] to-[#E68A00] py-3 text-xs font-semibold uppercase tracking-[0.16em] text-[#08080A] shadow-[0_0_20px_rgba(255,160,28,0.35)] hover:shadow-[0_0_30px_rgba(255,160,28,0.6)] transition-all cursor-pointer"
+                <button
+                  type="button"
+                  onClick={handleCallAtelierClick}
+                  className="flex items-center justify-center gap-2.5 w-full rounded-sm bg-gradient-to-r from-[#FFA01C] via-[#FFB84D] to-[#E68A00] py-3 text-xs font-semibold uppercase tracking-[0.16em] text-[#08080A] shadow-[0_0_20px_rgba(255,160,28,0.35)] hover:shadow-[0_0_30px_rgba(255,160,28,0.6)] hover:scale-[1.01] transition-all cursor-pointer font-bold"
                 >
                   <Phone className="h-4 w-4 fill-current" />
-                  <span>Call Atelier Now</span>
-                </a>
+                  <span>{callFeedback ? callFeedback : 'Call Atelier Now'}</span>
+                </button>
+
+                {/* Laptop Quick Dial & Scan-To-Call Assistant */}
+                <div className="rounded-lg border border-[#FFA01C]/25 bg-[#14141E]/90 p-3 sm:p-3.5 text-left">
+                  <div className="flex items-center justify-between text-[10px] uppercase tracking-[0.2em] text-[#FFA01C] font-semibold mb-2">
+                    <span className="flex items-center gap-1.5">
+                      <QrCode className="h-3.5 w-3.5" />
+                      <span>Laptop Quick Dial</span>
+                    </span>
+                    <span className="text-[9px] text-[#FAF8F5]/50 font-normal">or scan with phone</span>
+                  </div>
+
+                  <div className="flex items-center gap-3">
+                    {/* QR Code */}
+                    {qrCodeUrl && (
+                      <div className="shrink-0 rounded-md border border-[#FFA01C]/50 bg-[#FFA01C] p-1 shadow-[0_0_12px_rgba(255,160,28,0.3)]">
+                        <img
+                          src={qrCodeUrl}
+                          alt={`Scan to Call ${phoneDisplay}`}
+                          className="h-16 w-16 sm:h-20 sm:w-20 rounded-xs"
+                        />
+                      </div>
+                    )}
+
+                    {/* Laptop Call Instructions & Actions */}
+                    <div className="flex-1 min-w-0 space-y-1.5">
+                      <p className="text-[11px] leading-snug text-[#FAF8F5]/85 font-light">
+                        <strong className="text-[#FFA01C] font-medium">Scan with your phone camera</strong> to dial immediately, or connect via:
+                      </p>
+                      <div className="flex flex-wrap gap-1.5 pt-0.5">
+                        <button
+                          type="button"
+                          onClick={handleWhatsAppClick}
+                          className="inline-flex items-center gap-1 rounded-xs border border-[#25D366]/40 bg-[#25D366]/10 px-2 py-1 text-[9.5px] uppercase tracking-wider text-[#25D366] hover:bg-[#25D366] hover:text-[#08080A] transition-colors cursor-pointer"
+                        >
+                          <MessageCircle className="h-3 w-3" />
+                          <span>WhatsApp Call</span>
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            handleCopyPhone();
+                            try {
+                              window.location.href = phoneHref;
+                            } catch {}
+                          }}
+                          className="inline-flex items-center gap-1 rounded-xs border border-[#FFA01C]/40 bg-[#121217] px-2 py-1 text-[9.5px] uppercase tracking-wider text-[#FFA01C] hover:bg-[#FFA01C] hover:text-[#08080A] transition-colors cursor-pointer"
+                        >
+                          <Phone className="h-3 w-3" />
+                          <span>System App</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
                 {/* 2. WhatsApp Concierge */}
                 <button
