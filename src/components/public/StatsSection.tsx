@@ -38,37 +38,37 @@ export function StatsSection() {
     <section
       id="stats"
       aria-label="Agency Credentials"
-      className="relative z-20 pt-16 sm:pt-20 pb-20 sm:pb-28 bg-[#08080A] border-b border-white/5"
+      className="relative z-20 py-12 sm:py-16 bg-[#08080A] border-b border-white/5"
     >
-      <div className="mx-auto max-w-7xl px-5 sm:px-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-7">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
           {stats.map((stat, index) => {
             const Icon = stat.icon;
             return (
               <motion.div
                 key={stat.label}
-                initial={{ opacity: 0, y: 22 }}
+                initial={{ opacity: 0, y: 18 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.6, delay: index * 0.08 }}
-                className="group relative overflow-hidden rounded-xl border border-white/10 bg-[#121217]/90 p-7 sm:p-8 backdrop-blur-xl shadow-2xl transition-all duration-300 hover:border-white/20 hover:-translate-y-1"
+                transition={{ duration: 0.5, delay: index * 0.06 }}
+                className="group relative overflow-hidden rounded-xl border border-white/10 bg-[#121217]/90 p-5 sm:p-6 backdrop-blur-xl shadow-xl transition-all duration-300 hover:border-white/20 hover:-translate-y-0.5"
               >
-                <div className="flex items-center justify-end mb-5">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full border border-[#FFA01C]/30 bg-[#FFA01C]/10 text-[#FFA01C] transition-all">
-                    <Icon className="h-4 w-4" />
+                <div className="flex items-center justify-end mb-3.5">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full border border-[#FFA01C]/30 bg-[#FFA01C]/10 text-[#FFA01C] transition-all">
+                    <Icon className="h-3.5 w-3.5" />
                   </div>
                 </div>
 
-                {/* High-Impact Number */}
-                <div className="font-serif text-6xl sm:text-7xl font-normal tracking-tight gold-gradient-text drop-shadow-[0_0_25px_rgba(255,160,28,0.35)]">
+                {/* Elegant Luxury Number */}
+                <div className="font-serif text-4xl sm:text-5xl font-light tracking-tight gold-gradient-text drop-shadow-[0_0_18px_rgba(255,160,28,0.3)]">
                   {stat.value}
                 </div>
 
-                <h2 className="mt-3.5 text-sm sm:text-base font-semibold uppercase tracking-[0.18em] text-[#FAF8F5]">
+                <h2 className="mt-2.5 text-[11px] sm:text-xs font-semibold uppercase tracking-[0.18em] text-[#FAF8F5]">
                   {stat.label}
                 </h2>
 
-                <p className="mt-2 text-xs sm:text-sm text-[#FAF8F5]/75 font-light leading-relaxed">
+                <p className="mt-1 text-[11px] sm:text-xs text-[#FAF8F5]/65 font-light leading-relaxed">
                   {stat.sub}
                 </p>
               </motion.div>
@@ -76,51 +76,51 @@ export function StatsSection() {
           })}
         </div>
 
-        {/* Trust Metrics Highlight Table: Perfectly Proportioned, Gold Highlighted & Clear Typography */}
+        {/* Trust Metrics Highlight Table: Perfectly Proportioned, Crisp Typography */}
         <motion.div
-          initial={{ opacity: 0, y: 18 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.6, delay: 0.35 }}
-          className="group relative overflow-hidden mt-8 sm:mt-10 rounded-xl border border-[#FFA01C]/60 bg-[#121217]/95 py-7 sm:py-8 px-4 sm:px-8 backdrop-blur-xl shadow-[0_0_35px_rgba(255,160,28,0.2)] transition-all duration-300 hover:border-[#FFA01C] hover:shadow-[0_0_50px_rgba(255,160,28,0.35)]"
+          transition={{ duration: 0.5, delay: 0.25 }}
+          className="group relative overflow-hidden mt-6 sm:mt-7 rounded-xl border border-[#FFA01C]/50 bg-[#121217]/95 py-4 sm:py-5 px-3 sm:px-6 backdrop-blur-xl shadow-[0_0_30px_rgba(255,160,28,0.18)]"
         >
           {/* Top radiant gold accent glow */}
-          <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#FFA01C] to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-300" />
+          <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#FFA01C] to-transparent opacity-80" />
 
           {/* 4 Proportionally Divided Columns */}
           <div className="grid grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-white/10 lg:divide-[#FFA01C]/25 text-center">
-            <div className="flex flex-col items-center justify-center py-4 sm:py-2 px-3 sm:px-6">
-              <p className="font-serif text-4xl sm:text-5xl lg:text-6xl font-normal tracking-tight gold-gradient-text drop-shadow-[0_0_20px_rgba(255,160,28,0.3)]">
+            <div className="flex flex-col items-center justify-center py-2 sm:py-1 px-2 sm:px-4">
+              <p className="font-serif text-3xl sm:text-4xl font-light tracking-tight gold-gradient-text drop-shadow-[0_0_15px_rgba(255,160,28,0.3)]">
                 100%
               </p>
-              <h3 className="mt-2.5 text-xs sm:text-sm lg:text-[13px] font-semibold uppercase tracking-[0.2em] text-[#FAF8F5]">
+              <h3 className="mt-1.5 text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.2em] text-[#FAF8F5]">
                 5-Star Rated
               </h3>
             </div>
 
-            <div className="flex flex-col items-center justify-center py-4 sm:py-2 px-3 sm:px-6">
-              <p className="font-serif text-4xl sm:text-5xl lg:text-6xl font-normal tracking-tight gold-gradient-text drop-shadow-[0_0_20px_rgba(255,160,28,0.3)]">
+            <div className="flex flex-col items-center justify-center py-2 sm:py-1 px-2 sm:px-4">
+              <p className="font-serif text-3xl sm:text-4xl font-light tracking-tight gold-gradient-text drop-shadow-[0_0_15px_rgba(255,160,28,0.3)]">
                 500+
               </p>
-              <h3 className="mt-2.5 text-xs sm:text-sm lg:text-[13px] font-semibold uppercase tracking-[0.2em] text-[#FAF8F5]">
+              <h3 className="mt-1.5 text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.2em] text-[#FAF8F5]">
                 Landmarks Produced
               </h3>
             </div>
 
-            <div className="flex flex-col items-center justify-center py-4 sm:py-2 px-3 sm:px-6">
-              <p className="font-serif text-4xl sm:text-5xl lg:text-6xl font-normal tracking-tight gold-gradient-text drop-shadow-[0_0_20px_rgba(255,160,28,0.3)]">
+            <div className="flex flex-col items-center justify-center py-2 sm:py-1 px-2 sm:px-4">
+              <p className="font-serif text-3xl sm:text-4xl font-light tracking-tight gold-gradient-text drop-shadow-[0_0_15px_rgba(255,160,28,0.3)]">
                 28+
               </p>
-              <h3 className="mt-2.5 text-xs sm:text-sm lg:text-[13px] font-semibold uppercase tracking-[0.2em] text-[#FAF8F5]">
+              <h3 className="mt-1.5 text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.2em] text-[#FAF8F5]">
                 World Capitals
               </h3>
             </div>
 
-            <div className="flex flex-col items-center justify-center py-4 sm:py-2 px-3 sm:px-6">
-              <p className="font-serif text-4xl sm:text-5xl lg:text-6xl font-normal tracking-tight gold-gradient-text drop-shadow-[0_0_20px_rgba(255,160,28,0.3)]">
+            <div className="flex flex-col items-center justify-center py-2 sm:py-1 px-2 sm:px-4">
+              <p className="font-serif text-3xl sm:text-4xl font-light tracking-tight gold-gradient-text drop-shadow-[0_0_15px_rgba(255,160,28,0.3)]">
                 Flawless
               </p>
-              <h3 className="mt-2.5 text-xs sm:text-sm lg:text-[13px] font-semibold uppercase tracking-[0.2em] text-[#FAF8F5]">
+              <h3 className="mt-1.5 text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.2em] text-[#FAF8F5]">
                 Run of Show
               </h3>
             </div>
