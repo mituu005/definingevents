@@ -38,7 +38,7 @@ export function StatsSection() {
     <section
       id="stats"
       aria-label="Agency Credentials"
-      className="relative z-20 py-10 sm:py-12 bg-[#08080A] border-b border-white/5"
+      className="relative z-20 py-10 sm:py-12 bg-[#08080A] border-b border-white/5 scroll-mt-20 sm:scroll-mt-24"
     >
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">

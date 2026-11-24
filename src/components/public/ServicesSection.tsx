@@ -15,7 +15,7 @@ export function ServicesSection() {
   };
 
   return (
-    <section id="services" className="bg-[#08080A] text-[#FAF8F5] py-12 sm:py-16 border-t border-[#FFA01C]/15">
+    <section id="services" className="bg-[#08080A] text-[#FAF8F5] py-12 sm:py-16 border-t border-[#FFA01C]/15 scroll-mt-20 sm:scroll-mt-24">
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 pb-5 border-b border-[#FFA01C]/20">

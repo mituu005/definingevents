@@ -20,7 +20,13 @@ export function HomePage() {
     if (location.hash) {
       const targetId = location.hash.replace('#', '');
       window.setTimeout(() => {
-        document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' });
+        const el = document.getElementById(targetId);
+        if (el) {
+          const headerHeight = 72;
+          const elementTop = el.getBoundingClientRect().top + window.pageYOffset;
+          const targetY = Math.max(0, elementTop - headerHeight);
+          window.scrollTo({ top: targetY, behavior: 'smooth' });
+        }
       }, 150);
     }
   }, [location.hash]);

@@ -13,7 +13,7 @@ export function TestimonialsSection() {
   return (
     <section
       id="testimonials"
-      className="relative bg-[#08080A] text-[#FAF8F5] py-10 sm:py-14 border-t border-[#FFA01C]/15 overflow-hidden"
+      className="relative bg-[#08080A] text-[#FAF8F5] py-10 sm:py-14 border-t border-[#FFA01C]/15 overflow-hidden scroll-mt-20 sm:scroll-mt-24"
     >
       {/* Ambient background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[radial-gradient(ellipse,_rgba(255,160,28,0.06)_0%,_transparent_70%)] pointer-events-none" />

@@ -47,7 +47,7 @@ export function ProcessSection() {
   return (
     <section
       id="process"
-      className="relative bg-[#08080A] text-[#FAF8F5] py-12 sm:py-16 border-t border-[#FFA01C]/15 overflow-hidden"
+      className="relative bg-[#08080A] text-[#FAF8F5] py-12 sm:py-16 border-t border-[#FFA01C]/15 overflow-hidden scroll-mt-20 sm:scroll-mt-24"
     >
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
         {/* Section Header */}

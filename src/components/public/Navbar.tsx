@@ -32,9 +32,10 @@ export function Navbar() {
     const sectionIds = ['hero', 'stats', 'testimonials', 'about', 'services', 'portfolio', 'process', 'contact'];
 
     const onScroll = () => {
-      setScrolled(window.scrollY > 35);
+      const isScrolled = window.scrollY > 35;
+      setScrolled((prev) => (prev !== isScrolled ? isScrolled : prev));
 
-      const scrollPos = window.scrollY + 200;
+      const scrollPos = window.scrollY + 220;
       for (let i = sectionIds.length - 1; i >= 0; i--) {
         const id = sectionIds[i];
         const el = document.getElementById(id);
@@ -44,7 +45,7 @@ export function Navbar() {
           if (scrollPos >= top && scrollPos < top + height) {
             // Map stats section to 'testimonials' or 'hero'
             const mappedId = id === 'stats' ? 'testimonials' : id;
-            setActiveSection(mappedId);
+            setActiveSection((prev) => (prev !== mappedId ? mappedId : prev));
             break;
           }
         }
@@ -60,20 +61,52 @@ export function Navbar() {
     setMobileOpen(false);
   }, [location.pathname]);
 
-  const handleNavClick = (sectionId: string) => {
-    setMobileOpen(false);
-    setActiveSection(sectionId);
-    if (!isHome) {
-      navigate(`/#${sectionId}`);
-      window.setTimeout(() => {
-        document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
-      }, 120);
-      return;
-    }
+  const scrollToSection = (sectionId: string) => {
     if (sectionId === 'hero') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
+      try {
+        window.history.pushState(null, '', window.location.pathname);
+      } catch {}
+      return;
+    }
+
+    const el = document.getElementById(sectionId);
+    if (!el) return;
+
+    const headerHeight = 72;
+    const elementTop = el.getBoundingClientRect().top + window.pageYOffset;
+    const targetY = Math.max(0, elementTop - headerHeight);
+
+    window.scrollTo({
+      top: targetY,
+      behavior: 'smooth',
+    });
+
+    try {
+      window.history.pushState(null, '', `#${sectionId}`);
+    } catch {}
+  };
+
+  const handleNavClick = (sectionId: string, e?: React.MouseEvent) => {
+    if (e) {
+      e.preventDefault();
+    }
+    const wasMobile = mobileOpen;
+    setMobileOpen(false);
+    setActiveSection(sectionId);
+
+    if (!isHome) {
+      navigate(`/#${sectionId}`);
+      return;
+    }
+
+    if (wasMobile) {
+      // Delay scroll until mobile drawer starts collapsing so document layout measurements are stable
+      window.setTimeout(() => {
+        scrollToSection(sectionId);
+      }, 150);
     } else {
-      document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+      scrollToSection(sectionId);
     }
   };
 
@@ -90,14 +123,14 @@ export function Navbar() {
       <div className="mx-auto flex w-full max-w-[1720px] items-center justify-between px-4 sm:px-6 lg:px-8 xl:px-10">
         {/* Left: Brand Identity with Guaranteed Separation Barrier */}
         <div className="shrink-0 flex items-center mr-3 lg:mr-5 xl:mr-8">
-          <button
-            type="button"
-            onClick={() => handleNavClick('hero')}
-            className="text-left focus:outline-none group"
+          <a
+            href="/#hero"
+            onClick={(e) => handleNavClick('hero', e)}
+            className="text-left focus:outline-none group inline-block"
             aria-label="Go to homepage"
           >
             <BrandMark tone="light" />
-          </button>
+          </a>
         </div>
 
         {/* Center: Perfectly Proportioned Navigation with Automatic Scrollspy Lighting */}
@@ -111,10 +144,10 @@ export function Navbar() {
             // To ensure zero crowding, hide 'Contact' text link below 2xl viewports (retained in mobile menu)
             const isContact = item.id === 'contact';
             return (
-              <button
+              <a
                 key={item.id}
-                type="button"
-                onClick={() => handleNavClick(item.id)}
+                href={`/#${item.id}`}
+                onClick={(e) => handleNavClick(item.id, e)}
                 className={`relative whitespace-nowrap px-1.5 xl:px-2 py-1 text-[10px] xl:text-[10.5px] 2xl:text-[11.5px] uppercase tracking-[0.08em] xl:tracking-[0.1em] 2xl:tracking-[0.15em] font-medium transition-all duration-300 shrink-0 ${
                   isContact ? 'hidden 2xl:block' : ''
                 } ${
@@ -124,7 +157,7 @@ export function Navbar() {
                 }`}
               >
                 <span>{item.label}</span>
-              </button>
+              </a>
             );
           })}
         </nav>
@@ -140,13 +173,13 @@ export function Navbar() {
             <span className="font-sans font-medium">{phoneDisplay}</span>
           </a>
 
-          <button
-            type="button"
-            onClick={() => handleNavClick('contact')}
+          <a
+            href="/#contact"
+            onClick={(e) => handleNavClick('contact', e)}
             className="whitespace-nowrap rounded-sm bg-gradient-to-r from-[#FFA01C] via-[#FFB84D] to-[#E68A00] px-3.5 py-1.5 xl:px-4 xl:py-2 text-[10px] xl:text-[10.5px] font-semibold uppercase tracking-[0.14em] xl:tracking-[0.16em] text-[#08080A] shadow-[0_0_20px_rgba(255,160,28,0.35)] transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,160,28,0.6)] hover:scale-[1.02] shrink-0"
           >
             Plan Your Event
-          </button>
+          </a>
         </div>
 
         {/* Mobile Actions */}
@@ -177,22 +210,19 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
             className="lg:hidden overflow-hidden bg-[#08080A] border-t border-[#FFA01C]/25"
           >
             <nav className="flex flex-col px-6 py-6 space-y-4" aria-label="Mobile Navigation">
-              {NAV_ITEMS.map((item, idx) => (
-                <motion.button
+              {NAV_ITEMS.map((item) => (
+                <a
                   key={item.id}
-                  type="button"
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: idx * 0.04 }}
-                  onClick={() => handleNavClick(item.id)}
-                  className="text-left font-serif text-2xl tracking-wide text-[#FAF8F5] hover:text-[#FFA01C] transition-colors py-1 border-b border-white/5"
+                  href={`/#${item.id}`}
+                  onClick={(e) => handleNavClick(item.id, e)}
+                  className="block text-left font-serif text-2xl tracking-wide text-[#FAF8F5] hover:text-[#FFA01C] transition-colors py-1 border-b border-white/5"
                 >
                   {item.label}
-                </motion.button>
+                </a>
               ))}
               <a
                 href={phoneHref}
@@ -201,13 +231,13 @@ export function Navbar() {
                 <Phone className="h-4 w-4" />
                 <span>Call {phoneDisplay}</span>
               </a>
-              <button
-                type="button"
-                onClick={() => handleNavClick('contact')}
-                className="w-full rounded-sm bg-gradient-to-r from-[#FFA01C] to-[#E68A00] py-3.5 text-xs font-semibold uppercase tracking-[0.24em] text-[#08080A] shadow-lg"
+              <a
+                href="/#contact"
+                onClick={(e) => handleNavClick('contact', e)}
+                className="block w-full text-center rounded-sm bg-gradient-to-r from-[#FFA01C] to-[#E68A00] py-3.5 text-xs font-semibold uppercase tracking-[0.24em] text-[#08080A] shadow-lg"
               >
                 Plan Your Event
-              </button>
+              </a>
             </nav>
           </motion.div>
         )}

@@ -36,14 +36,21 @@ export function Footer() {
   const navigate = useNavigate();
 
   const scrollToSection = (id: string) => {
-    if (location.pathname !== '/') {
-      navigate(`/#${id}`);
-      window.setTimeout(() => {
-        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-      }, 120);
+    if (id === 'hero') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
     }
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    if (location.pathname !== '/') {
+      navigate(`/#${id}`);
+      return;
+    }
+    const el = document.getElementById(id);
+    if (el) {
+      const headerHeight = 72;
+      const elementTop = el.getBoundingClientRect().top + window.pageYOffset;
+      const targetY = Math.max(0, elementTop - headerHeight);
+      window.scrollTo({ top: targetY, behavior: 'smooth' });
+    }
   };
 
   const contactPhone = settings.contact_phone || '+91 98765 43210';

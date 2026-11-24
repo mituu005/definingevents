@@ -89,7 +89,7 @@ export function ContactSection() {
   )}`;
 
   return (
-    <section id="contact" className="relative bg-[#08080A] text-[#FAF8F5] py-12 sm:py-16 border-t border-[#FFA01C]/20">
+    <section id="contact" className="relative bg-[#08080A] text-[#FAF8F5] py-12 sm:py-16 border-t border-[#FFA01C]/20 scroll-mt-20 sm:scroll-mt-24">
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
           {/* Left Consultation Column */}

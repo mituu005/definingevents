@@ -60,7 +60,7 @@ export function AboutSection() {
   return (
     <section
       id="about"
-      className="relative overflow-hidden bg-[#08080A] text-[#FAF8F5] py-12 sm:py-16 border-t border-[#FFA01C]/15"
+      className="relative overflow-hidden bg-[#08080A] text-[#FAF8F5] py-12 sm:py-16 border-t border-[#FFA01C]/15 scroll-mt-20 sm:scroll-mt-24"
     >
       {/* Background ambient lighting */}
       <div className="pointer-events-none absolute -left-40 top-1/3 h-[500px] w-[500px] rounded-full bg-[#FFA01C]/5 blur-[120px]" />

@@ -62,7 +62,7 @@ export function HeroSection() {
     <section
       id="hero"
       ref={containerRef}
-      className="relative flex min-h-screen flex-col justify-between overflow-hidden bg-[#08080A]"
+      className="relative flex min-h-screen flex-col justify-between overflow-hidden bg-[#08080A] scroll-mt-20"
     >
       {/* Background Video: High-Energy Live Event in Full Swing */}
       <motion.div style={{ scale: videoScale }} className="absolute inset-0 z-0">
