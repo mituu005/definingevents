@@ -189,13 +189,15 @@ export function Navbar() {
     handleCopyPhone();
     setCallFeedback('Calling... (Number Copied! ✓)');
 
-    // 1. Attempt system dialer (Phone Link / Skype / FaceTime)
-    try {
-      window.location.href = phoneHref;
-    } catch {}
-
-    // 2. Open WhatsApp Web to initiate direct voice call or chat on laptop
+    // 1. Open WhatsApp Web to initiate direct voice call or chat on laptop
     window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+
+    // 2. Attempt system dialer (Phone Link / Skype / FaceTime) without cancelling the window.open call
+    setTimeout(() => {
+      try {
+        window.location.href = phoneHref;
+      } catch {}
+    }, 200);
 
     setTimeout(() => {
       setCallFeedback(null);
