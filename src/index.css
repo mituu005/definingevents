@@ -1,5 +1,18 @@
 @import "tailwindcss";
 
+html {
+  font-size: 14px !important;
+  scroll-behavior: smooth;
+  background-color: #08080A;
+  color: #FAF8F5;
+}
+
+@media (min-width: 1600px) {
+  html {
+    font-size: 15px !important;
+  }
+}
+
 @theme {
   --color-onyx: #08080A;
   --color-onyx-card: #121217;
