@@ -87,9 +87,9 @@ export function Navbar() {
           : 'bg-gradient-to-b from-[#08080A]/90 via-[#08080A]/40 to-transparent py-4'
       }`}
     >
-      <div className="mx-auto flex w-full max-w-[1720px] items-center justify-between px-4 sm:px-6 lg:px-8 xl:px-12">
+      <div className="mx-auto flex w-full max-w-[1720px] items-center justify-between px-4 sm:px-6 lg:px-8 xl:px-10">
         {/* Left: Brand Identity with Guaranteed Separation Barrier */}
-        <div className="shrink-0 flex items-center mr-4 lg:mr-6 xl:mr-10">
+        <div className="shrink-0 flex items-center mr-3 lg:mr-5 xl:mr-8">
           <button
             type="button"
             onClick={() => handleNavClick('hero')}
@@ -102,7 +102,7 @@ export function Navbar() {
 
         {/* Center: Perfectly Proportioned Navigation with Automatic Scrollspy Lighting */}
         <nav
-          className="hidden lg:flex items-center justify-center flex-1 min-w-0 gap-1.5 lg:gap-2 xl:gap-4 2xl:gap-6 px-2"
+          className="hidden lg:flex items-center justify-center flex-1 min-w-0 gap-1 lg:gap-1.5 xl:gap-2.5 2xl:gap-5 px-2"
           aria-label="Primary Navigation"
         >
           {NAV_ITEMS.map((item) => {
@@ -115,7 +115,7 @@ export function Navbar() {
                 key={item.id}
                 type="button"
                 onClick={() => handleNavClick(item.id)}
-                className={`relative whitespace-nowrap px-1.5 lg:px-2 xl:px-2.5 py-1 text-[10px] lg:text-[10.5px] xl:text-[11.5px] 2xl:text-[12px] uppercase tracking-[0.1em] xl:tracking-[0.16em] font-medium transition-all duration-300 shrink-0 ${
+                className={`relative whitespace-nowrap px-1.5 xl:px-2 py-1 text-[10px] xl:text-[10.5px] 2xl:text-[11.5px] uppercase tracking-[0.08em] xl:tracking-[0.1em] 2xl:tracking-[0.15em] font-medium transition-all duration-300 shrink-0 ${
                   isContact ? 'hidden 2xl:block' : ''
                 } ${
                   isActive
@@ -130,10 +130,10 @@ export function Navbar() {
         </nav>
 
         {/* Right: Direct Phone Number Pill & CTA with Guaranteed Separation Barrier */}
-        <div className="hidden lg:flex shrink-0 items-center gap-2 lg:gap-2.5 xl:gap-3.5 ml-4 lg:ml-6 xl:ml-10">
+        <div className="hidden lg:flex shrink-0 items-center gap-2 lg:gap-2.5 xl:gap-3 ml-3 lg:mr-0 lg:ml-5 xl:ml-8">
           <a
             href={phoneHref}
-            className="inline-flex items-center gap-1.5 xl:gap-2 rounded-full border border-[#FFA01C]/50 bg-[#121217]/90 px-2.5 py-1.5 xl:px-4 xl:py-2 text-[10px] xl:text-[11.5px] font-medium tracking-[0.04em] text-[#FAF8F5] transition-all duration-300 hover:border-[#FFA01C] hover:text-[#FFA01C] hover:shadow-[0_0_18px_rgba(255,160,28,0.35)] shrink-0"
+            className="inline-flex items-center gap-1.5 xl:gap-2 rounded-full border border-[#FFA01C]/50 bg-[#121217]/90 px-3 py-1.5 xl:px-3.5 xl:py-2 text-[10px] xl:text-[11px] font-medium tracking-[0.03em] text-[#FAF8F5] transition-all duration-300 hover:border-[#FFA01C] hover:text-[#FFA01C] hover:shadow-[0_0_18px_rgba(255,160,28,0.35)] shrink-0"
             title={`Direct Concierge Line: ${phoneDisplay}`}
           >
             <Phone className="h-3 w-3 xl:h-3.5 xl:w-3.5 text-[#FFA01C]" />
@@ -143,7 +143,7 @@ export function Navbar() {
           <button
             type="button"
             onClick={() => handleNavClick('contact')}
-            className="whitespace-nowrap rounded-sm bg-gradient-to-r from-[#FFA01C] via-[#FFB84D] to-[#E68A00] px-3.5 py-1.5 xl:px-5 xl:py-2.5 text-[10px] xl:text-[11px] font-semibold uppercase tracking-[0.14em] xl:tracking-[0.18em] text-[#08080A] shadow-[0_0_20px_rgba(255,160,28,0.35)] transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,160,28,0.6)] hover:scale-[1.02] shrink-0"
+            className="whitespace-nowrap rounded-sm bg-gradient-to-r from-[#FFA01C] via-[#FFB84D] to-[#E68A00] px-3.5 py-1.5 xl:px-4 xl:py-2 text-[10px] xl:text-[10.5px] font-semibold uppercase tracking-[0.14em] xl:tracking-[0.16em] text-[#08080A] shadow-[0_0_20px_rgba(255,160,28,0.35)] transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,160,28,0.6)] hover:scale-[1.02] shrink-0"
           >
             Plan Your Event
           </button>
