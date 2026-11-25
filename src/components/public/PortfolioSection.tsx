@@ -58,16 +58,16 @@ export function PortfolioSection() {
         {/* Header */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4 mb-8 pb-5 border-b border-[#FFA01C]/20">
           <div>
-            <div className="inline-flex items-center gap-1.5 text-[13.5px] uppercase tracking-[0.3em] text-[#FFA01C] mb-2 font-semibold">
+            <div className="inline-flex items-center gap-1.5 text-[12.5px] uppercase tracking-[0.3em] text-[#FFA01C] mb-2 font-semibold">
               <span className="h-1.5 w-1.5 rounded-full bg-[#FFA01C]" />
               <span>Selected Commissions</span>
             </div>
-            <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-normal leading-tight">
+            <h2 className="font-serif text-[26px] sm:text-[32px] lg:text-[38px] font-normal leading-tight">
               Featured Event <span className="gold-gradient-text italic font-serif">Portfolio</span>
             </h2>
           </div>
 
-          <p className="max-w-md text-xs sm:text-[16px] leading-relaxed text-[#FAF8F5]/75 font-light">
+          <p className="max-w-md text-[14px] sm:text-[15px] leading-relaxed text-[#FAF8F5]/75 font-light">
             Every celebration in our archive is dynamically published from our studio database—tailored
             exclusively to its architecture, venue, and host.
           </p>
@@ -82,7 +82,7 @@ export function PortfolioSection() {
                 key={cat}
                 type="button"
                 onClick={() => setSelectedCategory(cat)}
-                className={`px-3 py-1.5 text-[13px] uppercase tracking-[0.2em] rounded-sm transition-all duration-300 font-medium ${
+                className={`px-3 py-1.5 text-[12px] uppercase tracking-[0.2em] rounded-sm transition-all duration-300 font-medium ${
                   active
                     ? 'border border-[#FFA01C] bg-[#FFA01C] text-[#08080A] shadow-[0_0_15px_rgba(255,160,28,0.4)]'
                     : 'border border-[#FFA01C]/25 bg-[#121217]/60 text-[#FAF8F5]/70 hover:border-[#FFA01C] hover:text-[#FFA01C]'
@@ -105,22 +105,22 @@ export function PortfolioSection() {
         {/* Empty State */}
         {!loading && filteredEvents.length === 0 && (
           <div className="rounded-sm border border-[#FFA01C]/25 bg-[#121217]/80 p-12 sm:p-16 text-center backdrop-blur-md">
-            <p className="text-xs uppercase tracking-[0.28em] text-[#FFA01C] font-semibold mb-3">
+            <p className="text-[14px] uppercase tracking-[0.28em] text-[#FFA01C] font-semibold mb-3">
               Portfolio Archive
             </p>
-            <h3 className="font-serif text-2xl sm:text-3xl text-[#FAF8F5]">
+            <h3 className="font-serif text-[26px] sm:text-[32px] text-[#FAF8F5]">
               {selectedCategory === 'All'
                 ? 'Published events will appear here automatically.'
                 : `No published events in "${selectedCategory}" yet.`}
             </h3>
-            <p className="mt-3 max-w-lg mx-auto text-sm text-[#FAF8F5]/70 font-light">
+            <p className="mt-3 max-w-lg mx-auto text-[16px] text-[#FAF8F5]/70 font-light">
               Once you log into the Admin Dashboard and publish a portfolio event with photographs and videos, it immediately showcases here in real time.
             </p>
             {selectedCategory !== 'All' && (
               <button
                 type="button"
                 onClick={() => setSelectedCategory('All')}
-                className="mt-6 border border-[#FFA01C] px-6 py-2.5 text-xs uppercase tracking-[0.2em] text-[#FFA01C] hover:bg-[#FFA01C] hover:text-[#08080A] transition-colors"
+                className="mt-6 border border-[#FFA01C] px-6 py-2.5 text-[14px] uppercase tracking-[0.2em] text-[#FFA01C] hover:bg-[#FFA01C] hover:text-[#08080A] transition-colors"
               >
                 View All Categories
               </button>
@@ -178,7 +178,7 @@ export function PortfolioSection() {
                         className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
                       />
                     ) : (
-                      <div className="flex h-full w-full items-center justify-center bg-[#121217] text-xs uppercase tracking-widest text-[#FFA01C]">
+                      <div className="flex h-full w-full items-center justify-center bg-[#121217] text-[14px] uppercase tracking-widest text-[#FFA01C]">
                         {event.category}
                       </div>
                     )}
@@ -186,20 +186,20 @@ export function PortfolioSection() {
                     <div className="absolute inset-0 bg-gradient-to-t from-[#08080A]/85 via-transparent to-transparent opacity-80" />
 
                     {/* Category Pill */}
-                    <span className="absolute top-4 left-4 rounded-sm bg-[#08080A]/90 backdrop-blur-sm border border-[#FFA01C]/50 px-3 py-1 text-[13px] uppercase tracking-[0.22em] text-[#FFA01C] font-semibold">
+                    <span className="absolute top-4 left-4 rounded-sm bg-[#08080A]/90 backdrop-blur-sm border border-[#FFA01C]/50 px-3 py-1 text-[12px] uppercase tracking-[0.22em] text-[#FFA01C] font-semibold">
                       {event.category}
                     </span>
 
                     {/* Media indicators & quick lightbox */}
                     <div className="absolute top-4 right-4 flex items-center gap-2">
                       {photoCount > 0 && (
-                        <span className="inline-flex items-center gap-1 rounded-sm bg-[#08080A]/90 border border-[#FFA01C]/30 px-2.5 py-1 text-[13px] text-[#FAF8F5]">
+                        <span className="inline-flex items-center gap-1 rounded-sm bg-[#08080A]/90 border border-[#FFA01C]/30 px-2.5 py-1 text-[12px] text-[#FAF8F5]">
                           <Images className="h-3 w-3 text-[#FFA01C]" />
                           {photoCount}
                         </span>
                       )}
                       {videoCount > 0 && (
-                        <span className="inline-flex items-center gap-1 rounded-sm bg-[#08080A]/90 border border-[#FFA01C]/30 px-2.5 py-1 text-[13px] text-[#FAF8F5]">
+                        <span className="inline-flex items-center gap-1 rounded-sm bg-[#08080A]/90 border border-[#FFA01C]/30 px-2.5 py-1 text-[12px] text-[#FAF8F5]">
                           <Film className="h-3 w-3 text-[#FFA01C]" />
                           {videoCount}
                         </span>
@@ -219,7 +219,7 @@ export function PortfolioSection() {
 
                   <div className="flex flex-1 flex-col justify-between p-6 sm:p-8">
                     <div>
-                      <div className="flex flex-wrap items-center gap-4 text-[14px] uppercase tracking-[0.18em] text-[#FAF8F5]/65">
+                      <div className="flex flex-wrap items-center gap-4 text-[13px] uppercase tracking-[0.18em] text-[#FAF8F5]/65">
                         <span className="inline-flex items-center gap-1.5">
                           <MapPin className="h-3.5 w-3.5 text-[#FFA01C]" />
                           {event.location}
@@ -236,12 +236,12 @@ export function PortfolioSection() {
                       </div>
 
                       <Link to={`/events/${event.slug}`} className="block mt-3">
-                        <h3 className="font-serif text-2xl sm:text-3xl font-normal text-[#FAF8F5] group-hover:text-[#FFA01C] transition-colors">
+                        <h3 className="font-serif text-[26px] sm:text-[32px] font-normal text-[#FAF8F5] group-hover:text-[#FFA01C] transition-colors">
                           {event.title}
                         </h3>
                       </Link>
 
-                      <p className="mt-3 text-sm leading-relaxed text-[#FAF8F5]/75 line-clamp-2 font-light">
+                      <p className="mt-3 text-[16px] leading-relaxed text-[#FAF8F5]/75 line-clamp-2 font-light">
                         {event.description}
                       </p>
                     </div>
@@ -249,7 +249,7 @@ export function PortfolioSection() {
                     <div className="mt-6 pt-4 border-t border-[#FFA01C]/15 flex items-center justify-between">
                       <Link
                         to={`/events/${event.slug}`}
-                        className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#FFA01C] hover:text-[#FAF8F5] transition-colors"
+                        className="inline-flex items-center gap-2 text-[14px] font-semibold uppercase tracking-[0.22em] text-[#FFA01C] hover:text-[#FAF8F5] transition-colors"
                       >
                         <span>Explore Case Study</span>
                         <ArrowUpRight className="h-4 w-4" />
@@ -269,14 +269,14 @@ export function PortfolioSection() {
             <div className="mt-20 pt-16 border-t border-[#FFA01C]/20">
               <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
                 <div>
-                  <p className="text-xs uppercase tracking-[0.28em] text-[#FFA01C] font-semibold mb-2">
+                  <p className="text-[14px] uppercase tracking-[0.28em] text-[#FFA01C] font-semibold mb-2">
                     Spatial Alchemy
                   </p>
-                  <h3 className="font-serif text-3xl sm:text-4xl text-[#FAF8F5]">
+                  <h3 className="font-serif text-[32px] sm:text-[38px] text-[#FAF8F5]">
                     Venue Transformation: {transformationEvent.title}
                   </h3>
                 </div>
-                <p className="text-xs uppercase tracking-[0.2em] text-[#FAF8F5]/60">
+                <p className="text-[14px] uppercase tracking-[0.2em] text-[#FAF8F5]/60">
                   Drag slider to inspect production build
                 </p>
               </div>
@@ -290,10 +290,10 @@ export function PortfolioSection() {
         {/* Optional Website Highlights Gallery */}
         {settings.website_gallery && settings.website_gallery.length > 0 && (
           <div className="mt-20 pt-16 border-t border-[#FFA01C]/20">
-            <p className="text-xs uppercase tracking-[0.28em] text-[#FFA01C] font-semibold mb-2">
+            <p className="text-[14px] uppercase tracking-[0.28em] text-[#FFA01C] font-semibold mb-2">
               Studio Highlights
             </p>
-            <h3 className="font-serif text-3xl sm:text-4xl text-[#FAF8F5] mb-8">
+            <h3 className="font-serif text-[32px] sm:text-[38px] text-[#FAF8F5] mb-8">
               Curated Visual Moments
             </h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">

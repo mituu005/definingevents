@@ -34,7 +34,7 @@ export function BrandMark({ tone = 'light', compact = false }: BrandMarkProps) {
           {settings.company_name || 'Defining Events'}
         </span>
         {!compact && (
-          <span className={`text-[12.5px] font-medium tracking-[0.28em] uppercase mt-1 ${subColor}`}>
+          <span className={`text-[9.5px] font-medium tracking-[0.28em] uppercase mt-1 ${subColor}`}>
             Bespoke Event Production
           </span>
         )}

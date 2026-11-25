@@ -52,14 +52,14 @@ export function ProcessSection() {
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
-          <div className="inline-flex items-center gap-1.5 text-[13.5px] uppercase tracking-[0.3em] text-[#FFA01C] mb-2 font-semibold">
+          <div className="inline-flex items-center gap-1.5 text-[12.5px] uppercase tracking-[0.3em] text-[#FFA01C] mb-2 font-semibold">
             <span className="h-1.5 w-1.5 rounded-full bg-[#FFA01C] animate-pulse" />
             <span>Step-By-Step Process</span>
           </div>
-          <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-normal leading-tight">
+          <h2 className="font-serif text-[26px] sm:text-[32px] lg:text-[38px] font-normal leading-tight">
             Our Six-Stage <span className="gold-gradient-text italic font-serif">Methodology</span>
           </h2>
-          <p className="mt-2 text-xs sm:text-[16px] text-[#FAF8F5]/70 font-light leading-relaxed">
+          <p className="mt-2 text-[14px] sm:text-[15px] text-[#FAF8F5]/70 font-light leading-relaxed">
             An unbroken, carefully orchestrated journey from your first creative consultation to flawless showtime.
           </p>
         </div>
@@ -126,18 +126,18 @@ export function ProcessSection() {
                     <Icon className="relative z-10 h-6 w-6 text-[#FFA01C] transition-transform duration-300 group-hover:scale-110" />
 
                     {/* Step Badge */}
-                    <span className="absolute -top-2 bg-[#08080A] border border-[#FFA01C]/60 text-[#FFA01C] text-[12px] font-mono uppercase px-1.5 py-0.2 rounded-full font-semibold shadow-md">
+                    <span className="absolute -top-2 bg-[#08080A] border border-[#FFA01C]/60 text-[#FFA01C] text-[11px] font-mono uppercase px-1.5 py-0.2 rounded-full font-semibold shadow-md">
                       {stage.step}
                     </span>
                   </div>
 
                   {/* Clean, Uncluttered Step Title */}
-                  <h3 className="font-serif text-base sm:text-lg font-normal text-[#FAF8F5] group-hover:text-[#FFA01C] transition-colors">
+                  <h3 className="font-serif text-[18px] sm:text-[20px] font-normal text-[#FAF8F5] group-hover:text-[#FFA01C] transition-colors">
                     {stage.title}
                   </h3>
 
                   {/* Short, Meaningful Phrase (No Clutter) */}
-                  <p className="mt-1 max-w-[200px] text-[14.5px] leading-relaxed text-[#FAF8F5]/70 font-light">
+                  <p className="mt-1 max-w-[200px] text-[13.5px] leading-relaxed text-[#FAF8F5]/70 font-light">
                     {stage.desc}
                   </p>
                 </motion.div>
@@ -163,18 +163,18 @@ export function ProcessSection() {
                     <div className="absolute inset-1 rounded-full border border-[#FFA01C]/30 bg-[#08080A]/80" />
                     <Icon className="relative z-10 h-6 w-6 text-[#FFA01C] transition-transform duration-300 group-hover:scale-110" />
 
-                    <span className="absolute -top-2 bg-[#08080A] border border-[#FFA01C]/60 text-[#FFA01C] text-[12px] font-mono uppercase px-1.5 py-0.2 rounded-full font-semibold shadow-md">
+                    <span className="absolute -top-2 bg-[#08080A] border border-[#FFA01C]/60 text-[#FFA01C] text-[11px] font-mono uppercase px-1.5 py-0.2 rounded-full font-semibold shadow-md">
                       {stage.step}
                     </span>
                   </div>
 
                   {/* Clean, Uncluttered Step Title */}
-                  <h3 className="font-serif text-base sm:text-lg font-normal text-[#FAF8F5] group-hover:text-[#FFA01C] transition-colors">
+                  <h3 className="font-serif text-[18px] sm:text-[20px] font-normal text-[#FAF8F5] group-hover:text-[#FFA01C] transition-colors">
                     {stage.title}
                   </h3>
 
                   {/* Short, Meaningful Phrase (No Clutter) */}
-                  <p className="mt-1 max-w-[200px] text-[14.5px] leading-relaxed text-[#FAF8F5]/70 font-light">
+                  <p className="mt-1 max-w-[200px] text-[13.5px] leading-relaxed text-[#FAF8F5]/70 font-light">
                     {stage.desc}
                   </p>
                 </motion.div>
@@ -202,13 +202,13 @@ export function ProcessSection() {
                 </div>
 
                 <div className="pt-1">
-                  <span className="text-[13px] font-mono text-[#FFA01C] uppercase tracking-wider font-semibold">
+                  <span className="text-[12px] font-mono text-[#FFA01C] uppercase tracking-wider font-semibold">
                     Step {stage.step}
                   </span>
-                  <h3 className="font-serif text-lg font-normal text-[#FAF8F5] mt-0.5">
+                  <h3 className="font-serif text-[20px] font-normal text-[#FAF8F5] mt-0.5">
                     {stage.title}
                   </h3>
-                  <p className="mt-1 text-xs text-[#FAF8F5]/70 font-light leading-relaxed">
+                  <p className="mt-1 text-[14px] text-[#FAF8F5]/70 font-light leading-relaxed">
                     {stage.desc}
                   </p>
                 </div>

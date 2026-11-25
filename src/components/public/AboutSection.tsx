@@ -87,8 +87,8 @@ export function AboutSection() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#08080A]/90 via-transparent to-transparent" />
 
-                {/* Corner Golden Badge */}
-                <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-[12.5px] uppercase tracking-[0.22em] text-[#FAF8F5]/90 border-t border-[#FFA01C]/30 pt-2.5">
+                {/* Top Golden Badge */}
+                <div className="absolute top-4 left-4 right-4 flex items-center justify-between text-[11.5px] uppercase tracking-[0.22em] text-[#FAF8F5]/90 border-b border-[#FFA01C]/30 pb-2.5 bg-[#08080A]/40 backdrop-blur-sm px-2.5 rounded-sm">
                   <span className="font-medium text-[#FFA01C]">Atelier Scenography</span>
                   <span>Global Hub</span>
                 </div>
@@ -104,14 +104,14 @@ export function AboutSection() {
               >
                 <div className="flex items-center gap-1.5 mb-1.5 text-[#FFA01C]">
                   <Crown className="h-3.5 w-3.5" />
-                  <span className="text-[12px] uppercase tracking-[0.2em] font-semibold">
+                  <span className="text-[11px] uppercase tracking-[0.2em] font-semibold">
                     The Signature
                   </span>
                 </div>
-                <p className="font-serif text-xs leading-snug text-[#FAF8F5]">
+                <p className="font-serif text-[14px] leading-snug text-[#FAF8F5]">
                   “Every gathering is an unrepeatable sensory work of art.”
                 </p>
-                <p className="mt-1.5 text-[11.5px] uppercase tracking-[0.24em] text-[#FFA01C]/80">
+                <p className="mt-1.5 text-[10.5px] uppercase tracking-[0.24em] text-[#FFA01C]/80">
                   Defining Events Atelier
                 </p>
               </motion.div>
@@ -129,12 +129,12 @@ export function AboutSection() {
             transition={{ duration: 0.85, delay: 0.15 }}
             className="lg:col-span-7"
           >
-            <div className="inline-flex items-center gap-1.5 text-[13.5px] uppercase tracking-[0.3em] text-[#FFA01C] mb-2.5">
+            <div className="inline-flex items-center gap-1.5 text-[12.5px] uppercase tracking-[0.3em] text-[#FFA01C] mb-2.5">
               <span className="h-1.5 w-1.5 rounded-full bg-[#FFA01C]" />
               <span>About Defining Events</span>
             </div>
 
-            <h2 className="font-serif text-2xl sm:text-3xl lg:text-[2.5rem] font-normal leading-[1.1] text-[#FAF8F5]">
+            <h2 className="font-serif text-[26px] sm:text-[32px] lg:text-[42px] font-normal leading-[1.1] text-[#FAF8F5]">
               Turning Blank Spaces Into{' '}
               <span className="gold-gradient-text italic font-serif">
                 Living Emotional Masterpieces.
@@ -143,7 +143,7 @@ export function AboutSection() {
 
             <div className="my-4 h-[1px] w-20 bg-gradient-to-r from-[#FFA01C] to-transparent" />
 
-            <p className="text-xs sm:text-sm leading-relaxed text-[#FAF8F5]/80 font-light">
+            <p className="text-[14px] sm:text-[16px] leading-relaxed text-[#FAF8F5]/80 font-light">
               {settings.about_intro}
             </p>
 
@@ -158,7 +158,7 @@ export function AboutSection() {
                       key={pillar.key}
                       type="button"
                       onClick={() => setActiveTab(pillar.key)}
-                      className={`flex items-center justify-center gap-2 py-2.5 px-3 rounded-sm text-xs uppercase tracking-[0.18em] transition-all duration-300 relative ${
+                      className={`flex items-center justify-center gap-2 py-2.5 px-3 rounded-sm text-[14px] uppercase tracking-[0.18em] transition-all duration-300 relative ${
                         active
                           ? 'border border-[#FFA01C] bg-[#FFA01C]/15 text-[#FFA01C] font-semibold shadow-[0_0_15px_rgba(255,160,28,0.2)]'
                           : 'border border-transparent text-[#FAF8F5]/60 hover:text-[#FAF8F5] hover:border-[#FFA01C]/30'
@@ -173,10 +173,10 @@ export function AboutSection() {
 
               {/* Dynamic Pillar Card */}
               <div className="mt-4 rounded-sm border border-[#FFA01C]/25 bg-[#121217]/80 p-4 sm:p-5 backdrop-blur-md">
-                <p className="text-[14px] uppercase tracking-[0.22em] font-semibold text-[#FFA01C]">
+                <p className="text-[13px] uppercase tracking-[0.22em] font-semibold text-[#FFA01C]">
                   {activePillar.title}
                 </p>
-                <p className="mt-2 font-serif text-base sm:text-lg leading-relaxed text-[#FAF8F5] italic font-normal">
+                <p className="mt-2 font-serif text-[18px] sm:text-[20px] leading-relaxed text-[#FAF8F5] italic font-normal">
                   “{activePillar.text}”
                 </p>
               </div>

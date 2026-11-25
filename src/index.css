@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 html {
-  font-size: 17px !important;
+  font-size: 14px !important;
   scroll-behavior: smooth;
   background-color: #08080A;
   color: #FAF8F5;
@@ -9,7 +9,7 @@ html {
 
 @media (min-width: 1600px) {
   html {
-    font-size: 18px !important;
+    font-size: 15px !important;
   }
 }
 
@@ -36,14 +36,14 @@ html {
     font-family: var(--font-sans);
     background-color: #08080A;
     color: #FAF8F5;
-    font-size: 17px;
+    font-size: 14px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   @media (min-width: 1600px) {
     html {
-      font-size: 18px;
+      font-size: 15px;
     }
   }
 

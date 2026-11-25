@@ -65,7 +65,7 @@ export function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-4 space-y-3.5">
             <BrandMark tone="light" />
-            <p className="text-xs sm:text-[16px] leading-relaxed text-[#FAF8F5]/75 font-light max-w-sm">
+            <p className="text-xs sm:text-[13px] leading-relaxed text-[#FAF8F5]/75 font-light max-w-sm">
               {settings.about_intro ||
                 'International luxury event planning, architectural scenography, and bespoke production studio.'}
             </p>
@@ -108,7 +108,7 @@ export function Footer() {
 
           {/* Navigation Column */}
           <div className="lg:col-span-2">
-            <h3 className="text-[14px] uppercase tracking-[0.26em] text-[#FFA01C] mb-5 font-semibold">
+            <h3 className="text-[11px] uppercase tracking-[0.26em] text-[#FFA01C] mb-5 font-semibold">
               Navigation
             </h3>
             <ul className="space-y-3 text-sm font-light">
@@ -136,7 +136,7 @@ export function Footer() {
 
           {/* Services Column */}
           <div className="lg:col-span-3">
-            <h3 className="text-[14px] uppercase tracking-[0.26em] text-[#FFA01C] mb-5 font-semibold">
+            <h3 className="text-[11px] uppercase tracking-[0.26em] text-[#FFA01C] mb-5 font-semibold">
               Core Disciplines
             </h3>
             <ul className="space-y-3 text-sm font-light">
@@ -159,7 +159,7 @@ export function Footer() {
 
           {/* Atelier & Contact Column */}
           <div className="lg:col-span-3">
-            <h3 className="text-[14px] uppercase tracking-[0.26em] text-[#FFA01C] mb-5 font-semibold">
+            <h3 className="text-[11px] uppercase tracking-[0.26em] text-[#FFA01C] mb-5 font-semibold">
               Atelier &amp; Contact
             </h3>
             <div className="space-y-3 text-sm font-light text-[#FAF8F5]/75">

@@ -60,15 +60,15 @@ export function StatsSection() {
                 </div>
 
                 {/* Elegant Luxury Number */}
-                <div className="font-serif text-4xl sm:text-5xl font-light tracking-tight gold-gradient-text drop-shadow-[0_0_18px_rgba(255,160,28,0.3)]">
+                <div className="font-serif text-[38px] sm:text-[50px] font-light tracking-tight gold-gradient-text drop-shadow-[0_0_18px_rgba(255,160,28,0.3)]">
                   {stat.value}
                 </div>
 
-                <h2 className="mt-2.5 text-[14px] sm:text-sm font-semibold uppercase tracking-[0.18em] text-[#FAF8F5]">
+                <h2 className="mt-2.5 text-[13px] sm:text-[14px] font-semibold uppercase tracking-[0.18em] text-[#FAF8F5]">
                   {stat.label}
                 </h2>
 
-                <p className="mt-1 text-[14px] sm:text-sm text-[#FAF8F5]/65 font-light leading-relaxed">
+                <p className="mt-1 text-[13px] sm:text-[14px] text-[#FAF8F5]/65 font-light leading-relaxed">
                   {stat.sub}
                 </p>
               </motion.div>
@@ -90,37 +90,37 @@ export function StatsSection() {
           {/* 4 Proportionally Divided Columns */}
           <div className="grid grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-white/10 lg:divide-[#FFA01C]/25 text-center">
             <div className="flex flex-col items-center justify-center py-2 sm:py-1 px-2 sm:px-4">
-              <p className="font-serif text-3xl sm:text-4xl font-light tracking-tight gold-gradient-text drop-shadow-[0_0_15px_rgba(255,160,28,0.3)]">
+              <p className="font-serif text-[32px] sm:text-[38px] font-light tracking-tight gold-gradient-text drop-shadow-[0_0_15px_rgba(255,160,28,0.3)]">
                 100%
               </p>
-              <h3 className="mt-1.5 text-[13px] sm:text-[14px] font-semibold uppercase tracking-[0.2em] text-[#FAF8F5]">
+              <h3 className="mt-1.5 text-[12px] sm:text-[13px] font-semibold uppercase tracking-[0.2em] text-[#FAF8F5]">
                 5-Star Rated
               </h3>
             </div>
 
             <div className="flex flex-col items-center justify-center py-2 sm:py-1 px-2 sm:px-4">
-              <p className="font-serif text-3xl sm:text-4xl font-light tracking-tight gold-gradient-text drop-shadow-[0_0_15px_rgba(255,160,28,0.3)]">
+              <p className="font-serif text-[32px] sm:text-[38px] font-light tracking-tight gold-gradient-text drop-shadow-[0_0_15px_rgba(255,160,28,0.3)]">
                 500+
               </p>
-              <h3 className="mt-1.5 text-[13px] sm:text-[14px] font-semibold uppercase tracking-[0.2em] text-[#FAF8F5]">
+              <h3 className="mt-1.5 text-[12px] sm:text-[13px] font-semibold uppercase tracking-[0.2em] text-[#FAF8F5]">
                 Landmarks Produced
               </h3>
             </div>
 
             <div className="flex flex-col items-center justify-center py-2 sm:py-1 px-2 sm:px-4">
-              <p className="font-serif text-3xl sm:text-4xl font-light tracking-tight gold-gradient-text drop-shadow-[0_0_15px_rgba(255,160,28,0.3)]">
+              <p className="font-serif text-[32px] sm:text-[38px] font-light tracking-tight gold-gradient-text drop-shadow-[0_0_15px_rgba(255,160,28,0.3)]">
                 28+
               </p>
-              <h3 className="mt-1.5 text-[13px] sm:text-[14px] font-semibold uppercase tracking-[0.2em] text-[#FAF8F5]">
+              <h3 className="mt-1.5 text-[12px] sm:text-[13px] font-semibold uppercase tracking-[0.2em] text-[#FAF8F5]">
                 World Capitals
               </h3>
             </div>
 
             <div className="flex flex-col items-center justify-center py-2 sm:py-1 px-2 sm:px-4">
-              <p className="font-serif text-3xl sm:text-4xl font-light tracking-tight gold-gradient-text drop-shadow-[0_0_15px_rgba(255,160,28,0.3)]">
+              <p className="font-serif text-[32px] sm:text-[38px] font-light tracking-tight gold-gradient-text drop-shadow-[0_0_15px_rgba(255,160,28,0.3)]">
                 Flawless
               </p>
-              <h3 className="mt-1.5 text-[13px] sm:text-[14px] font-semibold uppercase tracking-[0.2em] text-[#FAF8F5]">
+              <h3 className="mt-1.5 text-[12px] sm:text-[13px] font-semibold uppercase tracking-[0.2em] text-[#FAF8F5]">
                 Run of Show
               </h3>
             </div>
