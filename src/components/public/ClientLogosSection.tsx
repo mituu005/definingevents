@@ -13,7 +13,7 @@ export function ClientLogosSection() {
       className="border-y border-white/5 bg-[#0D0D12] py-16 text-[#FAF8F5]"
     >
       <div className="mx-auto max-w-7xl px-6 sm:px-8">
-        <p className="text-center text-[11px] uppercase tracking-[0.35em] text-[#FFA01C]/80 mb-10 font-medium">
+        <p className="text-center text-[14px] uppercase tracking-[0.35em] text-[#FFA01C]/80 mb-10 font-medium">
           Trusted By Leading Private Clients &amp; Global Houses
         </p>
 

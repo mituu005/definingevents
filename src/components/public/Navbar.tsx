@@ -192,7 +192,7 @@ export function Navbar() {
                 key={item.id}
                 href={`/#${item.id}`}
                 onClick={(e) => handleNavClick(item.id, e)}
-                className={`relative whitespace-nowrap px-1.5 xl:px-2 py-1 text-[10px] xl:text-[10.5px] 2xl:text-[11.5px] uppercase tracking-[0.08em] xl:tracking-[0.1em] 2xl:tracking-[0.15em] font-medium transition-all duration-300 shrink-0 ${
+                className={`relative whitespace-nowrap px-1.5 xl:px-2 py-1 text-[13px] xl:text-[13.5px] 2xl:text-[14.5px] uppercase tracking-[0.08em] xl:tracking-[0.1em] 2xl:tracking-[0.15em] font-medium transition-all duration-300 shrink-0 ${
                   isContact ? 'hidden 2xl:block' : ''
                 } ${
                   isActive
@@ -211,17 +211,17 @@ export function Navbar() {
           <button
             type="button"
             onClick={handlePhoneClick}
-            className="inline-flex items-center gap-1.5 xl:gap-2 rounded-full border border-[#FFA01C]/50 bg-[#121217]/90 px-3 py-1.5 xl:px-3.5 xl:py-2 text-[10px] xl:text-[11px] font-medium tracking-[0.03em] text-[#FAF8F5] transition-all duration-300 hover:border-[#FFA01C] hover:text-[#FFA01C] hover:shadow-[0_0_18px_rgba(255,160,28,0.35)] shrink-0 cursor-pointer"
+            className="inline-flex items-center gap-1.5 xl:gap-2 rounded-full border border-[#FFA01C]/50 bg-[#121217]/90 px-3 py-1.5 xl:px-3.5 xl:py-2 text-[13px] xl:text-[14px] font-medium tracking-[0.03em] text-[#FAF8F5] transition-all duration-300 hover:border-[#FFA01C] hover:text-[#FFA01C] hover:shadow-[0_0_18px_rgba(255,160,28,0.35)] shrink-0 cursor-pointer"
             title={`Direct Concierge Line: ${phoneDisplay}`}
           >
-            <Phone className="h-3 w-3 xl:h-3.5 xl:w-3.5 text-[#FFA01C]" />
+            <Phone className="h-3.5 w-3.5 xl:h-4 xl:w-4 text-[#FFA01C]" />
             <span className="font-sans font-medium">{phoneDisplay}</span>
           </button>
 
           <a
             href="/#contact"
             onClick={(e) => handleNavClick('contact', e)}
-            className="whitespace-nowrap rounded-sm bg-gradient-to-r from-[#FFA01C] via-[#FFB84D] to-[#E68A00] px-3.5 py-1.5 xl:px-4 xl:py-2 text-[10px] xl:text-[10.5px] font-semibold uppercase tracking-[0.14em] xl:tracking-[0.16em] text-[#08080A] shadow-[0_0_20px_rgba(255,160,28,0.35)] transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,160,28,0.6)] hover:scale-[1.02] shrink-0"
+            className="whitespace-nowrap rounded-sm bg-gradient-to-r from-[#FFA01C] via-[#FFB84D] to-[#E68A00] px-3.5 py-1.5 xl:px-4 xl:py-2 text-[13px] xl:text-[13.5px] font-semibold uppercase tracking-[0.14em] xl:tracking-[0.16em] text-[#08080A] shadow-[0_0_20px_rgba(255,160,28,0.35)] transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,160,28,0.6)] hover:scale-[1.02] shrink-0"
           >
             Plan Your Event
           </a>
@@ -319,7 +319,7 @@ export function Navbar() {
               </button>
 
               {/* Title & Phone Number */}
-              <p className="text-[10px] uppercase tracking-[0.25em] text-[#FFA01C] font-semibold mb-1">
+              <p className="text-[13px] uppercase tracking-[0.25em] text-[#FFA01C] font-semibold mb-1">
                 Direct Line
               </p>
               <h3 id="concierge-dialog-title" className="font-serif text-2xl font-normal text-[#FAF8F5]">

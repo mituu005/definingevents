@@ -88,7 +88,7 @@ export function AboutSection() {
                 <div className="absolute inset-0 bg-gradient-to-t from-[#08080A]/90 via-transparent to-transparent" />
 
                 {/* Corner Golden Badge */}
-                <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-[9.5px] uppercase tracking-[0.22em] text-[#FAF8F5]/90 border-t border-[#FFA01C]/30 pt-2.5">
+                <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-[12.5px] uppercase tracking-[0.22em] text-[#FAF8F5]/90 border-t border-[#FFA01C]/30 pt-2.5">
                   <span className="font-medium text-[#FFA01C]">Atelier Scenography</span>
                   <span>Global Hub</span>
                 </div>
@@ -104,14 +104,14 @@ export function AboutSection() {
               >
                 <div className="flex items-center gap-1.5 mb-1.5 text-[#FFA01C]">
                   <Crown className="h-3.5 w-3.5" />
-                  <span className="text-[9px] uppercase tracking-[0.2em] font-semibold">
+                  <span className="text-[12px] uppercase tracking-[0.2em] font-semibold">
                     The Signature
                   </span>
                 </div>
                 <p className="font-serif text-xs leading-snug text-[#FAF8F5]">
                   “Every gathering is an unrepeatable sensory work of art.”
                 </p>
-                <p className="mt-1.5 text-[8.5px] uppercase tracking-[0.24em] text-[#FFA01C]/80">
+                <p className="mt-1.5 text-[11.5px] uppercase tracking-[0.24em] text-[#FFA01C]/80">
                   Defining Events Atelier
                 </p>
               </motion.div>
@@ -129,7 +129,7 @@ export function AboutSection() {
             transition={{ duration: 0.85, delay: 0.15 }}
             className="lg:col-span-7"
           >
-            <div className="inline-flex items-center gap-1.5 text-[10.5px] uppercase tracking-[0.3em] text-[#FFA01C] mb-2.5">
+            <div className="inline-flex items-center gap-1.5 text-[13.5px] uppercase tracking-[0.3em] text-[#FFA01C] mb-2.5">
               <span className="h-1.5 w-1.5 rounded-full bg-[#FFA01C]" />
               <span>About Defining Events</span>
             </div>
@@ -173,7 +173,7 @@ export function AboutSection() {
 
               {/* Dynamic Pillar Card */}
               <div className="mt-4 rounded-sm border border-[#FFA01C]/25 bg-[#121217]/80 p-4 sm:p-5 backdrop-blur-md">
-                <p className="text-[11px] uppercase tracking-[0.22em] font-semibold text-[#FFA01C]">
+                <p className="text-[14px] uppercase tracking-[0.22em] font-semibold text-[#FFA01C]">
                   {activePillar.title}
                 </p>
                 <p className="mt-2 font-serif text-base sm:text-lg leading-relaxed text-[#FAF8F5] italic font-normal">

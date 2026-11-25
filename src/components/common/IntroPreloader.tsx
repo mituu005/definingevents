@@ -38,7 +38,7 @@ export function IntroPreloader() {
               alt="Defining Events Logo"
               className="w-16 h-16 object-contain mb-4 drop-shadow-[0_0_20px_rgba(255,160,28,0.4)]"
             />
-            <p className="text-[11px] uppercase tracking-[0.45em] text-[#FFA01C] mb-2 font-medium">
+            <p className="text-[14px] uppercase tracking-[0.45em] text-[#FFA01C] mb-2 font-medium">
               Bespoke Event Architecture
             </p>
             <h1 className="font-serif text-3xl sm:text-4xl tracking-[0.18em] uppercase font-light text-[#FAF8F5]">

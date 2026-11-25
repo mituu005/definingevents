@@ -36,10 +36,10 @@ export function BeforeAfterSlider({
         </div>
 
         {/* Labels */}
-        <span className="absolute top-4 left-4 bg-[#14251F]/85 px-3 py-1 text-[10px] uppercase tracking-[0.22em] text-[#EAE4D8] border border-[#B18A55]/40">
+        <span className="absolute top-4 left-4 bg-[#14251F]/85 px-3 py-1 text-[13px] uppercase tracking-[0.22em] text-[#EAE4D8] border border-[#B18A55]/40">
           {beforeLabel}
         </span>
-        <span className="absolute top-4 right-4 bg-[#14251F]/85 px-3 py-1 text-[10px] uppercase tracking-[0.22em] text-[#B18A55] border border-[#B18A55]/40">
+        <span className="absolute top-4 right-4 bg-[#14251F]/85 px-3 py-1 text-[13px] uppercase tracking-[0.22em] text-[#B18A55] border border-[#B18A55]/40">
           {afterLabel}
         </span>
 

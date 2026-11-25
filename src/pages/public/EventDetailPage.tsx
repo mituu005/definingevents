@@ -206,7 +206,7 @@ export function EventDetailPage() {
 
                   {event.services_provided && event.services_provided.length > 0 && (
                     <div>
-                      <p className="text-[11px] uppercase tracking-[0.22em] text-[#FFA01C] mb-3 font-medium">
+                      <p className="text-[14px] uppercase tracking-[0.22em] text-[#FFA01C] mb-3 font-medium">
                         Services Provided
                       </p>
                       <ul className="space-y-2.5">
@@ -290,7 +290,7 @@ export function EventDetailPage() {
                           className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                         />
                         <div className="absolute inset-0 bg-[#08080A]/0 group-hover:bg-[#08080A]/50 transition-colors flex items-end p-4">
-                          <span className="opacity-0 group-hover:opacity-100 transition-opacity text-[10px] uppercase tracking-[0.22em] text-[#08080A] bg-[#FFA01C] font-medium px-2.5 py-1 rounded">
+                          <span className="opacity-0 group-hover:opacity-100 transition-opacity text-[13px] uppercase tracking-[0.22em] text-[#08080A] bg-[#FFA01C] font-medium px-2.5 py-1 rounded">
                             Expand
                           </span>
                         </div>

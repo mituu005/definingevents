@@ -58,7 +58,7 @@ export function PortfolioSection() {
         {/* Header */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4 mb-8 pb-5 border-b border-[#FFA01C]/20">
           <div>
-            <div className="inline-flex items-center gap-1.5 text-[10.5px] uppercase tracking-[0.3em] text-[#FFA01C] mb-2 font-semibold">
+            <div className="inline-flex items-center gap-1.5 text-[13.5px] uppercase tracking-[0.3em] text-[#FFA01C] mb-2 font-semibold">
               <span className="h-1.5 w-1.5 rounded-full bg-[#FFA01C]" />
               <span>Selected Commissions</span>
             </div>
@@ -67,7 +67,7 @@ export function PortfolioSection() {
             </h2>
           </div>
 
-          <p className="max-w-md text-xs sm:text-[13px] leading-relaxed text-[#FAF8F5]/75 font-light">
+          <p className="max-w-md text-xs sm:text-[16px] leading-relaxed text-[#FAF8F5]/75 font-light">
             Every celebration in our archive is dynamically published from our studio database—tailored
             exclusively to its architecture, venue, and host.
           </p>
@@ -82,7 +82,7 @@ export function PortfolioSection() {
                 key={cat}
                 type="button"
                 onClick={() => setSelectedCategory(cat)}
-                className={`px-3 py-1.5 text-[10px] uppercase tracking-[0.2em] rounded-sm transition-all duration-300 font-medium ${
+                className={`px-3 py-1.5 text-[13px] uppercase tracking-[0.2em] rounded-sm transition-all duration-300 font-medium ${
                   active
                     ? 'border border-[#FFA01C] bg-[#FFA01C] text-[#08080A] shadow-[0_0_15px_rgba(255,160,28,0.4)]'
                     : 'border border-[#FFA01C]/25 bg-[#121217]/60 text-[#FAF8F5]/70 hover:border-[#FFA01C] hover:text-[#FFA01C]'
@@ -186,20 +186,20 @@ export function PortfolioSection() {
                     <div className="absolute inset-0 bg-gradient-to-t from-[#08080A]/85 via-transparent to-transparent opacity-80" />
 
                     {/* Category Pill */}
-                    <span className="absolute top-4 left-4 rounded-sm bg-[#08080A]/90 backdrop-blur-sm border border-[#FFA01C]/50 px-3 py-1 text-[10px] uppercase tracking-[0.22em] text-[#FFA01C] font-semibold">
+                    <span className="absolute top-4 left-4 rounded-sm bg-[#08080A]/90 backdrop-blur-sm border border-[#FFA01C]/50 px-3 py-1 text-[13px] uppercase tracking-[0.22em] text-[#FFA01C] font-semibold">
                       {event.category}
                     </span>
 
                     {/* Media indicators & quick lightbox */}
                     <div className="absolute top-4 right-4 flex items-center gap-2">
                       {photoCount > 0 && (
-                        <span className="inline-flex items-center gap-1 rounded-sm bg-[#08080A]/90 border border-[#FFA01C]/30 px-2.5 py-1 text-[10px] text-[#FAF8F5]">
+                        <span className="inline-flex items-center gap-1 rounded-sm bg-[#08080A]/90 border border-[#FFA01C]/30 px-2.5 py-1 text-[13px] text-[#FAF8F5]">
                           <Images className="h-3 w-3 text-[#FFA01C]" />
                           {photoCount}
                         </span>
                       )}
                       {videoCount > 0 && (
-                        <span className="inline-flex items-center gap-1 rounded-sm bg-[#08080A]/90 border border-[#FFA01C]/30 px-2.5 py-1 text-[10px] text-[#FAF8F5]">
+                        <span className="inline-flex items-center gap-1 rounded-sm bg-[#08080A]/90 border border-[#FFA01C]/30 px-2.5 py-1 text-[13px] text-[#FAF8F5]">
                           <Film className="h-3 w-3 text-[#FFA01C]" />
                           {videoCount}
                         </span>
@@ -219,7 +219,7 @@ export function PortfolioSection() {
 
                   <div className="flex flex-1 flex-col justify-between p-6 sm:p-8">
                     <div>
-                      <div className="flex flex-wrap items-center gap-4 text-[11px] uppercase tracking-[0.18em] text-[#FAF8F5]/65">
+                      <div className="flex flex-wrap items-center gap-4 text-[14px] uppercase tracking-[0.18em] text-[#FAF8F5]/65">
                         <span className="inline-flex items-center gap-1.5">
                           <MapPin className="h-3.5 w-3.5 text-[#FFA01C]" />
                           {event.location}

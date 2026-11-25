@@ -177,7 +177,7 @@ export function HeroSection() {
             <span className="flex h-6 w-6 items-center justify-center rounded-full border border-[#FFA01C]/60 bg-[#FFA01C]/15 text-[#FFA01C] group-hover:scale-110 group-hover:bg-[#FFA01C] group-hover:text-[#08080A] transition-all">
               <Play className="h-2.5 w-2.5 fill-current ml-0.5" />
             </span>
-            <span className="group-hover:text-[#FFA01C] transition-colors font-medium text-[11px]">Watch Showreel</span>
+            <span className="group-hover:text-[#FFA01C] transition-colors font-medium text-[14px]">Watch Showreel</span>
           </button>
         </motion.div>
       </motion.div>
@@ -188,7 +188,7 @@ export function HeroSection() {
           type="button"
           onClick={() => scrollTo('stats')}
           aria-label="Scroll down to explore"
-          className="group inline-flex flex-col items-center gap-1.5 text-[10px] uppercase tracking-[0.3em] text-[#FAF8F5]/60 hover:text-[#FFA01C] transition-colors"
+          className="group inline-flex flex-col items-center gap-1.5 text-[13px] uppercase tracking-[0.3em] text-[#FAF8F5]/60 hover:text-[#FFA01C] transition-colors"
         >
           <span className="group-hover:tracking-[0.35em] transition-all">Scroll</span>
           <ArrowDown className="h-3.5 w-3.5 animate-bounce text-[#FFA01C]" />
@@ -225,7 +225,7 @@ export function HeroSection() {
                   type="button"
                   onClick={() => setShowreelOpen(false)}
                   aria-label="Close Showreel"
-                  className="flex items-center gap-1.5 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-[#FAF8F5]/70 hover:text-[#FFA01C] border border-white/10 hover:border-[#FFA01C]/60 rounded transition-all cursor-pointer"
+                  className="flex items-center gap-1.5 px-3 py-1 text-[14px] uppercase tracking-[0.2em] text-[#FAF8F5]/70 hover:text-[#FFA01C] border border-white/10 hover:border-[#FFA01C]/60 rounded transition-all cursor-pointer"
                 >
                   <X className="h-3.5 w-3.5" />
                   <span>Close</span>

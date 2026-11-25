@@ -20,7 +20,7 @@ export function ServicesSection() {
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 pb-5 border-b border-[#FFA01C]/20">
           <div className="max-w-xl">
-            <div className="inline-flex items-center gap-1.5 text-[10.5px] uppercase tracking-[0.3em] text-[#FFA01C] mb-2 font-semibold">
+            <div className="inline-flex items-center gap-1.5 text-[13.5px] uppercase tracking-[0.3em] text-[#FFA01C] mb-2 font-semibold">
               <span className="h-1.5 w-1.5 rounded-full bg-[#FFA01C]" />
               <span>Bespoke Disciplines</span>
             </div>
@@ -29,7 +29,7 @@ export function ServicesSection() {
               <span className="gold-gradient-text italic font-serif">Production</span>
             </h2>
           </div>
-          <p className="max-w-md text-xs sm:text-[13px] leading-relaxed text-[#FAF8F5]/75 font-light">
+          <p className="max-w-md text-xs sm:text-[16px] leading-relaxed text-[#FAF8F5]/75 font-light">
             Every celebration is architected from initial spatial concept through minute-by-minute
             show calling with bespoke creative direction.
           </p>
@@ -62,7 +62,7 @@ export function ServicesSection() {
                     </div>
                   )}
                   <div className="absolute inset-0 bg-gradient-to-t from-[#121217] via-transparent to-black/30" />
-                  <span className="absolute top-2.5 left-2.5 rounded border border-[#FFA01C]/50 bg-[#08080A]/85 px-2 py-0.5 text-[9px] uppercase tracking-[0.2em] text-[#FFA01C] font-semibold">
+                  <span className="absolute top-2.5 left-2.5 rounded border border-[#FFA01C]/50 bg-[#08080A]/85 px-2 py-0.5 text-[12px] uppercase tracking-[0.2em] text-[#FFA01C] font-semibold">
                     {String(idx + 1).padStart(2, '0')}
                   </span>
                 </div>
@@ -79,7 +79,7 @@ export function ServicesSection() {
               </div>
 
               {/* Compact Footer */}
-              <div className="flex items-center justify-between px-4 pb-3.5 pt-2 border-t border-white/5 text-[11px]">
+              <div className="flex items-center justify-between px-4 pb-3.5 pt-2 border-t border-white/5 text-[14px]">
                 <button
                   type="button"
                   onClick={() => setSelectedService(service)}
@@ -138,7 +138,7 @@ export function ServicesSection() {
               )}
 
               <div className="p-7 sm:p-10">
-                <p className="text-[11px] uppercase tracking-[0.28em] text-[#FFA01C] font-semibold mb-2">
+                <p className="text-[14px] uppercase tracking-[0.28em] text-[#FFA01C] font-semibold mb-2">
                   Service Discipline
                 </p>
                 <h3 className="font-serif text-3xl sm:text-4xl font-normal">

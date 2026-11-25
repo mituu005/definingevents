@@ -21,7 +21,7 @@ export function TestimonialsSection() {
       <div className="relative z-10 mx-auto max-w-5xl px-4 sm:px-6">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#FFA01C]/40 bg-[#FFA01C]/10 px-3.5 py-1 text-[10px] uppercase tracking-[0.25em] text-[#FFA01C] mb-3">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#FFA01C]/40 bg-[#FFA01C]/10 px-3.5 py-1 text-[13px] uppercase tracking-[0.25em] text-[#FFA01C] mb-3">
             <Award className="h-3 w-3 text-[#FFA01C]" />
             <span>Trusted By Discerning Families & Global Hosts</span>
           </div>
@@ -58,13 +58,13 @@ export function TestimonialsSection() {
                       className="h-3.5 w-3.5 fill-[#FFA01C] text-[#FFA01C] drop-shadow-[0_0_4px_rgba(255,160,28,0.4)]"
                     />
                   ))}
-                  <span className="ml-2 inline-flex items-center gap-1 text-[9.5px] uppercase tracking-[0.15em] text-[#FFA01C] font-medium">
+                  <span className="ml-2 inline-flex items-center gap-1 text-[12.5px] uppercase tracking-[0.15em] text-[#FFA01C] font-medium">
                     <CheckCircle2 className="h-2.5 w-2.5" /> Verified Host
                   </span>
                 </div>
 
                 {/* Quote Text */}
-                <p className="font-serif text-[13.5px] sm:text-sm md:text-[14.5px] leading-relaxed text-[#FAF8F5]/85 italic font-normal">
+                <p className="font-serif text-[16.5px] sm:text-base md:text-[17.5px] leading-relaxed text-[#FAF8F5]/85 italic font-normal">
                   “{item.quote}”
                 </p>
               </div>
@@ -84,10 +84,10 @@ export function TestimonialsSection() {
                     </div>
                   )}
                   <div>
-                    <h3 className="text-[11px] sm:text-xs font-semibold uppercase tracking-[0.16em] text-[#FFA01C]">
+                    <h3 className="text-[14px] sm:text-sm font-semibold uppercase tracking-[0.16em] text-[#FFA01C]">
                       {item.client_name}
                     </h3>
-                    <p className="text-[10px] text-[#FAF8F5]/55 tracking-wider mt-0.5 line-clamp-1">
+                    <p className="text-[13px] text-[#FAF8F5]/55 tracking-wider mt-0.5 line-clamp-1">
                       {item.event_type}
                     </p>
                   </div>

@@ -64,11 +64,11 @@ export function StatsSection() {
                   {stat.value}
                 </div>
 
-                <h2 className="mt-2.5 text-[11px] sm:text-xs font-semibold uppercase tracking-[0.18em] text-[#FAF8F5]">
+                <h2 className="mt-2.5 text-[14px] sm:text-sm font-semibold uppercase tracking-[0.18em] text-[#FAF8F5]">
                   {stat.label}
                 </h2>
 
-                <p className="mt-1 text-[11px] sm:text-xs text-[#FAF8F5]/65 font-light leading-relaxed">
+                <p className="mt-1 text-[14px] sm:text-sm text-[#FAF8F5]/65 font-light leading-relaxed">
                   {stat.sub}
                 </p>
               </motion.div>
@@ -93,7 +93,7 @@ export function StatsSection() {
               <p className="font-serif text-3xl sm:text-4xl font-light tracking-tight gold-gradient-text drop-shadow-[0_0_15px_rgba(255,160,28,0.3)]">
                 100%
               </p>
-              <h3 className="mt-1.5 text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.2em] text-[#FAF8F5]">
+              <h3 className="mt-1.5 text-[13px] sm:text-[14px] font-semibold uppercase tracking-[0.2em] text-[#FAF8F5]">
                 5-Star Rated
               </h3>
             </div>
@@ -102,7 +102,7 @@ export function StatsSection() {
               <p className="font-serif text-3xl sm:text-4xl font-light tracking-tight gold-gradient-text drop-shadow-[0_0_15px_rgba(255,160,28,0.3)]">
                 500+
               </p>
-              <h3 className="mt-1.5 text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.2em] text-[#FAF8F5]">
+              <h3 className="mt-1.5 text-[13px] sm:text-[14px] font-semibold uppercase tracking-[0.2em] text-[#FAF8F5]">
                 Landmarks Produced
               </h3>
             </div>
@@ -111,7 +111,7 @@ export function StatsSection() {
               <p className="font-serif text-3xl sm:text-4xl font-light tracking-tight gold-gradient-text drop-shadow-[0_0_15px_rgba(255,160,28,0.3)]">
                 28+
               </p>
-              <h3 className="mt-1.5 text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.2em] text-[#FAF8F5]">
+              <h3 className="mt-1.5 text-[13px] sm:text-[14px] font-semibold uppercase tracking-[0.2em] text-[#FAF8F5]">
                 World Capitals
               </h3>
             </div>
@@ -120,7 +120,7 @@ export function StatsSection() {
               <p className="font-serif text-3xl sm:text-4xl font-light tracking-tight gold-gradient-text drop-shadow-[0_0_15px_rgba(255,160,28,0.3)]">
                 Flawless
               </p>
-              <h3 className="mt-1.5 text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.2em] text-[#FAF8F5]">
+              <h3 className="mt-1.5 text-[13px] sm:text-[14px] font-semibold uppercase tracking-[0.2em] text-[#FAF8F5]">
                 Run of Show
               </h3>
             </div>

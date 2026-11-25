@@ -94,14 +94,14 @@ export function ContactSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
           {/* Left Consultation Column */}
           <div className="lg:col-span-5">
-            <div className="inline-flex items-center gap-1.5 text-[10.5px] uppercase tracking-[0.3em] text-[#FFA01C] mb-2 font-semibold">
+            <div className="inline-flex items-center gap-1.5 text-[13.5px] uppercase tracking-[0.3em] text-[#FFA01C] mb-2 font-semibold">
               <span className="h-1.5 w-1.5 rounded-full bg-[#FFA01C]" />
               <span>Direct Concierge</span>
             </div>
             <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-normal leading-[1.1]">
               Plan Your <span className="gold-gradient-text italic font-serif">Milestone</span>
             </h2>
-            <p className="mt-3 text-xs sm:text-[13px] leading-relaxed text-[#FAF8F5]/80 font-light">
+            <p className="mt-3 text-xs sm:text-[16px] leading-relaxed text-[#FAF8F5]/80 font-light">
               Send a quick 30-second inquiry or connect directly with our event directors on WhatsApp.
             </p>
 
@@ -114,7 +114,7 @@ export function ContactSection() {
                   <Phone className="h-3.5 w-3.5" />
                 </div>
                 <div>
-                  <p className="text-[9.5px] uppercase tracking-[0.2em] text-[#FFA01C]">
+                  <p className="text-[12.5px] uppercase tracking-[0.2em] text-[#FFA01C]">
                     Call Atelier Directly
                   </p>
                   <p className="text-xs sm:text-sm font-medium text-[#FAF8F5] group-hover:text-[#FFA01C] transition-colors">
@@ -133,7 +133,7 @@ export function ContactSection() {
                   <MessageCircle className="h-3.5 w-3.5" />
                 </div>
                 <div>
-                  <p className="text-[9.5px] uppercase tracking-[0.2em] text-[#FFA01C] font-semibold">
+                  <p className="text-[12.5px] uppercase tracking-[0.2em] text-[#FFA01C] font-semibold">
                     Instant WhatsApp Concierge
                   </p>
                   <p className="text-xs sm:text-sm font-medium text-[#FAF8F5]">
@@ -176,7 +176,7 @@ export function ContactSection() {
                   <div>
                     <label
                       htmlFor="enq-name"
-                      className="block text-[10.5px] uppercase tracking-[0.2em] text-[#FAF8F5]/80 mb-1.5 font-medium"
+                      className="block text-[13.5px] uppercase tracking-[0.2em] text-[#FAF8F5]/80 mb-1.5 font-medium"
                     >
                       Your Name *
                     </label>
@@ -194,7 +194,7 @@ export function ContactSection() {
                   <div>
                     <label
                       htmlFor="enq-phone"
-                      className="block text-[10.5px] uppercase tracking-[0.2em] text-[#FAF8F5]/80 mb-1.5 font-medium"
+                      className="block text-[13.5px] uppercase tracking-[0.2em] text-[#FAF8F5]/80 mb-1.5 font-medium"
                     >
                       Phone / WhatsApp *
                     </label>
@@ -214,7 +214,7 @@ export function ContactSection() {
                   <div>
                     <label
                       htmlFor="enq-email"
-                      className="block text-[10.5px] uppercase tracking-[0.2em] text-[#FAF8F5]/80 mb-1.5 font-medium"
+                      className="block text-[13.5px] uppercase tracking-[0.2em] text-[#FAF8F5]/80 mb-1.5 font-medium"
                     >
                       Email Address *
                     </label>
@@ -232,7 +232,7 @@ export function ContactSection() {
                   <div>
                     <label
                       htmlFor="enq-type"
-                      className="block text-[10.5px] uppercase tracking-[0.2em] text-[#FAF8F5]/80 mb-1.5 font-medium"
+                      className="block text-[13.5px] uppercase tracking-[0.2em] text-[#FAF8F5]/80 mb-1.5 font-medium"
                     >
                       Event Type *
                     </label>
@@ -265,7 +265,7 @@ export function ContactSection() {
                 <div>
                   <label
                     htmlFor="enq-note"
-                    className="block text-[10.5px] uppercase tracking-[0.2em] text-[#FAF8F5]/80 mb-1.5 font-medium"
+                    className="block text-[13.5px] uppercase tracking-[0.2em] text-[#FAF8F5]/80 mb-1.5 font-medium"
                   >
                     Event Date, City or Vision (Optional)
                   </label>

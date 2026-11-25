@@ -64,7 +64,7 @@ export function ScrollProgressAndUtilities() {
             onClick={handleWhatsAppClick}
             aria-label="Chat on WhatsApp"
             title="Chat with us on WhatsApp"
-            className="pointer-events-auto group flex items-center gap-2 rounded-full border border-[#FFA01C] bg-[#08080A]/95 px-3 py-2 sm:px-3.5 sm:py-2 text-[10.5px] uppercase tracking-[0.15em] text-[#FAF8F5] shadow-[0_4px_20px_rgba(255,160,28,0.3)] transition-all duration-300 hover:bg-[#FFA01C] hover:text-[#08080A] cursor-pointer"
+            className="pointer-events-auto group flex items-center gap-2 rounded-full border border-[#FFA01C] bg-[#08080A]/95 px-3 py-2 sm:px-3.5 sm:py-2 text-[13.5px] uppercase tracking-[0.15em] text-[#FAF8F5] shadow-[0_4px_20px_rgba(255,160,28,0.3)] transition-all duration-300 hover:bg-[#FFA01C] hover:text-[#08080A] cursor-pointer"
           >
             <MessageCircle className="h-3.5 w-3.5 text-[#FFA01C] transition-colors group-hover:text-[#08080A]" />
             <span className="hidden md:inline font-medium">WhatsApp Concierge</span>
